@@ -80,7 +80,8 @@ window.oldVersion = [
 <meta name="format-detection" content="telephone=no">
 
 <!-- Description -->
-<meta name="description" content="">
+<meta name="description" content="
+定义prototype 属性允许您向对象添加属性和方法，Prototyp...">
 
 <!-- Keywords -->
 <meta name="keywords" content=", JavaScript">
@@ -215,7 +216,8 @@ window.oldVersion = [
 <meta property="og:url" content="https://vuvivian.github.io/2019/12/01/JavaScript%E4%B8%AD%E7%9A%84prototype%E5%B1%9E%E6%80%A7/">
 <meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
 
-<meta property="og:description" content="">
+<meta property="og:description" content="
+定义prototype 属性允许您向对象添加属性和方法，Prototyp...">
 
 <meta name="twitter:card" content="summary">
 
@@ -266,7 +268,7 @@ window.oldVersion = [
     },
     
     "datePublished": "2019-12-01T13:24:11.000Z",
-    "dateModified": "2019-12-01T13:24:41.285Z",
+    "dateModified": "2019-12-01T13:28:49.007Z",
     "author": {
         "@type": "Person",
         "name": "vuvivian",
@@ -292,7 +294,8 @@ window.oldVersion = [
     },
     
     "keywords": ", JavaScript",
-    "description": ""
+    "description": "
+定义prototype 属性允许您向对象添加属性和方法，Prototyp..."
 }
 </script>
 
@@ -513,15 +516,21 @@ window.oldVersion = [
                     
                         
                             <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JavaScript中的prototype属性"><span class="post-toc-number">1.</span> <span class="post-toc-text">JavaScript中的prototype属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#定义"><span class="post-toc-number">1.0.0.1.</span> <span class="post-toc-text">定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用法"><span class="post-toc-number">1.0.0.2.</span> <span class="post-toc-text">用法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注意"><span class="post-toc-number">1.0.0.3.</span> <span class="post-toc-text">注意</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#由来"><span class="post-toc-number">1.0.0.4.</span> <span class="post-toc-text">由来</span></a></li></ol></li></ol></li></ol></li></ol>
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#定义"><span class="post-toc-number">1.</span> <span class="post-toc-text">定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用法"><span class="post-toc-number">2.</span> <span class="post-toc-text">用法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注意"><span class="post-toc-number">3.</span> <span class="post-toc-text">注意</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#由来"><span class="post-toc-number">4.</span> <span class="post-toc-text">由来</span></a></li></ol>
                             </div>
                         
                     
                     <article id="post-content">
-                        <h1 id="JavaScript中的prototype属性"><a href="#JavaScript中的prototype属性" class="headerlink" title="JavaScript中的prototype属性"></a>JavaScript中的prototype属性</h1><blockquote>
+                        <blockquote>
 <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>prototype 属性允许您向对象添加属性和方法，Prototype 是全局属性，并适用于所有的 Javascript 对象。</p>
+</blockquote>
+<blockquote>
 <h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>object.prototype.name=value</p>
+</blockquote>
+<blockquote>
 <h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>prototype属性是函数所独有的，由于在js中一切皆对象，函数也不例外，故这并非和其定义相矛盾。</p>
+</blockquote>
+<blockquote>
 <h4 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h4><p>所有的实例对象都可以继承构造函数中的属性和方法,但是，在同一个对象的实例之间却无法共享属性。如下代码：</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Animal(name,sex)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.sex = sex;</span><br><span class="line">    this.common = function()&#123;</span><br><span class="line">        return &quot;cannot speaking&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var dog = new Animal(&apos;wangwang&apos;,&apos;boy&apos;);</span><br><span class="line">var cat = new Animal(&apos;miaomiao&apos;,&apos;girl&apos;);</span><br><span class="line">console.log(dog.common===cat.common); // false</span><br></pre></td></tr></table></figure>
@@ -575,9 +584,9 @@ window.oldVersion = [
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2019/11/08/Untitled/" rel="next">
+            <a href="/2019/11/02/%E6%9D%A5%E8%87%AAReact%E7%9A%84%E7%81%B5%E9%AD%82%E6%8B%B7%E9%97%AE/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
-                <div class="page-item-subtitle">Odoo</div>
+                <div class="page-item-subtitle">来自React的灵魂拷问</div>
             </a>
         </li>
     

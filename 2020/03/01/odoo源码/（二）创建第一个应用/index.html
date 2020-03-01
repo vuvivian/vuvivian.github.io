@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>第一个应用 | vuvivian&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="Odo...">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="vuvivian&#39;s blog">
+<meta name="msapplication-starturl" content="https://vuvivian.github.io">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="vuvivian&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+    <link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="vuvivian&#39;s blog">
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="第一个应用 | vuvivian&#39;s blog">
+<meta property="og:site_name" content="vuvivian&#39;s blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/">
+<meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
+
+<meta property="og:description" content="Odo...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-03-01T13:47:00.000Z">
+    <meta property="article:modified_time" content="2020-03-01T13:47:00.000Z">
+    <meta property="article:author" content="vuvivian">
+    <meta property="og:article:tag" content=""> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/",
+    "@type": "BlogPosting",
+    "logo": "https://vuvivian.github.io/img/favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/"
+    },
+    "headline": "第一个应用 | vuvivian&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuvivian.github.io/img/favicon.ico"
+    },
+    
+    "datePublished": "2020-03-01T13:47:00.000Z",
+    "dateModified": "2020-03-01T10:36:40.596Z",
+    "author": {
+        "@type": "Person",
+        "name": "vuvivian",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/top.jpg"
+        },
+        "description": "越努力，越幸运."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "vuvivian&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vuvivian.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "Odo..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">vuvivian&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                越努力，越幸运.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=vuvivian's blog&url=https://vuvivian.github.io&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=vuvivian's blog&url=https://vuvivian.github.io&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io&title=第一个应用" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=第一个应用&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://vuvivian.github.io&text=第一个应用" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADq0lEQVR42u3dS3IaQRBFUfa/aXsq21S++9qIThGXiT6Ipg8RVZU/hx+/PvDxECVKlChRH4d6DI+/n//jAsNrvv7N1789PffsuqdrTO8pStQW1NNF9+TCpzeZsBOA4KbX/nNvokQtQqWLpJs9bQqn70/Pn34m9ylK1E9ANZjTIp82lmebxemaokR9Coos7CkQnn4/BbNTcCxK1HYUWbzTYp8O1engbQ7/l0XpokR9MyoVXrZ8fWk1SZSob0KRBZ8KkSnAnQLj5rB/WddDlKhvRKWifmoCpBu+8hy5jyqiECXqRlQqeJDfp0SRFGemBPIY3IoStQSVmtdTkZ82BlKBZtp8cNIpStQSVFP0p8UaUqBJRc60yaAKrShRb0alN7maPDYHaZs0Hq8rStQiVLtQySZDEsMmoI3FHVGiFqGmTWB6Y9IMuzogmRLKqkIrStSbUG1R/1VJYBpSbF4rStQmFD2EUxLYBKak4N8mqKJEbUKljSJtDlOxhSSDaRhrOphFidqGSg1limmazmTjaQ54UaI2of73olOxMjXz2oJqPNRFiVqESgfflMzRYHgaRCEHc9zQRIlagpqKGakIkwot04HbBLqpkClK1BYUbYqlQQ96rSsDV6RhJ0rUNlQ6UMmBmYYd6QZDhybjRiFK1A2olHxNQWsKiqeCP4GR+4qZryhRb0alg5AucFKMaYa0pg+1Hg4RJeomVNtkpgklufG26SBK1E9DkSbBccHCA5oOlZCNR5SojaiEIUMc9IMig1h0YESUqE2oNjEkizoVNtMgJB3cqqbIRIm6GUWTQTJ0SBt89MPDxUxRom5ApeI+aZCRQ5I0D+iQYzWZKUrUm1E0qGwbB6mZR5PEtIGJErURNRYzQLGTFPSbIavmA0JDjKJE3YBqAljUVH5c+wfLBIc3ClGibkK1iRwZimoa4E3jrc58RYm6EZUOQXLTdMix2YxwMUaUqEWoeLA9+H+eQJsGtJGdip2iRG1E0UJ9KsxMyWEzqNgEsqJEbUSRgYzmQGwHSUixJQa5okQtQKVgs91QaMGzaUSQ4o8oUVtQpClNmmdtsNskjqRIJErUFhRtopFiSvO61PS70oQQJWoL6uoGQQ9jEsySwksMvkWJWoS6UuygjTJc4Aevx1G6KFFLUWRRN4nj1BAnzbhxqESUqB+CSgne1cY2/XCmexUlaiuKBqttEJw2h7aZNxZgRYlagmoGn5pGXHO4Nk2HqukmStSbUZ/0ECVKlChRH/P4DXqn1WKFD+q5AAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">第一个应用</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/top.jpg" src="/img/suka-lazyload.gif" alt="vuvivian's Avatar">
+        <span>2020-03-01</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=第一个应用&url=https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=第一个应用&url=https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/&title=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vuvivian's blog&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%EF%BC%88%E4%BA%8C%EF%BC%89%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/&text=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADq0lEQVR42u3dS3IaQRBFUfa/aXsq21S++9qIThGXiT6Ipg8RVZU/hx+/PvDxECVKlChRH4d6DI+/n//jAsNrvv7N1789PffsuqdrTO8pStQW1NNF9+TCpzeZsBOA4KbX/nNvokQtQqWLpJs9bQqn70/Pn34m9ylK1E9ANZjTIp82lmebxemaokR9Coos7CkQnn4/BbNTcCxK1HYUWbzTYp8O1engbQ7/l0XpokR9MyoVXrZ8fWk1SZSob0KRBZ8KkSnAnQLj5rB/WddDlKhvRKWifmoCpBu+8hy5jyqiECXqRlQqeJDfp0SRFGemBPIY3IoStQSVmtdTkZ82BlKBZtp8cNIpStQSVFP0p8UaUqBJRc60yaAKrShRb0alN7maPDYHaZs0Hq8rStQiVLtQySZDEsMmoI3FHVGiFqGmTWB6Y9IMuzogmRLKqkIrStSbUG1R/1VJYBpSbF4rStQmFD2EUxLYBKak4N8mqKJEbUKljSJtDlOxhSSDaRhrOphFidqGSg1limmazmTjaQ54UaI2of73olOxMjXz2oJqPNRFiVqESgfflMzRYHgaRCEHc9zQRIlagpqKGakIkwot04HbBLqpkClK1BYUbYqlQQ96rSsDV6RhJ0rUNlQ6UMmBmYYd6QZDhybjRiFK1A2olHxNQWsKiqeCP4GR+4qZryhRb0alg5AucFKMaYa0pg+1Hg4RJeomVNtkpgklufG26SBK1E9DkSbBccHCA5oOlZCNR5SojaiEIUMc9IMig1h0YESUqE2oNjEkizoVNtMgJB3cqqbIRIm6GUWTQTJ0SBt89MPDxUxRom5ApeI+aZCRQ5I0D+iQYzWZKUrUm1E0qGwbB6mZR5PEtIGJErURNRYzQLGTFPSbIavmA0JDjKJE3YBqAljUVH5c+wfLBIc3ClGibkK1iRwZimoa4E3jrc58RYm6EZUOQXLTdMix2YxwMUaUqEWoeLA9+H+eQJsGtJGdip2iRG1E0UJ9KsxMyWEzqNgEsqJEbUSRgYzmQGwHSUixJQa5okQtQKVgs91QaMGzaUSQ4o8oUVtQpClNmmdtsNskjqRIJErUFhRtopFiSvO61PS70oQQJWoL6uoGQQ9jEsySwksMvkWJWoS6UuygjTJc4Aevx1G6KFFLUWRRN4nj1BAnzbhxqESUqB+CSgne1cY2/XCmexUlaiuKBqttEJw2h7aZNxZgRYlagmoGn5pGXHO4Nk2HqukmStSbUZ/0ECVKlChRH/P4DXqn1WKFD+q5AAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Odoo遵循-MVC-like-架构设计"><span class="post-toc-number">1.</span> <span class="post-toc-text">Odoo遵循 MVC-like 架构设计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Odoo模块权限管理"><span class="post-toc-number">2.</span> <span class="post-toc-text">Odoo模块权限管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建模型层"><span class="post-toc-number">3.</span> <span class="post-toc-text">创建模型层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#应用程序的主要功能有：用于描述的简单文本字段、用于将其标记为完成的复选框、最后需要添加一个按钮来清除已完成任务的旧的待办事项列表。"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">应用程序的主要功能有：用于描述的简单文本字段、用于将其标记为完成的复选框、最后需要添加一个按钮来清除已完成任务的旧的待办事项列表。</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加入自动化测试"><span class="post-toc-number">4.</span> <span class="post-toc-text">加入自动化测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Odoo支持使用两种方式来描述测试-使用-YAML-数据文件或使用-Python-代码、基于-Unittest2-库。-YAML-测试是一种遗留下来的旧老版本-不建议使用。-我们会更乐意使用-Python-测试并将添加基本的测试实例到我门的模块。"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">Odoo支持使用两种方式来描述测试: 使用 YAML 数据文件或使用 Python 代码、基于 Unittest2 库。 YAML 测试是一种遗留下来的旧老版本, 不建议使用。 我们会更乐意使用 Python 测试并将添加基本的测试实例到我门的模块。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#测试代码文件必须用test-开头-并且从tests-init-py文件导入。-但-测试的-目录-或-Python-的子模块-不应从模块的顶部的init-py导入，-因为仅在测试的执行的时候会自动被发现并装载。"><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">测试代码文件必须用test_开头 , 并且从tests/init.py文件导入。 但 测试的 目录(或 Python 的子模块)不应从模块的顶部的init.py导入， 因为仅在测试的执行的时候会自动被发现并装载。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#运行我们的测试。-当我们在安装模，可以添加-–test-enable选项-odoo-bin-d-todo-i-todo-app-–test-enable"><span class="post-toc-number">4.0.3.</span> <span class="post-toc-text">运行我们的测试。 当我们在安装模，可以添加 –test-enable选项:   $ ./odoo-bin -d todo -i todo_app –test-enable</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建视图层"><span class="post-toc-number">5.</span> <span class="post-toc-text">创建视图层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#用户界面接口，包括菜单和动作，存储在数据库表中。"><span class="post-toc-number">5.0.0.1.</span> <span class="post-toc-text">用户界面接口，包括菜单和动作，存储在数据库表中。</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#创建Form视图"><span class="post-toc-number">5.0.0.2.</span> <span class="post-toc-text">创建Form视图</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#添加动作按钮"><span class="post-toc-number">5.0.0.3.</span> <span class="post-toc-text">添加动作按钮</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#创建Tree视图"><span class="post-toc-number">5.0.0.4.</span> <span class="post-toc-text">创建Tree视图</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#创建Search视图"><span class="post-toc-number">5.0.0.5.</span> <span class="post-toc-text">创建Search视图</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#业务逻辑层"><span class="post-toc-number">6.</span> <span class="post-toc-text">业务逻辑层</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h3 id="Odoo遵循-MVC-like-架构设计"><a href="#Odoo遵循-MVC-like-架构设计" class="headerlink" title="Odoo遵循 MVC-like 架构设计"></a>Odoo遵循 MVC-like 架构设计</h3><ul>
+<li>M模型层，定义app的数据结构，描述业务对象，模型是从 Odoo 模板类派生的 Python 类实现的。 它们直接转换为数据库对象，Odoo在安装或升级模块时会自动处理。负责此机制的是对象关系模型（ORM）。</li>
+<li>V视图层，描述用户界面，是使用XML定义的，它被Web客户端框架用来转换成数据感知的HTML视图，当模块安装或升级时，xml数据文件中的这些用户接口定义就会被加载到数据库中。所有的视图都存储在数据库中，在 ir.ui.view模式下.</li>
+<li>C 控制器层，支持应用的业务逻辑</li>
+</ul>
+<hr>
+<p>在启动服务器实例时，附加选项–dev=all。</p>
+<h3 id="Odoo模块权限管理"><a href="#Odoo模块权限管理" class="headerlink" title="Odoo模块权限管理"></a>Odoo模块权限管理</h3><p>一般odoo管理权限会放在security文件夹里、一个csv和一个xml重要的两个文件<br>    1. security.xml：id可以看着来写，ref-=“中的内容是继承第一个id”，仔细观察下就会发现规律。<br>    2. ir.model.access.csv：文件名与要加载的数据的模块名相对应，并且该文件的第一行包含列名称。以下是我们的 CSV 文件中提供的列:<br>        *    id是记录的外部标识符 (也称为 XML ID)。在我们的模块中它应该是唯一。<br>        *    name是一个描述标题。它只是内容展示，在模块中最好也保持其唯一性。官方模块通常使用模型名称和组的圆点分隔的字符串。遵循此约定，我们使用 todo.task.user<br>        *    model_id 是该模型的外部标识符。ORM给模型自动生成的 O的 XML Id︰ 如 todo.task，该标识符是model_todo_task<br>        *    group_id标识授予权限的访问组。最重要的一点是提供定义它的模块名前缀。比如员工组，它的标识符为base.group_user。<br>        *    perm字段标记授予的读, 写, 创建，或删除权限。<br>    3. 不能忘记将引用添加到文件<strong>manifest</strong>.py的data属性中。 security/ir.model.access.csv’，<br>    4. <a href="https://blog.csdn.net/qq_43504054/article/details/98958080" target="_blank" rel="noopener">https://blog.csdn.net/qq_43504054/article/details/98958080</a></p>
+<hr>
+<h3 id="创建模型层"><a href="#创建模型层" class="headerlink" title="创建模型层"></a>创建模型层</h3><h5 id="应用程序的主要功能有：用于描述的简单文本字段、用于将其标记为完成的复选框、最后需要添加一个按钮来清除已完成任务的旧的待办事项列表。"><a href="#应用程序的主要功能有：用于描述的简单文本字段、用于将其标记为完成的复选框、最后需要添加一个按钮来清除已完成任务的旧的待办事项列表。" class="headerlink" title="应用程序的主要功能有：用于描述的简单文本字段、用于将其标记为完成的复选框、最后需要添加一个按钮来清除已完成任务的旧的待办事项列表。"></a>应用程序的主要功能有：用于描述的简单文本字段、用于将其标记为完成的复选框、最后需要添加一个按钮来清除已完成任务的旧的待办事项列表。</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> odoo <span class="keyword">import</span> models, fields</span><br><span class="line"></span><br><span class="line"><span class="comment"># 声明新模型。它是从models.Model派生的类。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TodoTask</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">_name = <span class="string">'todo.task'</span>  <span class="comment"># _name属性，定义将在整个Odoo中引用此模型的标识符。注意，实际的Python类名，在这个例子中，TodoTask对其他Odoo模块是无意义的。 _name值将用作标识符。</span></span><br><span class="line">_description = <span class="string">'待办事项'</span> <span class="comment"># _description模型属性。它不是强制性的，但它为模型记录提供了一个用户友好的名称，可用于用户友好的消息。</span></span><br><span class="line"><span class="comment"># 定义模型的字段 </span></span><br><span class="line">name = fields.Char(<span class="string">'Description'</span>, required=<span class="literal">True</span>) <span class="comment">#name和active是特殊的字段名。默认情况下，当从其他模型引用它时，Odoo将使用name字段作为记录的标题</span></span><br><span class="line">is_done = fields.Boolean(<span class="string">'Done?'</span>)</span><br><span class="line">active = fields.Boolean(<span class="string">'Active?'</span>, default=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p>可以使用技术菜单查看新创建的模型。在顶部菜单设置中，转到技术|数据库结构|模型，在列表中搜索todo.task模型，并单击它以查看其定义：</p>
+<hr>
+<h3 id="加入自动化测试"><a href="#加入自动化测试" class="headerlink" title="加入自动化测试"></a>加入自动化测试</h3><h5 id="Odoo支持使用两种方式来描述测试-使用-YAML-数据文件或使用-Python-代码、基于-Unittest2-库。-YAML-测试是一种遗留下来的旧老版本-不建议使用。-我们会更乐意使用-Python-测试并将添加基本的测试实例到我门的模块。"><a href="#Odoo支持使用两种方式来描述测试-使用-YAML-数据文件或使用-Python-代码、基于-Unittest2-库。-YAML-测试是一种遗留下来的旧老版本-不建议使用。-我们会更乐意使用-Python-测试并将添加基本的测试实例到我门的模块。" class="headerlink" title="Odoo支持使用两种方式来描述测试: 使用 YAML 数据文件或使用 Python 代码、基于 Unittest2 库。 YAML 测试是一种遗留下来的旧老版本, 不建议使用。 我们会更乐意使用 Python 测试并将添加基本的测试实例到我门的模块。"></a>Odoo支持使用两种方式来描述测试: 使用 YAML 数据文件或使用 Python 代码、基于 Unittest2 库。 YAML 测试是一种遗留下来的旧老版本, 不建议使用。 我们会更乐意使用 Python 测试并将添加基本的测试实例到我门的模块。</h5><h5 id="测试代码文件必须用test-开头-并且从tests-init-py文件导入。-但-测试的-目录-或-Python-的子模块-不应从模块的顶部的init-py导入，-因为仅在测试的执行的时候会自动被发现并装载。"><a href="#测试代码文件必须用test-开头-并且从tests-init-py文件导入。-但-测试的-目录-或-Python-的子模块-不应从模块的顶部的init-py导入，-因为仅在测试的执行的时候会自动被发现并装载。" class="headerlink" title="测试代码文件必须用test_开头 , 并且从tests/init.py文件导入。 但 测试的 目录(或 Python 的子模块)不应从模块的顶部的init.py导入， 因为仅在测试的执行的时候会自动被发现并装载。"></a>测试代码文件必须用test_开头 , 并且从tests/<strong>init</strong>.py文件导入。 但 测试的 目录(或 Python 的子模块)不应从模块的顶部的<strong>init</strong>.py导入， 因为仅在测试的执行的时候会自动被发现并装载。</h5><h5 id="运行我们的测试。-当我们在安装模，可以添加-–test-enable选项-odoo-bin-d-todo-i-todo-app-–test-enable"><a href="#运行我们的测试。-当我们在安装模，可以添加-–test-enable选项-odoo-bin-d-todo-i-todo-app-–test-enable" class="headerlink" title="运行我们的测试。 当我们在安装模，可以添加 –test-enable选项:   $ ./odoo-bin -d todo -i todo_app –test-enable"></a>运行我们的测试。 当我们在安装模，可以添加 –test-enable选项:   $ ./odoo-bin -d todo -i todo_app –test-enable</h5><hr>
+<h3 id="创建视图层"><a href="#创建视图层" class="headerlink" title="创建视图层"></a>创建视图层</h3><h6 id="用户界面接口，包括菜单和动作，存储在数据库表中。"><a href="#用户界面接口，包括菜单和动作，存储在数据库表中。" class="headerlink" title="用户界面接口，包括菜单和动作，存储在数据库表中。"></a>用户界面接口，包括菜单和动作，存储在数据库表中。</h6><ol>
+<li><p>添加一个菜单选项来打开To-do Task模型</p>
+</li>
+<li><p>添加id属性也称为XML ID，它用于唯一标识模块内的每个数据元素，并且可以由其他元素使用来引用它。</p>
+</li>
+<li><p>添加到<strong>manifest</strong>.py文件的data属性中。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span> </span><br><span class="line"> <span class="tag">&lt;<span class="name">odoo</span>&gt;</span> </span><br><span class="line"> <span class="comment">&lt;!-- &lt;act_window&gt;元素定义了一个客户端窗口动作，该动作将以列表和表单视图的顺序打开todo.task模型。 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">act_window</span> <span class="attr">id</span>=<span class="string">"action_todo_task"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">name</span>=<span class="string">"To-do Task"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">res_model</span>=<span class="string">"todo.task"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">view_mode</span>=<span class="string">"tree,form"</span> /&gt;</span> </span><br><span class="line"> <span class="comment">&lt;!-- &lt;menuitem&gt;定义了一个顶级菜单项，调用前面定义的action_todo_task动作。 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">id</span>=<span class="string">"menu_todo_task"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">name</span>=<span class="string">"Todos"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">action</span>=<span class="string">"action_todo_task"</span> /&gt;</span> </span><br><span class="line"> <span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="创建Form视图"><a href="#创建Form视图" class="headerlink" title="创建Form视图"></a>创建Form视图</h6></li>
+<li><p>要向模块添加视图，我们在XML文件中声明一个描述视图的<record>元素，该模块在安装模块时将被加载到数据库中。</p>
+</li>
+<li><p>todo_view.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;<span class="name">record</span> <span class="attr">id</span>=<span class="string">"view_form_todo_task"</span> <span class="attr">model</span>=<span class="string">"ir.ui.view"</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>To-do Task Form<span class="tag">&lt;/<span class="name">field</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"model"</span>&gt;</span>todo.task<span class="tag">&lt;/<span class="name">field</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"arch"</span> <span class="attr">type</span>=<span class="string">"xml"</span>&gt;</span> </span><br><span class="line">     <span class="tag">&lt;<span class="name">form</span> <span class="attr">string</span>=<span class="string">"To-do Task"</span>&gt;</span> </span><br><span class="line">       <span class="tag">&lt;<span class="name">group</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>/&gt;</span> </span><br><span class="line">         <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"is_done"</span>/&gt;</span> </span><br><span class="line">         <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"active"</span> <span class="attr">readonly</span>=<span class="string">"1"</span>/&gt;</span> </span><br><span class="line">       <span class="tag">&lt;/<span class="name">group</span>&gt;</span> </span><br><span class="line">     <span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;/<span class="name">field</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;/<span class="name">record</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>form视图下的标签</p>
+<ul>
+<li>header</li>
+<li>sheet</li>
+<li>group</li>
+</ul>
+<h6 id="添加动作按钮"><a href="#添加动作按钮" class="headerlink" title="添加动作按钮"></a>添加动作按钮</h6><p>Form视图可以添加按钮以完成特定动作。这些按钮可以打开一个新的包含Form表单的窗口或运行定义在模块中的Python函数。</p>
+</li>
+</ol>
+<ul>
+<li><p>string:展示在按钮上的文本</p>
+</li>
+<li><p>type:动作的类型（执行的操作）</p>
+</li>
+<li><p>name：定义的动作（操作的标识符）</p>
+</li>
+<li><p>class：一个可选的属性，用于展示Css样式，同HTML规则一样</p>
+<h6 id="创建Tree视图"><a href="#创建Tree视图" class="headerlink" title="创建Tree视图"></a>创建Tree视图</h6><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">record</span> <span class="attr">id</span>=<span class="string">"view_tree_todo_task"</span> <span class="attr">model</span>=<span class="string">"ir.ui.view"</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>To-do Task Tree<span class="tag">&lt;/<span class="name">field</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"model"</span>&gt;</span>todo.task<span class="tag">&lt;/<span class="name">field</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"arch"</span> <span class="attr">type</span>=<span class="string">"xml"</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">tree</span> <span class="attr">decoration-muted</span>=<span class="string">"is_done==True"</span>&gt;</span> </span><br><span class="line">     <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>/&gt;</span> </span><br><span class="line">     <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"is_done"</span>/&gt;</span> </span><br><span class="line">   <span class="tag">&lt;/<span class="name">tree</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;/<span class="name">field</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h6 id="创建Search视图"><a href="#创建Search视图" class="headerlink" title="创建Search视图"></a>创建Search视图</h6></li>
+<li><p><field>元素定义了在搜索框中输入时也能搜索的字段。 </p>
+</li>
+<li><p><filter>元素添加了预定义的过滤条件(过滤条件可以通过用户点击来切换），是使用特定语法来定义的。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">record</span> <span class="attr">id</span>=<span class="string">"view_filter_todo_task"</span> <span class="attr">model</span>=<span class="string">"ir.ui.view"</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>To-do Task Filter<span class="tag">&lt;/<span class="name">field</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"model"</span>&gt;</span>todo.task<span class="tag">&lt;/<span class="name">field</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"arch"</span> <span class="attr">type</span>=<span class="string">"xml"</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">search</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>/&gt;</span> </span><br><span class="line">        <span class="tag">&lt;/<span class="name">search</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">field</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="业务逻辑层"><a href="#业务逻辑层" class="headerlink" title="业务逻辑层"></a>业务逻辑层</h3><p>  Toggle Done按钮的操作将非常简单：只需切换Is Done? 标记。对于记录上的逻辑，使用@api.multi装饰器。 这里，self将表示一个记录集，然后我们应该遍历每个记录。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">do_toggle_done</span><span class="params">(self)</span>:</span> </span><br><span class="line">       <span class="keyword">for</span> task <span class="keyword">in</span> self: </span><br><span class="line">           task.is_done = <span class="keyword">not</span> task.is_done </span><br><span class="line">       <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@api.model </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">do_clear_done</span><span class="params">(self)</span>:</span> </span><br><span class="line">   dones = self.search([(<span class="string">'is_done'</span>, <span class="string">'='</span>, <span class="literal">True</span>)]) </span><br><span class="line">   dones.write(&#123;<span class="string">'active'</span>: <span class="literal">False</span>&#125;) </span><br><span class="line">   <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p><font color="yellow">AttributeError: module ‘odoo.api’ has no attribute ‘multi’</font><br>        After searching in github found that ‘multi’ is removed from Odoo 13.0 as it will be default.<br><a href="https://github.com/odoo/odoo/commit/4b38cc6590abcb58a0ca102a06063eb3db7ac1f4#diff-2c418cb78b7c562a79e7032645a537d2" target="_blank" rel="noopener">https://github.com/odoo/odoo/commit/4b38cc6590abcb58a0ca102a06063eb3db7ac1f4#diff-2c418cb78b7c562a79e7032645a537d2</a></p>
+</blockquote>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-03-01");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2020-03-01T13:47:00.000Z" itemprop="datePublished">2020-03-01</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/03/01/odoo%E6%BA%90%E7%A0%81/%E6%8C%89%E9%92%AE/%E6%8C%89%E9%92%AE/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">button</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="https://vuvivian.github.io">vuvivian&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

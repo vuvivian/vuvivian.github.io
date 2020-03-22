@@ -80,7 +80,7 @@ window.oldVersion = [
 <meta name="format-detection" content="telephone=no">
 
 <!-- Description -->
-<meta name="description" content="#### 类型按钮">
+<meta name="description" content="类型按钮">
 
 <!-- Keywords -->
 <meta name="keywords" content="">
@@ -215,7 +215,7 @@ window.oldVersion = [
 <meta property="og:url" content="https://vuvivian.github.io/2020/03/01/odoo%E6%BA%90%E7%A0%81/%E6%8C%89%E9%92%AE/%E6%8C%89%E9%92%AE/">
 <meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
 
-<meta property="og:description" content="#### 类型按钮">
+<meta property="og:description" content="类型按钮">
 
 <meta name="twitter:card" content="summary">
 
@@ -266,7 +266,7 @@ window.oldVersion = [
     },
     
     "datePublished": "2020-03-01T13:47:00.000Z",
-    "dateModified": "2020-03-01T10:36:37.457Z",
+    "dateModified": "2020-03-20T02:41:43.563Z",
     "author": {
         "@type": "Person",
         "name": "vuvivian",
@@ -292,7 +292,7 @@ window.oldVersion = [
     },
     
     "keywords": "",
-    "description": "#### 类型按钮"
+    "description": "类型按钮"
 }
 </script>
 
@@ -507,21 +507,50 @@ window.oldVersion = [
                     
                         
                             <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类型按钮"><span class="post-toc-number">1.</span> <span class="post-toc-text">#### 类型按钮</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ControlPanel"><span class="post-toc-number"></span> <span class="post-toc-text">ControlPanel</span></a>
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类型按钮"><span class="post-toc-number">1.</span> <span class="post-toc-text">类型按钮</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ControlPanel"><span class="post-toc-number"></span> <span class="post-toc-text">ControlPanel</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性"><span class="post-toc-number"></span> <span class="post-toc-text">属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toolbar是如何加载到o-cp-left的"><span class="post-toc-number"></span> <span class="post-toc-text">toolbar是如何加载到o_cp_left的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动作按钮如何根据选择的数量显示与隐藏的"><span class="post-toc-number"></span> <span class="post-toc-text">动作按钮如何根据选择的数量显示与隐藏的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#预制按钮的显隐控制"><span class="post-toc-number"></span> <span class="post-toc-text">预制按钮的显隐控制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不同按钮的处理"><span class="post-toc-number"></span> <span class="post-toc-text">不同按钮的处理</span></a>
                             </div>
                         
                     
                     <article id="post-content">
-                        <h4 id="类型按钮"><a href="#类型按钮" class="headerlink" title="#### 类型按钮"></a>#### 类型按钮</h4><h3 id="ControlPanel"><a href="#ControlPanel" class="headerlink" title="ControlPanel"></a>ControlPanel</h3><pre><code>* Control panel toolbar 增删改
+                        <h4 id="类型按钮"><a href="#类型按钮" class="headerlink" title="类型按钮"></a>类型按钮</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">string</span>=<span class="string">"Idea Form"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">button</span> <span class="attr">string</span>=<span class="string">"Confirm"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">name</span>=<span class="string">"action_confirm"</span></span></span><br><span class="line"><span class="tag">                  <span class="attr">states</span>=<span class="string">"draft"</span> <span class="attr">class</span>=<span class="string">"oe_highlight"</span> /&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">button</span> <span class="attr">string</span>=<span class="string">"Mark as done"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">name</span>=<span class="string">"action_done"</span></span></span><br><span class="line"><span class="tag">                  <span class="attr">states</span>=<span class="string">"confirmed"</span> <span class="attr">class</span>=<span class="string">"oe_highlight"</span>/&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">button</span> <span class="attr">string</span>=<span class="string">"Reset to draft"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">name</span>=<span class="string">"action_draft"</span></span></span><br><span class="line"><span class="tag">                  <span class="attr">states</span>=<span class="string">"confirmed,done"</span> /&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">button</span> <span class="attr">string</span>=<span class="string">"Reset to draft"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">name</span>=<span class="string">"action_draft"</span></span></span><br><span class="line"><span class="tag">                   /&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"state"</span> <span class="attr">widget</span>=<span class="string">"statusbar"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">sheet</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"oe_title"</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span> <span class="attr">class</span>=<span class="string">"oe_edit_only"</span> <span class="attr">string</span>=<span class="string">"Idea Name"</span> /&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span> /&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">separator</span> <span class="attr">string</span>=<span class="string">"General"</span> <span class="attr">colspan</span>=<span class="string">"2"</span> /&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">group</span> <span class="attr">colspan</span>=<span class="string">"2"</span> <span class="attr">col</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">placeholder</span>=<span class="string">"Idea description..."</span> /&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">sheet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ControlPanel"><a href="#ControlPanel" class="headerlink" title="ControlPanel"></a>ControlPanel</h3><pre><code>* Control panel toolbar 增删改
 * o_cp_sidebar 动作按钮
-* </code></pre>
+* </code></pre><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><pre><code>* icon  可用的icon在 addons/web/static/src/img/icons
+* string 按钮的显示文字
+* type  值可以是 workflow, object action，   默认是 workflow
+* name  就是要触发的方法标识
+* args  传递方法的参数
+* content 上下文
+* confirm  针对对话框的确认
+* special=&quot;cancel&quot; 用于向导
+* states 可见的状态
+* classname 加载的类名(常用 oe_highlight)</code></pre><h3 id="toolbar是如何加载到o-cp-left的"><a href="#toolbar是如何加载到o-cp-left的" class="headerlink" title="toolbar是如何加载到o_cp_left的"></a>toolbar是如何加载到o_cp_left的</h3><p>   abstract.view. &amp;&amp;. basic.view初始了按钮的相关参数</p>
+<ol>
+<li>ControlPanelRenderer中定义node对象，指定button的dom，定义为$buttons</li>
+<li>AbstractController中执行_renderControlPanelElements</li>
+<li>ListController中renderButtons，this.$button =  qweb.render(‘listView.buttons”‘)</li>
+<li>ListController中renderSidebar</li>
+<li>appendto $node</li>
+<li>ListController中 _toggleCreateButton 根据this.renderer.isEditable() &amp;&amp; state.groupedBy.length &amp;&amp; state.data.length;确定创建按钮的现实与隐藏</li>
+<li>destroy</li>
+</ol>
+<h3 id="动作按钮如何根据选择的数量显示与隐藏的"><a href="#动作按钮如何根据选择的数量显示与隐藏的" class="headerlink" title="动作按钮如何根据选择的数量显示与隐藏的"></a>动作按钮如何根据选择的数量显示与隐藏的</h3><ol>
+<li>ListController中_onSelectionChanged</li>
+<li>_toggleSidebar</li>
+<li>this.sidebar.do_toggle</li>
+</ol>
+<h3 id="预制按钮的显隐控制"><a href="#预制按钮的显隐控制" class="headerlink" title="预制按钮的显隐控制"></a>预制按钮的显隐控制</h3><pre><code>显隐判断：is_action_enabled（）
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> 	 is_action_enabled: function (action) &#123;</span><br><span class="line">    return this.activeActions[action];</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+ 预制按钮：存在activeActions中： 创建 保存 复制 导出 取消</code></pre><h3 id="不同按钮的处理"><a href="#不同按钮的处理" class="headerlink" title="不同按钮的处理"></a>不同按钮的处理</h3><pre><code>_onExecuteAction</code></pre>
                     </article>
                     
 
 
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
-        var dateUpdate = Date.parse("2020-03-01");
+        var dateUpdate = Date.parse("2020-03-20");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -535,6 +564,8 @@ window.oldVersion = [
 
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2020-03-01T13:47:00.000Z" itemprop="datePublished">2020-03-01</time>
+
+    , 最后修改于&nbsp;<time datetime="2020-03-20T02:41:43.563Z" itemprop="dateModified">2020-03-20</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">

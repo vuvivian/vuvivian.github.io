@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>odoo源码/服务/消息服务 | vuvivian&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="父组件...">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="vuvivian&#39;s blog">
+<meta name="msapplication-starturl" content="https://vuvivian.github.io">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="vuvivian&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+    <link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="vuvivian&#39;s blog">
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="odoo源码/服务/消息服务 | vuvivian&#39;s blog">
+<meta property="og:site_name" content="vuvivian&#39;s blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/">
+<meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
+
+<meta property="og:description" content="父组件...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-03-30T02:32:10.338Z">
+    <meta property="article:modified_time" content="2020-03-30T02:32:10.338Z">
+    <meta property="article:author" content="vuvivian">
+    <meta property="og:article:tag" content=""> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/",
+    "@type": "BlogPosting",
+    "logo": "https://vuvivian.github.io/img/favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/"
+    },
+    "headline": "odoo源码/服务/消息服务 | vuvivian&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuvivian.github.io/img/favicon.ico"
+    },
+    
+    "datePublished": "2020-03-30T02:32:10.338Z",
+    "dateModified": "2020-04-01T09:01:59.951Z",
+    "author": {
+        "@type": "Person",
+        "name": "vuvivian",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/top.jpg"
+        },
+        "description": "越努力，越幸运."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "vuvivian&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vuvivian.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "父组件..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">vuvivian&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                越努力，越幸运.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=vuvivian's blog&url=https://vuvivian.github.io&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=vuvivian's blog&url=https://vuvivian.github.io&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io&title=odoo源码/服务/消息服务" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=odoo源码/服务/消息服务&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://vuvivian.github.io&text=odoo源码/服务/消息服务" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADECAAAAADlzdG3AAADIUlEQVR42u3aQU7DQBBE0dz/0mGFhAB3/TJuB9D3BpTEsZ+lycxU9+P5D46HCBEiRIhYRzyG4/39LycffPbwYp/en877eN3pvkSI2ERMF25u4OP70+sJQO5LhIhtRBrQZwbj9NrRNZr7EiHiFYjv/tIJabpJ8t0iRPxGxNGXTwOywaXPiBDxKkTayKSBeLSwSwvC5voiRNyFIIPwFX8vTztEiACIGNoebPDpgIw3AsK3H6fiIkSU9Ylps0NDLXLTJICerhkDZREiLkDQATth6I21C7wURIsQsYmYBtD0OToIp81QW+wUIWITkQYSCcmmggtB08n1y7VEiFhApNDraCCmH4XmhlLgdvi/CBGLiOYL0+Q2FUsmMHmw48AWIeIiRBqYTYhAfiTSIi/hRYjYRKTJjBZi0vlpUUgXnCJEbCOmYh8NwcjisA0NyI+GCBEbCLIIo01WqUGFFNzJolKEiDsQaZDTZsPUKJ9Chuk8ESLuQJAiIA2z6ENJhXe80BQhYgHRBsm0mbed/MgRm7ZEiLgAQQcqXfSlEHiaAOvJUoSIZUSzMaEFR1qkpDARIrYRZKM/LdiaAgtpdKkaZkSIWEK04UAbLpBCOynmjKtYESIuRNALkAI7bVakAdkYZIgQsYggjVRnNzqkmHO0IH0OhwgRGwjaWDUVzJuwjCw0p4cgQsQ2YtqMkM1JE7yRBR95ACJEbCLIRj8VCdOGnoYJtAlGhIg7EE1xkC7a0iIyTYL1AlCEiAsQqcDRNHbRQg2dPKugQISIixDpxBSCkYmJFCTJAxMh4g4E2cTTDT29OIGhhypCxAIifZjeNA0Hpk1QW+wRIWILQTYl0+aIBnAE0wTPIkRsIJriSdrck3Oe4aga7kWIWECQLyVF9dSISM8hjZQiRGwimsGYmteb4G0KITBQhIglRDOgU8GFFNRJiJZwIkRsI84O6LShIU0q6fxTCaAIEUuIadJKITLZBNGgDAUFIkTchCCNJlMIRl8jDxIXHkWI+CGCFhjboJhOeKeaiUWIWEI0ITAZeE0DI2mGQQ0qIkRchPjLhwgRIkSIWDveAFGXPYphYKaPAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">odoo源码/服务/消息服务</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/top.jpg" src="/img/suka-lazyload.gif" alt="vuvivian's Avatar">
+        <span>2020-03-30</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=odoo源码/服务/消息服务&url=https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=odoo源码/服务/消息服务&url=https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/&title=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vuvivian's blog&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://vuvivian.github.io/2020/03/30/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1/&text=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADECAAAAADlzdG3AAADIUlEQVR42u3aQU7DQBBE0dz/0mGFhAB3/TJuB9D3BpTEsZ+lycxU9+P5D46HCBEiRIhYRzyG4/39LycffPbwYp/en877eN3pvkSI2ERMF25u4OP70+sJQO5LhIhtRBrQZwbj9NrRNZr7EiHiFYjv/tIJabpJ8t0iRPxGxNGXTwOywaXPiBDxKkTayKSBeLSwSwvC5voiRNyFIIPwFX8vTztEiACIGNoebPDpgIw3AsK3H6fiIkSU9Ylps0NDLXLTJICerhkDZREiLkDQATth6I21C7wURIsQsYmYBtD0OToIp81QW+wUIWITkQYSCcmmggtB08n1y7VEiFhApNDraCCmH4XmhlLgdvi/CBGLiOYL0+Q2FUsmMHmw48AWIeIiRBqYTYhAfiTSIi/hRYjYRKTJjBZi0vlpUUgXnCJEbCOmYh8NwcjisA0NyI+GCBEbCLIIo01WqUGFFNzJolKEiDsQaZDTZsPUKJ9Chuk8ESLuQJAiIA2z6ENJhXe80BQhYgHRBsm0mbed/MgRm7ZEiLgAQQcqXfSlEHiaAOvJUoSIZUSzMaEFR1qkpDARIrYRZKM/LdiaAgtpdKkaZkSIWEK04UAbLpBCOynmjKtYESIuRNALkAI7bVakAdkYZIgQsYggjVRnNzqkmHO0IH0OhwgRGwjaWDUVzJuwjCw0p4cgQsQ2YtqMkM1JE7yRBR95ACJEbCLIRj8VCdOGnoYJtAlGhIg7EE1xkC7a0iIyTYL1AlCEiAsQqcDRNHbRQg2dPKugQISIixDpxBSCkYmJFCTJAxMh4g4E2cTTDT29OIGhhypCxAIifZjeNA0Hpk1QW+wRIWILQTYl0+aIBnAE0wTPIkRsIJriSdrck3Oe4aga7kWIWECQLyVF9dSISM8hjZQiRGwimsGYmteb4G0KITBQhIglRDOgU8GFFNRJiJZwIkRsI84O6LShIU0q6fxTCaAIEUuIadJKITLZBNGgDAUFIkTchCCNJlMIRl8jDxIXHkWI+CGCFhjboJhOeKeaiUWIWEI0ITAZeE0DI2mGQQ0qIkRchPjLhwgRIkSIWDveAFGXPYphYKaPAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父组件Home引用子组件Board及传参"><span class="post-toc-number">1.</span> <span class="post-toc-text">父组件Home引用子组件Board及传参</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#子组件Board定义参数及获取参数"><span class="post-toc-number">2.</span> <span class="post-toc-text">子组件Board定义参数及获取参数</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h3 id="父组件Home引用子组件Board及传参"><a href="#父组件Home引用子组件Board及传参" class="headerlink" title="父组件Home引用子组件Board及传参"></a>父组件Home引用子组件Board及传参</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">	&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;home-view&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;home-container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;container-row&quot;&gt;</span><br><span class="line">          &lt;Board title=&quot;创建应用&quot; description=&quot;所见即所得，可拖拉拽快速搭建一个新应用&quot; icon=&quot;logo-codepen&quot;&gt;&lt;/Board&gt;</span><br><span class="line">          &lt;Board title=&quot;编辑应用&quot; description=&quot;选择一个已有应用后可立即调整&quot; icon=&quot;logo-codepen&quot;&gt;&lt;/Board&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;container-row&quot;&gt;</span><br><span class="line">          &lt;Board title=&quot;导入应用&quot; description=&quot;一键导入，支持更加灵活的调整&quot; icon=&quot;logo-codepen&quot;&gt;&lt;/Board&gt;</span><br><span class="line">          &lt;Board title=&quot;导出应用&quot; description=&quot;可导出XML、PY文件&quot; icon=&quot;logo-codepen&quot;&gt;&lt;/Board&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Board from &quot;./Board&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;Home&quot;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    Board</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="子组件Board定义参数及获取参数"><a href="#子组件Board定义参数及获取参数" class="headerlink" title="子组件Board定义参数及获取参数"></a>子组件Board定义参数及获取参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;std-card-container&quot;&gt;</span><br><span class="line">    &lt;Card&gt;</span><br><span class="line">      &lt;div class=&quot;std-left-container&quot;&gt;</span><br><span class="line">        &lt;Icon :type=&quot;icon&quot; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;std-right-container&quot;&gt;</span><br><span class="line">        &lt;h1 class=&quot;std-card-title&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h1&gt;</span><br><span class="line">        &lt;p class=&quot;std-card-description&quot;&gt;&#123;&#123;description&#125;&#125;&lt;/p&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/Card&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;Board&quot;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    title: String,</span><br><span class="line">    description: String,</span><br><span class="line">    icon: String,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;less&quot; scoped&gt;</span><br><span class="line">.std-card-container &#123;</span><br><span class="line">  overflow:hidden;</span><br><span class="line">  .std-left-container &#123;</span><br><span class="line">    float: left;</span><br><span class="line">    width: 10%;</span><br><span class="line">    font-size: 46px;</span><br><span class="line">    text-align: center;</span><br><span class="line">  &#125;</span><br><span class="line">  .std-right-container &#123;</span><br><span class="line">    width: 90%;</span><br><span class="line">    margin-left: 10%;</span><br><span class="line">    padding: 5px 0px;</span><br><span class="line">    .std-card-title &#123;</span><br><span class="line">      font-size: 18px;</span><br><span class="line">      font-weight: 700;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    .std-card-description &#123;</span><br><span class="line">      font-size: 14px;</span><br><span class="line">      padding: 10px 0 0;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-04-01");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-03-30T02:32:10.338Z" itemprop="datePublished">2020-03-30</time>
+
+    , Updated at&nbsp;<time datetime="2020-04-01T09:01:59.951Z" itemprop="dateModified">2020-04-01</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2020/04/01/vue/%E7%88%B6%E5%AD%90%E9%80%9A%E4%BF%A1/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">vue/父子通信</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/03/28/odoo%E6%BA%90%E7%A0%81/%E6%8C%89%E9%92%AE/Untitled/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">odoo源码/按钮/Untitled</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="https://vuvivian.github.io">vuvivian&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

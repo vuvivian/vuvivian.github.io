@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>odoo总结 | vuvivian&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="### 概览这个Javascript框架主要设计用于三个地方使用：
+
+">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="vuvivian&#39;s blog">
+<meta name="msapplication-starturl" content="https://vuvivian.github.io">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="vuvivian&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+    <link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="vuvivian&#39;s blog">
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="odoo总结 | vuvivian&#39;s blog">
+<meta property="og:site_name" content="vuvivian&#39;s blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/">
+<meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
+
+<meta property="og:description" content="### 概览这个Javascript框架主要设计用于三个地方使用：
+
+">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-02-20T13:47:00.000Z">
+    <meta property="article:modified_time" content="2020-02-20T13:47:00.000Z">
+    <meta property="article:author" content="vuvivian">
+    <meta property="og:article:tag" content=""> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/",
+    "@type": "BlogPosting",
+    "logo": "https://vuvivian.github.io/img/favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/"
+    },
+    "headline": "odoo总结 | vuvivian&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuvivian.github.io/img/favicon.ico"
+    },
+    
+    "datePublished": "2020-02-20T13:47:00.000Z",
+    "dateModified": "2020-04-06T07:40:09.228Z",
+    "author": {
+        "@type": "Person",
+        "name": "vuvivian",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/top.jpg"
+        },
+        "description": "越努力，越幸运."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "vuvivian&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vuvivian.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "### 概览这个Javascript框架主要设计用于三个地方使用：
+
+"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">vuvivian&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                越努力，越幸运.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=vuvivian's blog&url=https://vuvivian.github.io&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=vuvivian's blog&url=https://vuvivian.github.io&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io&title=odoo总结" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=odoo总结&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://vuvivian.github.io&text=odoo总结" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADq0lEQVR42u3d0Y7aQAxG4bz/S7dXK7Us4/94AsREh5t2WUjyRYrHY1va488NX4coUaJEibod6iheP7//74v//Pz4/9V3V8d+/MzTCy2O8etYokQNQaWD0Qt8BFbfW52b3tynN1aUqEGo6iDVZ7onro737IZUN0eUqG9EpYeaBJnqYglElKg7oUhAqB74tFjT5FaUqG9DdRbMdELy/YSs8KezdFGi3owihZcJ/768miRK1BtQsejeSE5XCSspdlZB5+VdD1Gi3ohaXdyqkE/xVeAhG9BykV1tNkWJGoCiwSI1ztoPNblIkChvd+dFiXojKhX+qxNWi2t3ce4u/KJETUV1BjK6Qx1nC6Wdwo0oURNQpOlGggZ9LxUyq+bcagBFlKhJqN2NXmokVElxujjaxF42CESJuhBFiyLp4mngWIHOHl+UqGkoOrhBCiF0WIsMD5NFWJSoiaidwmK3WZASU7JRLBNrUaIGoLrFSFqQpEXMnc/HIUZRoi5GkUUwFTVJ8klxqdCJdr6iRF2MIg01EizQA10EhFVyjTauokQNQpGmdtpQdhJSshB3NqaiRE1HpffPLMSpGNP9nShRk1A0KKTCJgkwqVmQgkZMEkSJGoKizbXdoiMNOvQ4qOkmStRFqHTBdHAxDZJ0El6yocQVWlGiLkR1mtlkU9lpXKebvGr+iRI1DdUptNDklhRs0jAj+T4auBIl6sOozkAIKb50CzZkMBgHEVGihqBI8zklk3TR7BQvO81tUaKmoEhyWT38ZCNJN6DV++izokQNQaWD0YJKwu98Lw1NihI1GUU2azQBJsVPcvzUeIudRFGiPoxaNoXhhXQDQFqkSSLdqtCKEjUEVW3IUtOgagyk4ELP2y68iBL1IVT1gO8Mhuws4qlwQ4KQKFGTUHTIqjWocfA/xNUdclwWQEWJGoKqBqe6Bf2q0EICC2nSLYOMKFFDUKvG8s7wfHdYmAxnpZ9FiZqEIsEiPeSdzSVJZrs3R5SoiSjaIEtDiqT43xm4IomsKFGTUAREBjYoOBU76aLfmnYWJeqDKLKQ0sJ9WWgMxUxSvIznFCVqAIoMVpHBxuqhRw2zI/+Bh9goFyVqCKq6YDqQRQJFGhBJjYN4DlGiBqHSwkiDRScAJVwnMRYl6ltQnYc4FfnTQk1vzulAIUrUxag0BEyCAS3a0CEu1J0XJepCVHdRTU0EcnNoUZMOJIsSNQVFCi87Q76dImVKntP5RYmagrrTS5QoUaJE3eb1F7WMbyuZ85ETAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">odoo总结</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/top.jpg" src="/img/suka-lazyload.gif" alt="vuvivian's Avatar">
+        <span>2020-02-20</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=odoo总结&url=https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=odoo总结&url=https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/&title=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vuvivian's blog&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://vuvivian.github.io/2020/02/20/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%80%EF%BC%89/&text=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADq0lEQVR42u3d0Y7aQAxG4bz/S7dXK7Us4/94AsREh5t2WUjyRYrHY1va488NX4coUaJEibod6iheP7//74v//Pz4/9V3V8d+/MzTCy2O8etYokQNQaWD0Qt8BFbfW52b3tynN1aUqEGo6iDVZ7onro737IZUN0eUqG9EpYeaBJnqYglElKg7oUhAqB74tFjT5FaUqG9DdRbMdELy/YSs8KezdFGi3owihZcJ/768miRK1BtQsejeSE5XCSspdlZB5+VdD1Gi3ohaXdyqkE/xVeAhG9BykV1tNkWJGoCiwSI1ztoPNblIkChvd+dFiXojKhX+qxNWi2t3ce4u/KJETUV1BjK6Qx1nC6Wdwo0oURNQpOlGggZ9LxUyq+bcagBFlKhJqN2NXmokVElxujjaxF42CESJuhBFiyLp4mngWIHOHl+UqGkoOrhBCiF0WIsMD5NFWJSoiaidwmK3WZASU7JRLBNrUaIGoLrFSFqQpEXMnc/HIUZRoi5GkUUwFTVJ8klxqdCJdr6iRF2MIg01EizQA10EhFVyjTauokQNQpGmdtpQdhJSshB3NqaiRE1HpffPLMSpGNP9nShRk1A0KKTCJgkwqVmQgkZMEkSJGoKizbXdoiMNOvQ4qOkmStRFqHTBdHAxDZJ0El6yocQVWlGiLkR1mtlkU9lpXKebvGr+iRI1DdUptNDklhRs0jAj+T4auBIl6sOozkAIKb50CzZkMBgHEVGihqBI8zklk3TR7BQvO81tUaKmoEhyWT38ZCNJN6DV++izokQNQaWD0YJKwu98Lw1NihI1GUU2azQBJsVPcvzUeIudRFGiPoxaNoXhhXQDQFqkSSLdqtCKEjUEVW3IUtOgagyk4ELP2y68iBL1IVT1gO8Mhuws4qlwQ4KQKFGTUHTIqjWocfA/xNUdclwWQEWJGoKqBqe6Bf2q0EICC2nSLYOMKFFDUKvG8s7wfHdYmAxnpZ9FiZqEIsEiPeSdzSVJZrs3R5SoiSjaIEtDiqT43xm4IomsKFGTUAREBjYoOBU76aLfmnYWJeqDKLKQ0sJ9WWgMxUxSvIznFCVqAIoMVpHBxuqhRw2zI/+Bh9goFyVqCKq6YDqQRQJFGhBJjYN4DlGiBqHSwkiDRScAJVwnMRYl6ltQnYc4FfnTQk1vzulAIUrUxag0BEyCAS3a0CEu1J0XJepCVHdRTU0EcnNoUZMOJIsSNQVFCi87Q76dImVKntP5RYmagrrTS5QoUaJE3eb1F7WMbyuZ85ETAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#概览"><span class="post-toc-number">1.</span> <span class="post-toc-text">### 概览</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Web客户端"><span class="post-toc-number"></span> <span class="post-toc-text">Web客户端</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#单页应用"><span class="post-toc-number">1.</span> <span class="post-toc-text">单页应用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Web客户端JS代码概览"><span class="post-toc-number"></span> <span class="post-toc-text">Web客户端JS代码概览</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源管理"><span class="post-toc-number"></span> <span class="post-toc-text">资源管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主包"><span class="post-toc-number"></span> <span class="post-toc-text">主包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在一个资源包里添加文件"><span class="post-toc-number"></span> <span class="post-toc-text">在一个资源包里添加文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如果文件没有加载-更新应该怎么办"><span class="post-toc-number"></span> <span class="post-toc-text">如果文件没有加载/更新应该怎么办</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Javascript模块系统"><span class="post-toc-number"></span> <span class="post-toc-text">Javascript模块系统</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义一个模块"><span class="post-toc-number"></span> <span class="post-toc-text">定义一个模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异步模块"><span class="post-toc-number"></span> <span class="post-toc-text">异步模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最好的练习"><span class="post-toc-number"></span> <span class="post-toc-text">最好的练习</span></a>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h4 id="概览"><a href="#概览" class="headerlink" title="### 概览"></a>### 概览</h4><p>这个Javascript框架主要设计用于三个地方使用：</p>
+<ul>
+<li><p>web客户端：这是一个私有的web应用，可以在其中查看和编辑业务数据。这是一个单页应用程序（永远不会重新加载该页，只在需要时从服务器提取新数据）。</p>
+</li>
+<li><p>网站：这是Odoo的公共部分。它允许身份不明的用户作为客户端浏览某些内容、购物或执行许多操作。这是一个经典的网站：各种各样的带有控制器的路由和共同协作的Javascript代码。</p>
+</li>
+<li><p>POS：这是销售点的接口。它是一个特定的但也应用程序。</p>
+</li>
+</ul>
+<h3 id="Web客户端"><a href="#Web客户端" class="headerlink" title="Web客户端"></a>Web客户端</h3><h4 id="单页应用"><a href="#单页应用" class="headerlink" title="单页应用"></a>单页应用</h4><p>简而言之，webclient实例是整个用户界面的根组件。它的职责是协调所有的子组件，并提供服务，如RPC、本地存储等等。</p>
+<p>在运行时，Web客户端是单页应用程序。每次用户执行操作时，它不需要从服务器请求整页。相反，它只请求它所需要的，然后替换/更新视图。此外，它还管理URL：它与Web客户机状态保持同步。</p>
+<p>这意味着，当用户在处理odoo时，Web客户机类（和动作管理器）实际上创建并销毁了许多子组件。状态是高度动态的，每个小部件都可以随时销毁。</p>
+<h2 id="Web客户端JS代码概览"><a href="#Web客户端JS代码概览" class="headerlink" title="Web客户端JS代码概览"></a>Web客户端JS代码概览</h2><p>这里，我们在web/static/src/js插件中快速概述了web客户机代码。注意，这是故意不详尽的，我们只涉及最重要的文件/文件夹。</p>
+<ul>
+<li>boot.js : 这是定义模块系统的文件,它需要首先加载。</li>
+<li>core/ : 这是较低级别的构建基块的集合。值得注意的是，它包含类系统、小部件系统、并发实用程序和许多其他类/函数。</li>
+<li>chorm/ :在这个文件夹中，我们有大多数大的小部件，它们构成了大部分用户界面。</li>
+<li>chrome/abstract_web_client.js and chrome/web_client.js : 这些文件一起定义了WebClient小部件(widget)，它是Web客户机的根小部件（wideget）。</li>
+<li>chrome/action_manager.js : 这是将动作（action）转换为小部件(widget)（例如看板或表单视图）的代码。</li>
+<li>chrome/search_X.js : 所有这些文件定义了搜索视图（它不是Web客户机视图中的视图，仅从服务器视图）</li>
+<li>fields : 这里定义了所有主要字段视图小部件（widget）</li>
+<li>views : 这是视图所在的位置</li>
+</ul>
+<h2 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h2><p>在Odoo中管理资源并不像在其他应用程序中那样简单。其中一个原因是，在其中一些情况中我们有各种各样的状态，但不是所有的资源都是必需的。例如，Web客户端、销售点、网站甚至移动应用程序的需求是不同的。此外，有些资源可能很大，但很少需要。在这种情况下，我们有时希望它们被懒惰地加载。</p>
+<p>主要思想是我们用XML定义一组包。捆绑包在这里定义为一组文件（javascript、css、scss）。在odoo中，最重要的包在addons/web/views/webclient_templates.xml文件中定义。看起来是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template id=&quot;web.assets_common&quot; name=&quot;Common Assets (used in backend interface and website)&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/web/static/lib/jquery.ui/jquery-ui.css&quot;/&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;/web/static/src/js/boot.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后，可以使用t-call-assets指令将捆绑包中的文件插入到模板中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;t t-call-assets=&quot;web.assets_common&quot; t-js=&quot;false&quot;/&gt;</span><br><span class="line">&lt;t t-call-assets=&quot;web.assets_common&quot; t-css=&quot;false&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下面是当服务器使用以下指令呈现模板时发生的情况：</p>
+<ul>
+<li>包中描述的所有SCSS文件都编译为CSS文件。名为file.scss的文件将编译在名为file.scss.css的文件中。</li>
+<li><strong>如果我们在debug=assets模式</strong>：<ul>
+<li>t-js属性设置为false的t-call-assets指令将替换为指向css文件的样式表标记列表。<ul>
+<li>t-css属性设置为false的t-call-assets指令将替换为指向JS文件的脚本标记列表。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>如果我们不在debug=assets模式</strong><ul>
+<li>CSS文件将被连接并缩小，然后拆分为不超过4096个规则的文件（以绕过IE9的旧限制）。然后，我们根据需要生成尽可能多的样式表标签<ul>
+<li>JS文件被连接并缩小，然后生成一个脚本标记。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>请注意，资源文件是缓存的，因此从理论上讲，浏览器应该只加载它们一次。</p>
+<h2 id="主包"><a href="#主包" class="headerlink" title="主包"></a>主包</h2><p>当odoo服务器启动时，它检查包中每个文件的时间戳，如果需要，它将创建/重新创建相应的包。</p>
+<p>以下是大多数开发人员需要知道的一些重要包：</p>
+<ul>
+<li>web.assets_common : 此包包含Web客户端、网站以及销售点（POS）所共有的大多数资源。这应该包含用于Odoo框架的较低级别的构建块。注意，它包含boot.js文件，它定义了odoo模块系统。</li>
+<li>web.assets_backend :这个包包含特定于Web客户端的代码（特别是Web客户端/动作管理器/视图）</li>
+<li>web.assets_frontend :这个包是关于所有特定于公共网站的：电子商务、论坛、博客、事件管理…</li>
+</ul>
+<h2 id="在一个资源包里添加文件"><a href="#在一个资源包里添加文件" class="headerlink" title="在一个资源包里添加文件"></a>在一个资源包里添加文件</h2><p>将位于addons/web中的文件添加到bundle的正确方法很简单：只需将脚本或样式表标记添加到文件webclient_templates.xml中的bundle即可。但是当我们使用不同的插件（addon）时，我们需要从该插件添加一个文件。在这种情况下，应分三步进行：</p>
+<ol>
+<li>添加一个 assets.xml 文件到views/文件夹</li>
+<li>添加字符’views/assets.xml’ 到manifest文件的键’data’的值里</li>
+<li>创建所需包的继承视图，并使用xpath表达式添加文件。例如：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template id=&quot;assets_backend&quot; name=&quot;helpdesk assets&quot; inherit_id=&quot;web.assets_backend&quot;&gt;</span><br><span class="line">    &lt;xpath expr=&quot;//script[last()]&quot; position=&quot;after&quot;&gt;</span><br><span class="line">        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/scss&quot; href=&quot;/helpdesk/static/src/scss/helpdesk.scss&quot;/&gt;</span><br><span class="line">        &lt;script type=&quot;text/javascript&quot; src=&quot;/helpdesk/static/src/js/helpdesk_dashboard.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;/xpath&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>请注意，当用户加载odoo web客户端时，包中的所有文件都会立即加载。这意味着每次通过网络传输文件（浏览器缓存处于活动状态时除外）。在某些情况下，最好使用Lazyload的一些资产。例如，如果一个小部件需要一个大的库，而这个小部件不是体验的核心部分，那么在实际创建小部件时，最好只加载库。widget类实际上已经为这个用例内置了支持。(查阅<a href="https://www.odoo.com/documentation/12.0/reference/javascript_reference.html#reference-javascript-reference-qweb" target="_blank" rel="noopener">QWeb模板引擎</a>部分)</p>
+</blockquote>
+<h2 id="如果文件没有加载-更新应该怎么办"><a href="#如果文件没有加载-更新应该怎么办" class="headerlink" title="如果文件没有加载/更新应该怎么办"></a>如果文件没有加载/更新应该怎么办</h2><p>文件可能无法正确加载有许多不同的原因。您可以尝试以下几点来解决此问题：</p>
+<ul>
+<li>一旦服务器启动，它就不知道资源文件是否已被修改。因此，您可以简单地重新启动服务器来重新生成资源。</li>
+<li>检查控制台（在开发工具中，通常用F12打开），确保没有明显的错误</li>
+<li>尝试在文件的开头添加console.log（在任何模块定义之前），这样您就可以查看文件是否已加载。</li>
+<li>在用户界面中，在调试模式下（在此处插入链接到调试模式），有一个选项可以强制服务器更新其资源文件。</li>
+<li>使用debug=assets模式。这实际上会绕过资源包（请注意，它实际上并不能解决问题，服务器仍然使用过时的包）</li>
+<li>最后，对于开发人员来说，最方便的方法是使用–dev=all选项启动服务器。这将激活文件监视程序选项，必要时将自动使资源无效。请注意，如果操作系统是Windows，它就不能很好地工作。</li>
+<li>记住刷新页面！</li>
+<li>或者保存代码文件…</li>
+</ul>
+<blockquote>
+<p>重新创建资源文件后，需要刷新页面，重新加载正确的文件（如果不起作用，文件可能被缓存了）。</p>
+</blockquote>
+<h2 id="Javascript模块系统"><a href="#Javascript模块系统" class="headerlink" title="Javascript模块系统"></a>Javascript模块系统</h2><p>一旦我们能够将我们的javascript文件加载到浏览器中，我们就需要确保以正确的顺序加载它们。为了实现这一点，odoo定义了一个小模块系统（位于addons/web/static/src/js/boot.js文件中，需要首先加载该文件）。</p>
+<p>在AMD的启发下，odoo模块系统通过在全局odoo对象上定义函数define来工作。然后我们通过调用该函数来定义每个javascript模块。在odoo框架中，模块是一段将尽快执行的代码。它有一个名称，可能还有一些依赖项。当它的依赖项被加载时，模块也将被加载。模块的值就是定义模块的函数的返回值。</p>
+<p>一个例子，看起来像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// in file a.js</span><br><span class="line">odoo.define(&apos;module.A&apos;, function (require) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">    var A = ...;</span><br><span class="line"></span><br><span class="line">    return A;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// in file b.js</span><br><span class="line">odoo.define(&apos;module.B&apos;, function (require) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">    var A = require(&apos;module.A&apos;);</span><br><span class="line"></span><br><span class="line">    var B = ...; // something that involves A</span><br><span class="line"></span><br><span class="line">    return B;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>定义模块的另一种方法是在第二个参数中明确地给出依赖项列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">odoo.define(&apos;module.Something&apos;, [&apos;module.A&apos;, &apos;module.B&apos;], function (require) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">    var A = require(&apos;module.A&apos;);</span><br><span class="line">    var B = require(&apos;module.B&apos;);</span><br><span class="line"></span><br><span class="line">    // some code</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果某些依赖项丢失/未就绪，那么模块将不会被加载。几秒钟后控制台中将出现警告。</p>
+<p>请注意，不支持循环依赖项。这是有道理的，但这意味着需要谨慎。</p>
+<h2 id="定义一个模块"><a href="#定义一个模块" class="headerlink" title="定义一个模块"></a>定义一个模块</h2><p>odoo.define 方法给了三个参数：</p>
+<ul>
+<li>moduleName: javascript模块的名称。它应该是一个唯一的字符串。惯例是在odoo插件（addon）的名字后面加上一个具体的描述。例如，“web.widget”描述在web插件中定义的模块，该模块导出一个widget类（因为第一个字母大写）。<br>如果名称不唯一，将引发异常并显示在控制台中</li>
+<li>dependencies : 第二个参数是可选的。如果给定，它应该是一个字符串列表，每个字符串对应一个JavaScript模块。这描述了在执行模块之前需要加载的依赖项。如果这里没有明确地给出依赖项，那么模块系统将通过调用ToString从函数中提取它们，然后使用regexp查找所有Require语句。</li>
+<li>最后一个参数是定义模块的函数。它的返回值是模块的值，可以传递给其他需要它的模块。注意，异步模块有一个小的异常，请参见下一节。<br>如果发生错误，将在控制台中记录（在调试模式下）：</li>
+<li>Missing dependencies: 这些模块不会出现在页面中。可能是javascript文件不在页面中或模块名称错误</li>
+<li>Failed Modules : 一个Javascript错误被检测到</li>
+<li>Rejected modules ：块返回拒绝的延迟。它（及其相关模块）未加载。</li>
+<li>Rejected linked modules: 依赖被拒绝模块的模块</li>
+<li>Non loaded modules : 模块依赖了一个缺失/失败的模块</li>
+</ul>
+<h2 id="异步模块"><a href="#异步模块" class="headerlink" title="异步模块"></a>异步模块</h2><p>模块可能需要在准备就绪之前执行一些工作。例如，它可以做一个RPC来加载一些数据。在这种情况下，模块只需返回一个deferred（promise）。在这种情况下，模块系统只需等待deferred完成，然后注册模块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">odoo.define(&apos;module.Something&apos;, [&apos;web.ajax&apos;], function (require) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">    var ajax = require(&apos;web.ajax&apos;);</span><br><span class="line"></span><br><span class="line">    return ajax.rpc(...).then(function (result) &#123;</span><br><span class="line">        // some code here</span><br><span class="line">        return something;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="最好的练习"><a href="#最好的练习" class="headerlink" title="最好的练习"></a>最好的练习</h2><ul>
+<li>记住模块名的约定：插件名加上模块名后缀</li>
+<li>在模块顶部声明所有依赖项。此外，它们应该按模块名称的字母顺序排序。这样更容易理解您的模块。</li>
+<li>在末尾声明所有导出的值</li>
+<li>尽量避免从一个模块导出过多的内容。通常最好在一个（小/更小）模块中简单地导出一件事情。</li>
+<li>异步模块可以用来简化一些用例。例如，web.dom_ready模块返回一个deferred ，当dom实际就绪时，这个deferred 将被解决。因此，另一个需要dom的模块可以在某个地方简单地有一个require（“web.dom_ready”）语句，并且只有当dom准备好时才会执行代码。</li>
+<li>尽量避免在一个文件中定义多个模块。这在短期内可能很方便，但实际上很难维护。</li>
+</ul>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-04-06");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-02-20T13:47:00.000Z" itemprop="datePublished">2020-02-20</time>
+
+    , Updated at&nbsp;<time datetime="2020-04-06T07:40:09.228Z" itemprop="dateModified">2020-04-06</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2020/02/21/vue/vue%E6%BA%90%E7%A0%81/%E9%A2%84%E5%A4%87%E7%AF%87/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">预备篇</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/12/19/koa%E8%B7%AF%E7%94%B1/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">koa路由</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="https://vuvivian.github.io">vuvivian&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

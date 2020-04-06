@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>odoo源码/全局概览（七） | vuvivian&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="小部件之间的通信有许多组件之间的通信方式
+
+">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="vuvivian&#39;s blog">
+<meta name="msapplication-starturl" content="https://vuvivian.github.io">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="vuvivian&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+    <link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="vuvivian&#39;s blog">
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="odoo源码/全局概览（七） | vuvivian&#39;s blog">
+<meta property="og:site_name" content="vuvivian&#39;s blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/">
+<meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
+
+<meta property="og:description" content="小部件之间的通信有许多组件之间的通信方式
+
+">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-03-22T16:19:39.244Z">
+    <meta property="article:modified_time" content="2020-03-22T16:19:39.244Z">
+    <meta property="article:author" content="vuvivian">
+    <meta property="og:article:tag" content=""> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/",
+    "@type": "BlogPosting",
+    "logo": "https://vuvivian.github.io/img/favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/"
+    },
+    "headline": "odoo源码/全局概览（七） | vuvivian&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuvivian.github.io/img/favicon.ico"
+    },
+    
+    "datePublished": "2020-03-22T16:19:39.244Z",
+    "dateModified": "2020-04-06T07:43:43.836Z",
+    "author": {
+        "@type": "Person",
+        "name": "vuvivian",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/top.jpg"
+        },
+        "description": "越努力，越幸运."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "vuvivian&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vuvivian.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "小部件之间的通信有许多组件之间的通信方式
+
+"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">vuvivian&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                越努力，越幸运.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=vuvivian's blog&url=https://vuvivian.github.io&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=vuvivian's blog&url=https://vuvivian.github.io&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io&title=odoo源码/全局概览（七）" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=odoo源码/全局概览（七）&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://vuvivian.github.io&text=odoo源码/全局概览（七）" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADoUlEQVR42u3c207rUAxF0fz/T3NeUUm8pn0ocarZFwRtLqNSvL1ti+PrA1+HKFGiRIn6ONRRvL6///r505OeHP/6Pvn99XrkPkWJ2oS6usHqRqvfr76Y179VaPL5H8eIErUIdXUS+vCfPdxn2O45q2NFiXoiqrpJEmCqBfpqAaaLsChRT0RdvX+VZFbJZ3Xeq2uIEvVUFNnQXcGqnymAVMGgup//ytJFiXozqvtg3/XzV6tJokS9CYWL7xBbPegkWU2L8K92PUSJegMqJah080jP0WkidDaLokRtQVUnIMGi+ls30JDiZVnUESVqAWqSUKbi/aSBnZpxafMpStQWVAoSaYAjDZGQ90nTAOFFiVqAIoNWpAGdmmiTgg4NRKJEbULRIgop3tNgQJt13WAhStQmVLeBTW6CDIGkzSHdsIoStQU1KTKSwmO3QEMDBx4OESXqJhRpnFVNAfowp6ES0piLwUeUqAUocuFOAYbedBeJmhCiRC1A0QZ2VbSnC3ln8a2SADRwJUrUjag0eEuKL+QcVTKcglQKKqJEbUHRIEGGr7pNbJLUtjaqokQtRE0S2VQoIc1p2jzAA1eiRN2IShchDebuDZKBqg5UlKgtqEniWT3s5DzTm241CESJugnVHYRKIDKsRRvodLEXJWoTqhMoqmBBh0XSABVZqNG0syhRN6FIoZ4OCk+SWbK5xMUhUaIWoNLAYCcQdIYgOwkvGUIWJWoLihTjq8UxDexeJp/gyyHFHlGitqE6SSoJHilA0MYD/XJFidqGmjYIUoOuW3ChwyVVwBAlagOKJJFpM0kWbtLEpse2ipmiRP0xKgUIPOx05H8m1QkCtGEeF19Rov4Y1Uls0+JLAwppQlSBQZSozaiU0NJNXCp6dhprFDOeIhMl6o2oqimQFkGSAHfwKbGNX7woUQtQqUhJC4y0QUeHHSeNOlGiNqDogkmS1bRgkoYaCUo4Sxcl6iZUGjjsbCJJoEiLPV28ywaBKFE3o6qBj07zgGwGJ8XSdLwoUVtQVUOADn2kgSpayDmGL1GiNqFIU4y8R4r+ncZCdxMpStQWVHoA0wYuDYjQgS6CiMeLErUElZoEVXGTDF2lL4JuMGNwEiVqEaq7oUsXJs20yWazLP6IEvUQ1DRwpGNIgkuHuESJegpq8iCTYkwFII3x08+LErUIlYoqNBikB3tS3MSFGlGilqAmhZcUBMh5yWI8TmhFiboJ9UkvUaJEiRL1Ma9/FEX2M0o269UAAAAASUVORK5CYII=" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">odoo源码/全局概览（七）</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/top.jpg" src="/img/suka-lazyload.gif" alt="vuvivian's Avatar">
+        <span>2020-03-23</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=odoo源码/全局概览（七）&url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=odoo源码/全局概览（七）&url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/&title=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vuvivian's blog&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%83%EF%BC%89/&text=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADoUlEQVR42u3c207rUAxF0fz/T3NeUUm8pn0ocarZFwRtLqNSvL1ti+PrA1+HKFGiRIn6ONRRvL6///r505OeHP/6Pvn99XrkPkWJ2oS6usHqRqvfr76Y179VaPL5H8eIErUIdXUS+vCfPdxn2O45q2NFiXoiqrpJEmCqBfpqAaaLsChRT0RdvX+VZFbJZ3Xeq2uIEvVUFNnQXcGqnymAVMGgup//ytJFiXozqvtg3/XzV6tJokS9CYWL7xBbPegkWU2L8K92PUSJegMqJah080jP0WkidDaLokRtQVUnIMGi+ls30JDiZVnUESVqAWqSUKbi/aSBnZpxafMpStQWVAoSaYAjDZGQ90nTAOFFiVqAIoNWpAGdmmiTgg4NRKJEbULRIgop3tNgQJt13WAhStQmVLeBTW6CDIGkzSHdsIoStQU1KTKSwmO3QEMDBx4OESXqJhRpnFVNAfowp6ES0piLwUeUqAUocuFOAYbedBeJmhCiRC1A0QZ2VbSnC3ln8a2SADRwJUrUjag0eEuKL+QcVTKcglQKKqJEbUHRIEGGr7pNbJLUtjaqokQtRE0S2VQoIc1p2jzAA1eiRN2IShchDebuDZKBqg5UlKgtqEniWT3s5DzTm241CESJugnVHYRKIDKsRRvodLEXJWoTqhMoqmBBh0XSABVZqNG0syhRN6FIoZ4OCk+SWbK5xMUhUaIWoNLAYCcQdIYgOwkvGUIWJWoLihTjq8UxDexeJp/gyyHFHlGitqE6SSoJHilA0MYD/XJFidqGmjYIUoOuW3ChwyVVwBAlagOKJJFpM0kWbtLEpse2ipmiRP0xKgUIPOx05H8m1QkCtGEeF19Rov4Y1Uls0+JLAwppQlSBQZSozaiU0NJNXCp6dhprFDOeIhMl6o2oqimQFkGSAHfwKbGNX7woUQtQqUhJC4y0QUeHHSeNOlGiNqDogkmS1bRgkoYaCUo4Sxcl6iZUGjjsbCJJoEiLPV28ywaBKFE3o6qBj07zgGwGJ8XSdLwoUVtQVUOADn2kgSpayDmGL1GiNqFIU4y8R4r+ncZCdxMpStQWVHoA0wYuDYjQgS6CiMeLErUElZoEVXGTDF2lL4JuMGNwEiVqEaq7oUsXJs20yWazLP6IEvUQ1DRwpGNIgkuHuESJegpq8iCTYkwFII3x08+LErUIlYoqNBikB3tS3MSFGlGilqAmhZcUBMh5yWI8TmhFiboJ9UkvUaJEiRL1Ma9/FEX2M0o269UAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小部件之间的通信"><span class="post-toc-number">1.</span> <span class="post-toc-text">小部件之间的通信</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h2 id="小部件之间的通信"><a href="#小部件之间的通信" class="headerlink" title="小部件之间的通信"></a>小部件之间的通信</h2><p>有许多组件之间的通信方式</p>
+<ul>
+<li><strong>从父级到它的子级</strong><br>一个简单的例子。父不见可以简单的调用子部件方法：<br><code>this.someWidget.update(someInfo);</code></li>
+<li><strong>从一个小部件到它的父/某个祖先</strong><br>在这种情况下，小部件的工作只是通知其环境发生了什么事情。由于我们不希望小部件具有对其父部件的引用（这将使小部件与其父部件的实现相结合），因此继续操作的最佳方法通常是使用触发器trigger_up方法触发一个事件，该事件将冒泡到组件树中：<br><code>this.trigger_up(&#39;open_record&#39;, { record: record, id: id});</code><br>此事件将在小部件上触发，然后将冒泡并最终被某些上游小部件捕获：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var SomeAncestor = Widget.extend(&#123;</span><br><span class="line">    custom_events: &#123;</span><br><span class="line">        &apos;open_record&apos;: &apos;_onOpenRecord&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line">    _onOpenRecord: function (event) &#123;</span><br><span class="line">        var record = event.data.record;</span><br><span class="line">        var id = event.data.id;</span><br><span class="line">        // do something with the event.</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>交叉组件</strong><br>通过总线可以实现跨组件通信。这不是首选的通信形式，因为它有使代码难以维护的缺点。但是，它具有分离组件的优势。在这种情况下，这只是通过触发和监听总线上的事件来完成的。例如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// in WidgetA</span><br><span class="line">var core = require(&apos;web.core&apos;);</span><br><span class="line"></span><br><span class="line">var WidgetA = Widget.extend(&#123;</span><br><span class="line">    ...</span><br><span class="line">    start: function () &#123;</span><br><span class="line">        core.bus.on(&apos;barcode_scanned&apos;, this, this._onBarcodeScanned);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// in WidgetB</span><br><span class="line">var WidgetB = Widget.extend(&#123;</span><br><span class="line">    ...</span><br><span class="line">    someFunction: function (barcode) &#123;</span><br><span class="line">        core.bus.trigger(&apos;barcode_scanned&apos;, barcode);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在本例中，我们使用web.core导出的总线，但这不是必需的。可以为特定目的创建总线。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-04-06");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-03-22T16:19:39.244Z" itemprop="datePublished">2020-03-23</time>
+
+    , Updated at&nbsp;<time datetime="2020-04-06T07:43:43.836Z" itemprop="dateModified">2020-04-06</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E5%85%AB%EF%BC%89/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">odoo源码/全局概览（八）</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E5%85%AD%EF%BC%89/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">odoo源码/全局概览（六）</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="https://vuvivian.github.io">vuvivian&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

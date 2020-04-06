@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>odoo源码/全局概览（三） | vuvivian&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="
+小部件（Widget）...">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="vuvivian&#39;s blog">
+<meta name="msapplication-starturl" content="https://vuvivian.github.io">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="vuvivian&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+    <link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="vuvivian&#39;s blog">
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="odoo源码/全局概览（三） | vuvivian&#39;s blog">
+<meta property="og:site_name" content="vuvivian&#39;s blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/">
+<meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
+
+<meta property="og:description" content="
+小部件（Widget）...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-03-22T16:09:17.094Z">
+    <meta property="article:modified_time" content="2020-03-22T16:09:17.094Z">
+    <meta property="article:author" content="vuvivian">
+    <meta property="og:article:tag" content=""> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/",
+    "@type": "BlogPosting",
+    "logo": "https://vuvivian.github.io/img/favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/"
+    },
+    "headline": "odoo源码/全局概览（三） | vuvivian&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuvivian.github.io/img/favicon.ico"
+    },
+    
+    "datePublished": "2020-03-22T16:09:17.094Z",
+    "dateModified": "2020-03-22T16:09:46.057Z",
+    "author": {
+        "@type": "Person",
+        "name": "vuvivian",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/top.jpg"
+        },
+        "description": "越努力，越幸运."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "vuvivian&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vuvivian.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "
+小部件（Widget）..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">vuvivian&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                越努力，越幸运.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=vuvivian's blog&url=https://vuvivian.github.io&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=vuvivian's blog&url=https://vuvivian.github.io&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io&title=odoo源码/全局概览（三）" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=odoo源码/全局概览（三）&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://vuvivian.github.io&text=odoo源码/全局概览（三）" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADtElEQVR42u3bS27cQAxF0d7/ppNRACd28d2n/jGN2xMH/kh1BIjFIpnbrw/83ESJEiVK1MehbsPn9Dt/vvf1Z39d/PA7p2t//fptocM1vl1LlKglqOli/8JOf0Ow0yLpz6Z1ihK1CUUCQUJNf0Mg6ZrTOkWJ+p9QdCOdNtQTunkgokR9Guqnm5DE+KdFn67VbNqiRG1GpYucbkoWnRab7vHwLF2UqCej0ou95evDqkmiRD0RFYvuYbOcAgYtcKZg8PCuhyhRT0Q1RXx62KNJbdrsT5v6cSMXJWoBKjUFpsWmZDUFIJI8k+aEKFGbUKmAQm4wHQwTOiXSZMMXJWoTKhUT6cY7NQbuaTCkIs8x+okS9SZUu9lNxctpATSwpAc3FjxFiVqASsUR0lymL/oEaoLUMXEQJWoZiiS2pLncDFiR4k1KvkWJ2oRKBzQ6VJWS2Cko0I38ciNblKgXokiSSoou5GW+Uoghh0NRojah0mFuCgZNYb8JFPRQKErUVlT699XGQHrxSTNuSobHjEKUqDehpsTzyrDuPQumA4xV002UqBej0qATWRgZLCFFHnrAPD5QUaIWoGhAaIsv7UOgzQM8RSZK1JtQqahPDohTw4AMgqRiCx5aFiVqASptamQwqilqkqGtdJ26kyhK1AtRaRBxKnI2AQYV+GFh9RioRIlagCKHvWYQkbzgTZCoApcoUQtQzTA8abq1yWwqWk7XQsVMUaJejCKFR1Kgb/CkcDoWWG7F/8oRJerFqPRik80vDffSjTsFprh5ixK1ANUe4NLQRlOASYGKNuBEidqEIkkkbb41AyVNsowPlaJELUDR4mJ7cEwPbUpSaZIrStRGVAoU6ZCGCvfhIUxBKQWbS5uvKFFPRE3Boim2TEUSkvC2Q/aiRG1F0eIIPRiSwg3dlOvCqShRC1Dp4NYOiaSgQw5+tIgjStRWVBqYmm5OCvmoEAkLQONBU5SoBSjSQLsCoQP20/fTQbVKaEWJehHqnsYYLWSSIQ/SUE8BQ5SoTah7XmpygEyHSjJUFR+SKFELUGT4KQ353jvQ29x3bESIErUARQv8TSAhh8r2kEmChShRG1BkAKSBnBJOslh6Hdz1ECXqTah0gCPDVGSgo314KVCM1SRRot6MqgrxYGiELJ4GmktZuihRy1Gp2U0OmfSFJ83AhwQKUaLeiKIDWqQJ0DTQm01elKhNKDo01Tacm0CRijuxoS5K1BIUTRjbQudpAe3Qx5T8ihK1DfVJH1GiRIkS9TGf31jcEHxdcaTZAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">odoo源码/全局概览（三）</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/top.jpg" src="/img/suka-lazyload.gif" alt="vuvivian's Avatar">
+        <span>2020-03-23</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=odoo源码/全局概览（三）&url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=odoo源码/全局概览（三）&url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/&title=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vuvivian's blog&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://vuvivian.github.io/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%B8%89%EF%BC%89/&text=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADtElEQVR42u3bS27cQAxF0d7/ppNRACd28d2n/jGN2xMH/kh1BIjFIpnbrw/83ESJEiVK1MehbsPn9Dt/vvf1Z39d/PA7p2t//fptocM1vl1LlKglqOli/8JOf0Ow0yLpz6Z1ihK1CUUCQUJNf0Mg6ZrTOkWJ+p9QdCOdNtQTunkgokR9Guqnm5DE+KdFn67VbNqiRG1GpYucbkoWnRab7vHwLF2UqCej0ou95evDqkmiRD0RFYvuYbOcAgYtcKZg8PCuhyhRT0Q1RXx62KNJbdrsT5v6cSMXJWoBKjUFpsWmZDUFIJI8k+aEKFGbUKmAQm4wHQwTOiXSZMMXJWoTKhUT6cY7NQbuaTCkIs8x+okS9SZUu9lNxctpATSwpAc3FjxFiVqASsUR0lymL/oEaoLUMXEQJWoZiiS2pLncDFiR4k1KvkWJ2oRKBzQ6VJWS2Cko0I38ciNblKgXokiSSoou5GW+Uoghh0NRojah0mFuCgZNYb8JFPRQKErUVlT699XGQHrxSTNuSobHjEKUqDehpsTzyrDuPQumA4xV002UqBej0qATWRgZLCFFHnrAPD5QUaIWoGhAaIsv7UOgzQM8RSZK1JtQqahPDohTw4AMgqRiCx5aFiVqASptamQwqilqkqGtdJ26kyhK1AtRaRBxKnI2AQYV+GFh9RioRIlagCKHvWYQkbzgTZCoApcoUQtQzTA8abq1yWwqWk7XQsVMUaJejCKFR1Kgb/CkcDoWWG7F/8oRJerFqPRik80vDffSjTsFprh5ixK1ANUe4NLQRlOASYGKNuBEidqEIkkkbb41AyVNsowPlaJELUDR4mJ7cEwPbUpSaZIrStRGVAoU6ZCGCvfhIUxBKQWbS5uvKFFPRE3Boim2TEUSkvC2Q/aiRG1F0eIIPRiSwg3dlOvCqShRC1Dp4NYOiaSgQw5+tIgjStRWVBqYmm5OCvmoEAkLQONBU5SoBSjSQLsCoQP20/fTQbVKaEWJehHqnsYYLWSSIQ/SUE8BQ5SoTah7XmpygEyHSjJUFR+SKFELUGT4KQ353jvQ29x3bESIErUARQv8TSAhh8r2kEmChShRG1BkAKSBnBJOslh6Hdz1ECXqTah0gCPDVGSgo314KVCM1SRRot6MqgrxYGiELJ4GmktZuihRy1Gp2U0OmfSFJ83AhwQKUaLeiKIDWqQJ0DTQm01elKhNKDo01Tacm0CRijuxoS5K1BIUTRjbQudpAe3Qx5T8ihK1DfVJH1GiRIkS9TGf31jcEHxdcaTZAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小部件（Widget）"><span class="post-toc-number">1.</span> <span class="post-toc-text">小部件（Widget）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小部件的生命周期"><span class="post-toc-number">2.</span> <span class="post-toc-text">小部件的生命周期</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Widget-API"><span class="post-toc-number">3.</span> <span class="post-toc-text">Widget API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在DOM中插入一个小部件"><span class="post-toc-number">4.</span> <span class="post-toc-text">在DOM中插入一个小部件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小部件指南"><span class="post-toc-number">5.</span> <span class="post-toc-text">小部件指南</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <ul>
+<li><h2 id="小部件（Widget）"><a href="#小部件（Widget）" class="headerlink" title="小部件（Widget）"></a>小部件（Widget）</h2></li>
+</ul>
+<p>widget类实际上是用户界面的一个重要构建块。几乎用户界面中的所有内容都在小部件（widget）的控制之下。widget类在widget.js中的module web.widget中定义。<br>简而言之，widget类提供的特性包括：</p>
+<ul>
+<li>小部件之间的父/子关系（PropertiesMixin）</li>
+<li>*<em>具有安全功能的广泛生命周期管理 *</em>（e.g. 在销毁父级期间自动销毁子窗口小部件）</li>
+<li>自动渲染qweb模板</li>
+<li>帮助与外部环境交互的各种实用功能。<br>一个计数的小部件例子：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var Widget = require(&apos;web.Widget&apos;);</span><br><span class="line"></span><br><span class="line">var Counter = Widget.extend(&#123;</span><br><span class="line">    template: &apos;some.template&apos;,</span><br><span class="line">    events: &#123;</span><br><span class="line">        &apos;click button&apos;: &apos;_onClick&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line">    init: function (parent, value) &#123;</span><br><span class="line">        this._super(parent);</span><br><span class="line">        this.count = value;</span><br><span class="line">    &#125;,</span><br><span class="line">    _onClick: function () &#123;</span><br><span class="line">        this.count++;</span><br><span class="line">        this.$(&apos;.val&apos;).text(this.count);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>对于本例，假设模板some.template（并且正确加载：模板位于一个文件中，该文件在模块清单中的qweb键中正确定义）如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div t-name=&quot;some.template&quot;&gt;</span><br><span class="line">    &lt;span class=&quot;val&quot;&gt;&lt;t t-esc=&quot;widget.count&quot;/&gt;&lt;/span&gt;</span><br><span class="line">    &lt;button&gt;Increment&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个例子说明了小部件类的一些特性，包括事件系统、模板系统、带有初始父参数的构造函数。</p>
+<h2 id="小部件的生命周期"><a href="#小部件的生命周期" class="headerlink" title="小部件的生命周期"></a>小部件的生命周期</h2><p>与许多组件系统一样，widget类有一个定义良好的生命周期。通常的生命周期如下：调用init，然后willStart，然后rendering，然后start，最后destroy。</p>
+<p><code>Widget.init(parent)</code><br>这是构造函数。init方法应该初始化小部件的基本状态。它是同步的，可以被重写以从小部件的创建者/父对象获取更多参数。</p>
+<blockquote>
+<p>Arguments : parent（<code>Widget（）</code>）–新的widget的父级，用于处理自动销毁和事件传播。对于没有父级的小部件，可以为<code>null</code>。</p>
+</blockquote>
+<p><code>Widget.willStart()</code><br>当一个小部件被创建并被附加到DOM的过程中，框架将调用这个方法一次。willstart方法是一个钩子，它应该返回一个deferred。JS框架将等待这个deferred完成，然后再继续渲染步骤。注意，此时小部件没有dom根元素。willstart钩子主要用于执行一些异步工作，例如从服务器获取数据。</p>
+<p><code>[Rendering]()</code><br>此步骤由框架自动完成。框架会检查小部件上是否定义了template键。如果定义了，那么它将在呈现上下文中使用绑定到小部件的widget键呈现该模板（请参见上面的示例：我们在QWeb模板中使用widget.count来读取小部件的值）。如果没有定义模板，则读取 tagName 键并创建相应的DOM元素。渲染完成后，我们将结果设置为小部件的$el属性。在此之后，我们将自动绑定events和custom_events键中的所有事件。</p>
+<p><code>Widget.start()</code><br>渲染完成后，框架将自动调用Start方法。这对于执行一些特殊的后期渲染工作很有用。例如，设置库。<br>必须返回deferred以指示其工作何时完成。</p>
+<blockquote>
+<p>Returns: deferred 对象</p>
+</blockquote>
+<p><code>Widget.destroy()</code><br>这始终是小部件生命周期中的最后一步。当小部件被销毁时，我们基本上执行所有必要的清理操作：从组件树中删除小部件，取消绑定所有事件，…<br>当小部件的父级被销毁时自动调用，如果小部件没有父级，或者如果它被删除但父级仍然存在，则必须显式调用。</p>
+<p>请注意，不必调用willstart和start方法。可以创建一个小部件（将调用init方法），然后销毁（destroy方法），而不需要附加到DOM。如果是这种情况，将不会调用will start和start。</p>
+<h2 id="Widget-API"><a href="#Widget-API" class="headerlink" title="Widget API"></a>Widget API</h2><p><code>Widget.tagName</code><br>如果小部件没有定义模板，则使用。默认为DIV，将用作标记名来创建要设置为小部件的dom根的dom元素。可以使用以下属性进一步自定义生成的dom根目录：</p>
+<p><code>Widget.id</code><br>用于在生成的dom根上生成id属性。请注意，这是很少需要的，如果一个小部件可以多次使用，这可能不是一个好主意。</p>
+<p><code>Widget.className</code><br>用于在生成的dom根上生成class属性。请注意，它实际上可以包含多个css类：“some-class other-class”</p>
+<p><code>Widget.attributes</code><br>属性名到属性值的映射（对象文本）。这些k:v对中的每一个都将被设置为生成的dom根上的dom属性。</p>
+<p><code>Widget.el</code><br>将原始dom元素设置为小部件的根（仅在start lifecyle方法之后可用）</p>
+<p><code>Widget.$el</code><br>jquery封装的el，（仅在Start Lifecyle方法之后可用）</p>
+<p><code>Widget.template</code><br>应设置为QWeb模板的名称。如果设置了，模板将在小部件初始化之后但在其启动之前呈现。模板生成的根元素将被设置为小部件的dom根。</p>
+<p><code>Widget.xmlDependencies</code><br>呈现小部件之前需要加载的XML文件的路径列表。这不会导致加载已加载的任何内容。如果您想延迟加载模板，或者想要在网站和Web客户机界面之间共享一个小部件，这很有用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var EditorMenuBar = Widget.extend(&#123;</span><br><span class="line">    xmlDependencies: [&apos;/web_editor/static/src/xml/editor.xml&apos;],</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p><code>Widget.events</code><br>事件是事件选择器（由空格分隔的事件名称和可选CSS选择器）到回调的映射。回调可以是小部件方法或函数对象的名称。在这两种情况下，这都将设置为小部件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    &apos;click p.oe_some_class a&apos;: &apos;some_method&apos;,</span><br><span class="line">    &apos;change input&apos;: function (e) &#123;</span><br><span class="line">        e.stopPropagation();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>选择器用于jquery的事件委托，回调只对与选择器匹配的dom根的后代触发。如果选择器被省略（只指定了一个事件名），那么事件将直接设置在小部件的dom根上。<br>注意：不鼓励使用内联函数，将来可能会删除它。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Widget.custom_events</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>returns: true 如果小部件正在或者已经被销毁，否则false</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Widget.$(selector)`</span><br><span class="line">将指定为参数的CSS选择器应用于小部件的dom根:</span><br><span class="line">`this.$(selector);`</span><br><span class="line">功能上与以下相同：</span><br><span class="line">`this.$el.find(selector);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>arguments: selector(string)-CSS选择器<br>return:jQuery 对象</p>
+</blockquote>
+<blockquote>
+<p>这个助手方法类似于<code>Backbone.View.$</code></p>
+</blockquote>
+<p><code>Widget.setElement(element)</code><br>将小部件的dom根重新设置为提供的元素，还处理重新设置dom根的各种别名以及取消设置和重新设置委托事件。</p>
+<blockquote>
+<p>arguments: element(Element) -一个DOM元素或者jQuery对象设置为小部件的根DOM</p>
+</blockquote>
+<h2 id="在DOM中插入一个小部件"><a href="#在DOM中插入一个小部件" class="headerlink" title="在DOM中插入一个小部件"></a>在DOM中插入一个小部件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Widget.appendTo(element)`</span><br><span class="line">渲染小部件并将它作为子元素插入到目标元素后面，使用`.appentTo()</span><br><span class="line">Widget.prependTo(element)`</span><br><span class="line">渲染小部件并将它作为子元素插入到目标元素前面，使用`.prependTo()</span><br><span class="line">Widget.insertAfter(element)`</span><br><span class="line">渲染小部件并将它作为目标元素的前一个同级插入，使用`.insertAfter()</span><br><span class="line">Widget.insertBefore(element)`</span><br><span class="line">渲染小部件并将其作为目标的后一个同级插入，使用`.insertBefore()</span><br></pre></td></tr></table></figure>
+
+<p>所有这些方法都接受相应jquery方法接受的任何内容（css选择器、dom节点或jquery对象）。他们都会返回一个 deferred，并承担三个任务：</p>
+<ul>
+<li><strong>通过以下方式呈现小部件的根元素：</strong><br><code>renderElement()</code></li>
+<li><strong>使用jquery在DOM中插入小部件的根元素</strong><br>匹配的方法</li>
+<li>启动小部件并返回启动结果</li>
+</ul>
+<h2 id="小部件指南"><a href="#小部件指南" class="headerlink" title="小部件指南"></a>小部件指南</h2><ul>
+<li>在一般应用和模块中中，标识 （id 属性）应该避免使用，ID限制了组件的可重用性，并使代码更加脆弱。大多数情况下，它们可以替换为Nothing、Classes或保留对dom节点或jquery元素的引用。<br>如果ID是绝对必要的（因为第三方库需要一个），则应使用_.uniqueId（）部分生成ID，例如：<br><code>this.id = _.uniqueId(&#39;my-widget-&#39;);</code></li>
+<li>避免使用可预测/通用的CSS类名。类名称（如“content”或“navigation”）可能与所需的含义/语义匹配，但其他开发人员可能也有相同的需求，从而造成命名冲突和意外行为。通用类名的前缀应该是它们所属组件的名称（创建“非正式”名称空间，就像在C或Objective-C中那样）。</li>
+<li>应避免使用全局选择器。因为一个组件可以在一个页面中多次使用（ODoo中的一个例子是仪表板），所以查询应该限制在给定组件的范围内。未筛选的选择（如<code>$(selector)</code>或<code>document.querySelectorAll（selector）</code>）通常会导致意外或错误的行为。odoo web的widget（）有一个提供dom根（<img src="https://math.jianshu.com/math?formula=el%EF%BC%89%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%8C%E4%BB%A5%E5%8F%8A%E7%9B%B4%E6%8E%A5%E9%80%89%E6%8B%A9%E8%8A%82%E7%82%B9%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F()_()." alt="el）的属性，以及直接选择节点的快捷方式("></li>
+<li>更一般地说，不要假设您的组件拥有或控制任何超出其个人$el的东西（因此，避免使用对父部件的引用）。</li>
+<li>HTML模板/渲染应该使用QWeb，除非非常简单。</li>
+<li>所有交互组件（向屏幕显示信息或截取DOM事件的组件）必须继承自widget（），并正确实现和使用其API和生命周期。</li>
+</ul>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-03-23");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-03-22T16:09:17.094Z" itemprop="datePublished">2020-03-23</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%BA%94%EF%BC%89/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">odoo源码/全局概览（五）</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/03/23/odoo%E6%BA%90%E7%A0%81/%E5%85%A8%E5%B1%80%E6%A6%82%E8%A7%88%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">odoo源码/全局概览（二）</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="https://vuvivian.github.io">vuvivian&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

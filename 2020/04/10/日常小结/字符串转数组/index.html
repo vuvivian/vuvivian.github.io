@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>日常小结/字符串转数组 | vuvivian&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="字符串转数组： “22, 289” =&amp;gt; [“22”,”289”]
+">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="vuvivian&#39;s blog">
+<meta name="msapplication-starturl" content="https://vuvivian.github.io">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="vuvivian&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+    <link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="vuvivian&#39;s blog">
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="日常小结/字符串转数组 | vuvivian&#39;s blog">
+<meta property="og:site_name" content="vuvivian&#39;s blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/">
+<meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
+
+<meta property="og:description" content="字符串转数组： “22, 289” =&amp;gt; [“22”,”289”]
+">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-04-10T06:59:07.056Z">
+    <meta property="article:modified_time" content="2020-04-10T06:59:07.056Z">
+    <meta property="article:author" content="vuvivian">
+    <meta property="og:article:tag" content=""> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/",
+    "@type": "BlogPosting",
+    "logo": "https://vuvivian.github.io/img/favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/"
+    },
+    "headline": "日常小结/字符串转数组 | vuvivian&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuvivian.github.io/img/favicon.ico"
+    },
+    
+    "datePublished": "2020-04-10T06:59:07.056Z",
+    "dateModified": "2020-04-10T07:08:15.384Z",
+    "author": {
+        "@type": "Person",
+        "name": "vuvivian",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/top.jpg"
+        },
+        "description": "越努力，越幸运."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "vuvivian&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vuvivian.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "字符串转数组： “22, 289” =&amp;gt; [“22”,”289”]
+"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">vuvivian&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                越努力，越幸运.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=vuvivian's blog&url=https://vuvivian.github.io&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=vuvivian's blog&url=https://vuvivian.github.io&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io&title=日常小结/字符串转数组" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=日常小结/字符串转数组&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://vuvivian.github.io&text=日常小结/字符串转数组" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADpUlEQVR42u3aS27jQAxFUe9/051RgI4h8V2WPqaF60l3HFupI0D1eeTr3wNfL1GiRIkS9TjUq3i9//7PBTbe+33//f9b1/j/d/S9apyiRE1CbT50bxdOyC3w1uC2Bpg+g8cpStQgVHWRagLZ+gPVJJJuxt7n0ThFifoCFJkQ9hbPlcW2swiLEvUEFN34kk1ytcjvTSKiRH0LqroI+QNHD5VpA3vqLl2UqItR6aGe8u+paZIoURehYuheBDBVyHJkotgLY06reogSdSEqhSfp5xSaVOhO4QAFoKJEDUClTSgpApCDY/fmpBshStRUFD2kHT3wVaHL3oC7N1yUqCkoEnpUoX0qdpMFnizUqZAuStQEFH14U6BPFtk06aTPt4IXUaI+hNrDpAum5qq0iK4cHmNziihRA1ArzU5kQSWb4tQA0g05RYmagqIbWtroSCYh2uRIJxJRoqagaODfCTjJhjeFNukarTRJlKibUbQ4Rott9Pvpve7iLkrUBBRdOCkiPey0MEAOl6JETUSRQnT34EYbIzubYrQhFiVqAIqGIOVGEt6MVBxIN69d9RAl6gOoTpMHhZPFulPQS5OLKFGTUGTRTOEK2XiSxTgFl8uLryhRN6JS2LgaxqQiw5Fgp53QihJ1MyoVyjqD6jSdVJNFNZmgDa0oUR9EpYmCNJLQ5pEUlpLr7B46RYkaguqEGySsIZvjNLmQDW27QCBK1A2oamDk4U0FcDqhkKJDHIsoUQNR6b10A9LGdOVz5PAqStQUVGegJKynhW/S4NXZDIgSNQVFmzBoOJnCFhKqdCYYUaKmoegBkBSxqwmDbGZp0HK4OUSUqAtRZMFNB8eVgIYGMuSGiBI1GdUK5EMRjRSo0yRAQlBRoiahVg5zdAJIwU3a5NIityhRk1BkgU1FNtokRRGrIacoUVNQ6WKk8EUDT7rQdkJPUaImoaqBk8F1GoLJIts9VMaOF1GibkaRxbLb3NsNXI4Uv0WJmopKYWQK8mmzVTUZpckqTiiiRA1AkUHQhZYGkmkiqTbW7W5nUaJuRqVXp9GjU5Cmi3OrYCFK1ABUahQkoQhp1KKBTlqQ27OfKFEfQJEiNdm4dh/wdPPS5laUqMkoEoakg2I1SBpgpu+Xh09Ror4ARUOTM4oCq2GQKFHfhiIFsWoBTg0mtEErfU+UqEkosqGlDRvpM6TAkIKW03bpokRdgCKNT1VRLB0c04RAN84JLErUBNSTXqJEiRIl6jGvH+7Uc+DsmStuAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">日常小结/字符串转数组</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/top.jpg" src="/img/suka-lazyload.gif" alt="vuvivian's Avatar">
+        <span>2020-04-10</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=日常小结/字符串转数组&url=https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=日常小结/字符串转数组&url=https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/&title=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vuvivian's blog&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://vuvivian.github.io/2020/04/10/%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E7%BB%84/&text=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADpUlEQVR42u3aS27jQAxFUe9/051RgI4h8V2WPqaF60l3HFupI0D1eeTr3wNfL1GiRIkS9TjUq3i9//7PBTbe+33//f9b1/j/d/S9apyiRE1CbT50bxdOyC3w1uC2Bpg+g8cpStQgVHWRagLZ+gPVJJJuxt7n0ThFifoCFJkQ9hbPlcW2swiLEvUEFN34kk1ytcjvTSKiRH0LqroI+QNHD5VpA3vqLl2UqItR6aGe8u+paZIoURehYuheBDBVyHJkotgLY06reogSdSEqhSfp5xSaVOhO4QAFoKJEDUClTSgpApCDY/fmpBshStRUFD2kHT3wVaHL3oC7N1yUqCkoEnpUoX0qdpMFnizUqZAuStQEFH14U6BPFtk06aTPt4IXUaI+hNrDpAum5qq0iK4cHmNziihRA1ArzU5kQSWb4tQA0g05RYmagqIbWtroSCYh2uRIJxJRoqagaODfCTjJhjeFNukarTRJlKibUbQ4Rott9Pvpve7iLkrUBBRdOCkiPey0MEAOl6JETUSRQnT34EYbIzubYrQhFiVqAIqGIOVGEt6MVBxIN69d9RAl6gOoTpMHhZPFulPQS5OLKFGTUGTRTOEK2XiSxTgFl8uLryhRN6JS2LgaxqQiw5Fgp53QihJ1MyoVyjqD6jSdVJNFNZmgDa0oUR9EpYmCNJLQ5pEUlpLr7B46RYkaguqEGySsIZvjNLmQDW27QCBK1A2oamDk4U0FcDqhkKJDHIsoUQNR6b10A9LGdOVz5PAqStQUVGegJKynhW/S4NXZDIgSNQVFmzBoOJnCFhKqdCYYUaKmoegBkBSxqwmDbGZp0HK4OUSUqAtRZMFNB8eVgIYGMuSGiBI1GdUK5EMRjRSo0yRAQlBRoiahVg5zdAJIwU3a5NIityhRk1BkgU1FNtokRRGrIacoUVNQ6WKk8EUDT7rQdkJPUaImoaqBk8F1GoLJIts9VMaOF1GibkaRxbLb3NsNXI4Uv0WJmopKYWQK8mmzVTUZpckqTiiiRA1AkUHQhZYGkmkiqTbW7W5nUaJuRqVXp9GjU5Cmi3OrYCFK1ABUahQkoQhp1KKBTlqQ27OfKFEfQJEiNdm4dh/wdPPS5laUqMkoEoakg2I1SBpgpu+Xh09Ror4ARUOTM4oCq2GQKFHfhiIFsWoBTg0mtEErfU+UqEkosqGlDRvpM6TAkIKW03bpokRdgCKNT1VRLB0c04RAN84JLErUBNSTXqJEiRIl6jGvH+7Uc+DsmStuAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                    
+                    <article id="post-content">
+                        <p>字符串转数组： “22, 289” =&gt; [“22”,”289”]</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">const</span> str = <span class="string">"22, 289"</span>;</span><br><span class="line"> <span class="keyword">const</span> arr = str.split(<span class="string">","</span>);    </span><br><span class="line"></span><br><span class="line">=&gt; arr ：  [<span class="string">"22"</span>, <span class="string">" 289"</span>]</span><br></pre></td></tr></table></figure>
+
+<p>字符串数组转number数组： [“22”, “ 289”] =&gt; [22， 289] </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr_1 = [<span class="string">"22, 289"</span>];</span><br><span class="line">	<span class="keyword">const</span> arr_2 = arr1.map(<span class="built_in">Number</span>);</span><br><span class="line"></span><br><span class="line">=&gt; arr ：  [<span class="number">22</span>, <span class="number">289</span>]</span><br></pre></td></tr></table></figure>
+
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-04-10");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-04-10T06:59:07.056Z" itemprop="datePublished">2020-04-10</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/04/09/vue/vue%E5%AE%9E%E6%88%98/vue%20cli3.0+element+mangoDB/%E5%9F%BA%E4%BA%8Eiview%E7%9A%84modal%E5%B0%81%E8%A3%85/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">vue/vue实战/vue cli3.0+element+mangoDB/基于iview的modal封装</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="https://vuvivian.github.io">vuvivian&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

@@ -266,7 +266,7 @@ window.oldVersion = [
     },
     
     "datePublished": "2020-03-30T02:32:10.338Z",
-    "dateModified": "2020-04-06T07:48:12.818Z",
+    "dateModified": "2020-04-11T08:54:05.957Z",
     "author": {
         "@type": "Person",
         "name": "vuvivian",
@@ -507,7 +507,7 @@ window.oldVersion = [
                     
                         
                             <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父组件Home引用子组件Board及传参"><span class="post-toc-number">1.</span> <span class="post-toc-text">父组件Home引用子组件Board及传参</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#子组件Board定义参数及获取参数"><span class="post-toc-number">2.</span> <span class="post-toc-text">子组件Board定义参数及获取参数</span></a></li></ol>
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父组件Home引用子组件Board及传参"><span class="post-toc-number">1.</span> <span class="post-toc-text">父组件Home引用子组件Board及传参</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#子组件Board定义参数及获取参数"><span class="post-toc-number">2.</span> <span class="post-toc-text">子组件Board定义参数及获取参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过this-emit-“on-btn-click”-触发父组件方法，并实现等待父组件方法执行完成后再执行子组件方法的剩余逻辑"><span class="post-toc-number">3.</span> <span class="post-toc-text">通过this.$emit(“on-btn-click”)触发父组件方法，并实现等待父组件方法执行完成后再执行子组件方法的剩余逻辑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vue判断父组件有没有给子组件传事件"><span class="post-toc-number">4.</span> <span class="post-toc-text">vue判断父组件有没有给子组件传事件</span></a></li></ol>
                             </div>
                         
                     
@@ -515,13 +515,28 @@ window.oldVersion = [
                         <h3 id="父组件Home引用子组件Board及传参"><a href="#父组件Home引用子组件Board及传参" class="headerlink" title="父组件Home引用子组件Board及传参"></a>父组件Home引用子组件Board及传参</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">	&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;home-view&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;home-container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;container-row&quot;&gt;</span><br><span class="line">          &lt;Board title=&quot;创建应用&quot; description=&quot;所见即所得，可拖拉拽快速搭建一个新应用&quot; icon=&quot;logo-codepen&quot;&gt;&lt;/Board&gt;</span><br><span class="line">          &lt;Board title=&quot;编辑应用&quot; description=&quot;选择一个已有应用后可立即调整&quot; icon=&quot;logo-codepen&quot;&gt;&lt;/Board&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;container-row&quot;&gt;</span><br><span class="line">          &lt;Board title=&quot;导入应用&quot; description=&quot;一键导入，支持更加灵活的调整&quot; icon=&quot;logo-codepen&quot;&gt;&lt;/Board&gt;</span><br><span class="line">          &lt;Board title=&quot;导出应用&quot; description=&quot;可导出XML、PY文件&quot; icon=&quot;logo-codepen&quot;&gt;&lt;/Board&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Board from &quot;./Board&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;Home&quot;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    Board</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="子组件Board定义参数及获取参数"><a href="#子组件Board定义参数及获取参数" class="headerlink" title="子组件Board定义参数及获取参数"></a>子组件Board定义参数及获取参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;std-card-container&quot;&gt;</span><br><span class="line">    &lt;Card&gt;</span><br><span class="line">      &lt;div class=&quot;std-left-container&quot;&gt;</span><br><span class="line">        &lt;Icon :type=&quot;icon&quot; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;std-right-container&quot;&gt;</span><br><span class="line">        &lt;h1 class=&quot;std-card-title&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h1&gt;</span><br><span class="line">        &lt;p class=&quot;std-card-description&quot;&gt;&#123;&#123;description&#125;&#125;&lt;/p&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/Card&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;Board&quot;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    title: String,</span><br><span class="line">    description: String,</span><br><span class="line">    icon: String,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;less&quot; scoped&gt;</span><br><span class="line">.std-card-container &#123;</span><br><span class="line">  overflow:hidden;</span><br><span class="line">  .std-left-container &#123;</span><br><span class="line">    float: left;</span><br><span class="line">    width: 10%;</span><br><span class="line">    font-size: 46px;</span><br><span class="line">    text-align: center;</span><br><span class="line">  &#125;</span><br><span class="line">  .std-right-container &#123;</span><br><span class="line">    width: 90%;</span><br><span class="line">    margin-left: 10%;</span><br><span class="line">    padding: 5px 0px;</span><br><span class="line">    .std-card-title &#123;</span><br><span class="line">      font-size: 18px;</span><br><span class="line">      font-weight: 700;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    .std-card-description &#123;</span><br><span class="line">      font-size: 14px;</span><br><span class="line">      padding: 10px 0 0;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="通过this-emit-“on-btn-click”-触发父组件方法，并实现等待父组件方法执行完成后再执行子组件方法的剩余逻辑"><a href="#通过this-emit-“on-btn-click”-触发父组件方法，并实现等待父组件方法执行完成后再执行子组件方法的剩余逻辑" class="headerlink" title="通过this.$emit(“on-btn-click”)触发父组件方法，并实现等待父组件方法执行完成后再执行子组件方法的剩余逻辑"></a>通过this.$emit(“on-btn-click”)触发父组件方法，并实现等待父组件方法执行完成后再执行子组件方法的剩余逻辑</h3><pre><code>    子组件
+    handleOk () {
+  this.$emit(&apos;on-ok&apos;, run =&gt; {
+    console.log(&apos;thenethene&apos;)
+  })
+},
+父组件
+async ok (run) {
+  this.$Message.success(&apos;Clicked ok2&apos;);
+  await this.getResult();
+  run()
+},</code></pre><h3 id="vue判断父组件有没有给子组件传事件"><a href="#vue判断父组件有没有给子组件传事件" class="headerlink" title="vue判断父组件有没有给子组件传事件"></a>vue判断父组件有没有给子组件传事件</h3><pre><code>    子组件：
+    if( this.$listeners[&apos;on-ok&apos;]) {
+  // ...
+}</code></pre>
                     </article>
                     
 
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
-        var dateUpdate = Date.parse("2020-04-06");
+        var dateUpdate = Date.parse("2020-04-11");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -536,7 +551,7 @@ window.oldVersion = [
 
 <p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-03-30T02:32:10.338Z" itemprop="datePublished">2020-03-30</time>
 
-    , Updated at&nbsp;<time datetime="2020-04-06T07:48:12.818Z" itemprop="dateModified">2020-04-06</time>
+    , Updated at&nbsp;<time datetime="2020-04-11T08:54:05.957Z" itemprop="dateModified">2020-04-11</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">

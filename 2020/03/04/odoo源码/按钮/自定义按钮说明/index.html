@@ -266,7 +266,7 @@ window.oldVersion = [
     },
     
     "datePublished": "2020-03-04T15:05:21.576Z",
-    "dateModified": "2020-04-11T03:23:41.929Z",
+    "dateModified": "2020-05-21T06:14:28.810Z",
     "author": {
         "@type": "Person",
         "name": "vuvivian",
@@ -507,14 +507,16 @@ window.oldVersion = [
                     
                         
                             <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tree-form视图设置自定义按钮"><span class="post-toc-number">1.</span> <span class="post-toc-text">tree/form视图设置自定义按钮</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义按钮标签buttonspack"><span class="post-toc-number">2.</span> <span class="post-toc-text">自定义按钮标签buttonspack</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#默认按钮的控制"><span class="post-toc-number">3.</span> <span class="post-toc-text">默认按钮的控制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#按钮分组-buttongroup"><span class="post-toc-number">4.</span> <span class="post-toc-text">按钮分组 buttongroup</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#按钮-button"><span class="post-toc-number">5.</span> <span class="post-toc-text">按钮 button</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#按钮数据格式"><span class="post-toc-number">6.</span> <span class="post-toc-text">按钮数据格式</span></a></li></ol>
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tree-form视图设置自定义按钮"><span class="post-toc-number">1.</span> <span class="post-toc-text">tree/form视图设置自定义按钮</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#是否显示默认按钮-hasSidebar"><span class="post-toc-number">2.</span> <span class="post-toc-text">是否显示默认按钮 hasSidebar</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义按钮标签buttonspack"><span class="post-toc-number">3.</span> <span class="post-toc-text">自定义按钮标签buttonspack</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#默认按钮的控制"><span class="post-toc-number">4.</span> <span class="post-toc-text">默认按钮的控制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#按钮分组-buttongroup"><span class="post-toc-number">5.</span> <span class="post-toc-text">按钮分组 buttongroup</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#按钮-button"><span class="post-toc-number">6.</span> <span class="post-toc-text">按钮 button</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#按钮数据格式"><span class="post-toc-number">7.</span> <span class="post-toc-text">按钮数据格式</span></a></li></ol>
                             </div>
                         
                     
                     <article id="post-content">
                         <h3 id="tree-form视图设置自定义按钮"><a href="#tree-form视图设置自定义按钮" class="headerlink" title="tree/form视图设置自定义按钮"></a>tree/form视图设置自定义按钮</h3><pre><code>isAdvancedBtn
     * false 默认
-    * true</code></pre><h3 id="自定义按钮标签buttonspack"><a href="#自定义按钮标签buttonspack" class="headerlink" title="自定义按钮标签buttonspack"></a>自定义按钮标签buttonspack</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">buttonspack</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"abc"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">string</span>=<span class="string">"提交/批量"</span> <span class="attr">isBatch</span>=<span class="string">"true"</span>/&gt;</span> </span><br><span class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"%(todo_button_action)d"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">string</span>=<span class="string">"单一/action"</span> <span class="attr">isBatch</span>=<span class="string">"false"</span>/&gt;</span> </span><br><span class="line">       <span class="tag">&lt;<span class="name">buttongroup</span> <span class="attr">string</span>=<span class="string">"分组"</span> <span class="attr">isBatch</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"%(todo_button_action)d"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">string</span>=<span class="string">"测试"</span> <span class="attr">isBatch</span>=<span class="string">"false"</span>/&gt;</span> </span><br><span class="line">       <span class="tag">&lt;/<span class="name">buttongroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">buttonspack</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    * true</code></pre><h3 id="是否显示默认按钮-hasSidebar"><a href="#是否显示默认按钮-hasSidebar" class="headerlink" title="是否显示默认按钮 hasSidebar"></a>是否显示默认按钮 hasSidebar</h3><pre><code>hasDefaultBtn
+    * true 默认
+    * false </code></pre><h3 id="自定义按钮标签buttonspack"><a href="#自定义按钮标签buttonspack" class="headerlink" title="自定义按钮标签buttonspack"></a>自定义按钮标签buttonspack</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">buttonspack</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"abc"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">string</span>=<span class="string">"提交/批量"</span> <span class="attr">isBatch</span>=<span class="string">"true"</span>/&gt;</span> </span><br><span class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"%(todo_button_action)d"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">string</span>=<span class="string">"单一/action"</span> <span class="attr">isBatch</span>=<span class="string">"false"</span>/&gt;</span> </span><br><span class="line">       <span class="tag">&lt;<span class="name">buttongroup</span> <span class="attr">string</span>=<span class="string">"分组"</span> <span class="attr">isBatch</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"%(todo_button_action)d"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">string</span>=<span class="string">"测试"</span> <span class="attr">isBatch</span>=<span class="string">"false"</span>/&gt;</span> </span><br><span class="line">       <span class="tag">&lt;/<span class="name">buttongroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">buttonspack</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="默认按钮的控制"><a href="#默认按钮的控制" class="headerlink" title="默认按钮的控制"></a>默认按钮的控制</h3><pre><code>1. 新建  create
 2. 复制  copy   
@@ -539,7 +541,7 @@ window.oldVersion = [
 
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
-        var dateUpdate = Date.parse("2020-04-11");
+        var dateUpdate = Date.parse("2020-05-21");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -554,7 +556,7 @@ window.oldVersion = [
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2020-03-04T15:05:21.576Z" itemprop="datePublished">2020-03-04</time>
 
-    , 最后修改于&nbsp;<time datetime="2020-04-11T03:23:41.929Z" itemprop="dateModified">2020-04-11</time>
+    , 最后修改于&nbsp;<time datetime="2020-05-21T06:14:28.810Z" itemprop="dateModified">2020-05-21</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">

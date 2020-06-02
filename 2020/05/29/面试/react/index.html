@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>面试/react | vuvivian&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="React
+什么时候使用状态管理器？
+render函...">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="vuvivian&#39;s blog">
+<meta name="msapplication-starturl" content="https://vuvivian.github.io">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="vuvivian&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+    <link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="vuvivian&#39;s blog">
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="面试/react | vuvivian&#39;s blog">
+<meta property="og:site_name" content="vuvivian&#39;s blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/">
+<meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
+
+<meta property="og:description" content="React
+什么时候使用状态管理器？
+render函...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-05-29T06:08:37.664Z">
+    <meta property="article:modified_time" content="2020-05-29T06:08:37.664Z">
+    <meta property="article:author" content="vuvivian">
+    <meta property="og:article:tag" content=""> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/",
+    "@type": "BlogPosting",
+    "logo": "https://vuvivian.github.io/img/favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/"
+    },
+    "headline": "面试/react | vuvivian&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuvivian.github.io/img/favicon.ico"
+    },
+    
+    "datePublished": "2020-05-29T06:08:37.664Z",
+    "dateModified": "2020-05-29T06:12:25.357Z",
+    "author": {
+        "@type": "Person",
+        "name": "vuvivian",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/top.jpg"
+        },
+        "description": "越努力，越幸运."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "vuvivian&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vuvivian.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "React
+什么时候使用状态管理器？
+render函..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">vuvivian&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                越努力，越幸运.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=vuvivian's blog&url=https://vuvivian.github.io&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=vuvivian's blog&url=https://vuvivian.github.io&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io&title=面试/react" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=面试/react&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://vuvivian.github.io&text=面试/react" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACLUlEQVR42u2aQZLCMAwE8/9PL6etWsDWtALUAupcgGDiNhU5o5GOnw84DiGFFFLIN4A8iuP3+7/jbs/dXuNqksVv6LxCzoZc3rQLuN1k1edtUIR5hRSyCpgOzGpRq0WmeYUUshq82oB3m/LdRGDxQgrZDZwUPDuBsBsrpJAEsnzQQ8FaiZPOw0BIIWki9uzXl2SLQn485JmkKQneJJhf4qoJ+TWQlYAlxkAlMqr3SeAIORdyB5oSr/T7zrmtCSvkaMgkXNMFiQmb/oCt6BVyFCSZlGzEHaGSBLCQQlbmZwJLRanK5IpzCTkSshpIxEZlbiEDoDJehRwJSQMnfabJWKfIJeRMyPIBD4RDmUgV59BChBwJWQVFEsIkwKoCfxQeQo6EJMZ8F6wSwsQUEFLIZGp2BQMpUpEgE3ImJG2i6zR4JNOgelgIKeTZglG1aZ9tDEGbuZBjIFPhnZhNpAGZmrJCzoVMjcCdwnrXgI0mrJBjIclEycCnCyKmq5BCJuOIiNfOIongFXI2JCkyUbOAGK+k+CmkkKSZiJgAZKOmASXkXEhyo2MzvrFhR4NByPGQxASg4oCYYdFQFXIkJGkEoeNI8zIV2ULOhUw3Mk3MaFCUpinp2BdyBCRpTkqwqUmeiGghhSQw1SJIUkZNLiGFPANJivUkAOk1hBSyU1CnzSSkCPVw4Aj5lZDdhpFkHBCzKgaUkGMhSSKWjFKS9LebmYUcCfnOh5BCCinkPx4XkLJ15Gs0flYAAAAASUVORK5CYII=" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">面试/react</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/top.jpg" src="/img/suka-lazyload.gif" alt="vuvivian's Avatar">
+        <span>2020-05-29</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=面试/react&url=https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=面试/react&url=https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/&title=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vuvivian's blog&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/&text=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACLUlEQVR42u2aQZLCMAwE8/9PL6etWsDWtALUAupcgGDiNhU5o5GOnw84DiGFFFLIN4A8iuP3+7/jbs/dXuNqksVv6LxCzoZc3rQLuN1k1edtUIR5hRSyCpgOzGpRq0WmeYUUshq82oB3m/LdRGDxQgrZDZwUPDuBsBsrpJAEsnzQQ8FaiZPOw0BIIWki9uzXl2SLQn485JmkKQneJJhf4qoJ+TWQlYAlxkAlMqr3SeAIORdyB5oSr/T7zrmtCSvkaMgkXNMFiQmb/oCt6BVyFCSZlGzEHaGSBLCQQlbmZwJLRanK5IpzCTkSshpIxEZlbiEDoDJehRwJSQMnfabJWKfIJeRMyPIBD4RDmUgV59BChBwJWQVFEsIkwKoCfxQeQo6EJMZ8F6wSwsQUEFLIZGp2BQMpUpEgE3ImJG2i6zR4JNOgelgIKeTZglG1aZ9tDEGbuZBjIFPhnZhNpAGZmrJCzoVMjcCdwnrXgI0mrJBjIclEycCnCyKmq5BCJuOIiNfOIongFXI2JCkyUbOAGK+k+CmkkKSZiJgAZKOmASXkXEhyo2MzvrFhR4NByPGQxASg4oCYYdFQFXIkJGkEoeNI8zIV2ULOhUw3Mk3MaFCUpinp2BdyBCRpTkqwqUmeiGghhSQw1SJIUkZNLiGFPANJivUkAOk1hBSyU1CnzSSkCPVw4Aj5lZDdhpFkHBCzKgaUkGMhSSKWjFKS9LebmYUcCfnOh5BCCinkPx4XkLJ15Gs0flYAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#React"><span class="post-toc-number">1.</span> <span class="post-toc-text">React</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ReactNative"><span class="post-toc-number">2.</span> <span class="post-toc-text">ReactNative</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#React-Router"><span class="post-toc-number">3.</span> <span class="post-toc-text">React-Router</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Redux-Mobox"><span class="post-toc-number">4.</span> <span class="post-toc-text">Redux/Mobox</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Flux"><span class="post-toc-number">5.</span> <span class="post-toc-text">Flux</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><ul>
+<li>什么时候使用状态管理器？</li>
+<li>render函数中return如果没有使用()会有什么问题？</li>
+<li>componentWillUpdate可以直接修改state的值吗？</li>
+<li>说说你对React的渲染原理的理解</li>
+<li>什么渲染劫持？</li>
+<li>React Intl是什么原理？</li>
+<li>你有使用过React Intl吗？</li>
+<li>怎么实现React组件的国际化呢？</li>
+<li>说说Context有哪些属性？</li>
+<li>怎么使用Context开发组件？</li>
+<li>为什么React并不推荐我们优先考虑使用Context？</li>
+<li>除了实例的属性可以获取Context外哪些地方还能直接获取Context呢？</li>
+<li>childContextTypes是什么？它有什么用？</li>
+<li>contextType是什么？它有什么用？</li>
+<li>Consumer向上找不到Provider的时候怎么办？</li>
+<li>有使用过Consumer吗？</li>
+<li>在React怎么使用Context？</li>
+<li>React15和16别支持IE几以上？</li>
+<li>说说你对windowing的了解</li>
+<li>举例说明React的插槽有哪些运用场景？</li>
+<li>你有用过React的插槽(Portals)吗？怎么用？</li>
+<li>React的严格模式有什么用处？</li>
+<li>React如何进行代码拆分？拆分的原则是什么？</li>
+<li>React组件的构造函数有什么作用？</li>
+<li>React组件的构造函数是必须的吗？</li>
+<li>React中在哪捕获错误？</li>
+<li>React怎样引入svg的文件？</li>
+<li>说说你对Relay的理解</li>
+<li>在React中你有经常使用常量吗？</li>
+<li>为什么说React中的props是只读的？</li>
+<li>你有使用过formik库吗？说说它的优缺点</li>
+<li>你有用过哪些React的表单库吗？说说它们的优缺点</li>
+<li>如果组件的属性没有传值，那么它的默认值是什么？</li>
+<li>可以使用TypeScript写React应用吗？怎么操作？</li>
+<li><code>super()</code>和<code>super(props)</code>有什么区别？</li>
+<li>你有使用过loadable组件吗？它帮我们解决了什么问题？</li>
+<li>你有使用过suspense组件吗？它帮我们解决了什么问题？</li>
+<li>怎样动态导入组件？</li>
+<li>如何给非控组件设置默认的值？</li>
+<li>怎么在React中引入其它的UI库，例如Bootstrap</li>
+<li>怎样将事件传递给子组件？</li>
+<li>怎样使用Hooks获取服务端数据？</li>
+<li>使用Hooks要遵守哪些原则？</li>
+<li>render方法的原理你有了解吗？它返回的数据类型是什么？</li>
+<li>useEffect和useLayoutEffect有什么区别？</li>
+<li>在React项目中你用过哪些动画的包？</li>
+<li>React必须使用JSX吗？</li>
+<li>自定义组件时render是可选的吗？为什么？</li>
+<li>需要把keys设置为全局唯一吗？</li>
+<li>怎么定时更新一个组件？</li>
+<li>React根据不同的环境打包不同的域名？</li>
+<li>使用webpack打包React项目，怎么减小生成的js大小？</li>
+<li>在React中怎么使用async/await？</li>
+<li>你阅读了几遍React的源码？都有哪些收获？你是怎么阅读的？</li>
+<li>什么是React.forwardRef？它有什么作用？</li>
+<li>写个例子说明什么是JSX的内联条件渲染</li>
+<li>在React中怎么将参数传递给事件？</li>
+<li>React的事件和普通的HTML事件有什么不同？</li>
+<li>在React中怎么阻止事件的默认行为？</li>
+<li>你最喜欢React的哪一个特性（说一个就好）？</li>
+<li>在React中什么时候使用箭头函数更方便呢？</li>
+<li>你最不喜欢React的哪一个特性（说一个就好）？</li>
+<li>说说你对React的reconciliation（一致化算法）的理解</li>
+<li>使用PropTypes和Flow有什么区别？</li>
+<li>怎样有条件地渲染组件？</li>
+<li>在JSX中如何写注释？</li>
+<li>constructor和getInitialState有不同？</li>
+<li>写例子说明React如何在JSX中实现for循环</li>
+<li>为什么建议Fragment包裹元素？它的简写是什么？</li>
+<li>你有用过React.Fragment吗？说说它有什么用途？</li>
+<li>在React中你有遇到过安全问题吗？怎么解决？</li>
+<li>React中如何监听state的变化？</li>
+<li>React什么是有状态组件？</li>
+<li>React v15中怎么处理错误边界？</li>
+<li>React Fiber它的目的是解决什么问题？</li>
+<li>React为什么不要直接修改state？如果想修改怎么做？</li>
+<li>create-react-app有什么好处？</li>
+<li>装饰器(Decorator)在React中有什么应用？</li>
+<li>使用高阶组件(HOC)实现一个loading组件</li>
+<li>如何用React实现滚动动画？</li>
+<li>说出几点你认为的React最佳实践</li>
+<li>你是如何划分React组件的？</li>
+<li>举例说明如何在React创建一个事件</li>
+<li>如何更新组件的状态？</li>
+<li>怎样将多个组件嵌入到一个组件中？</li>
+<li>React的render中可以写{if else}这样的判断吗？</li>
+<li>React为什么要搞一个Hooks？</li>
+<li>React Hooks帮我们解决了哪些问题？</li>
+<li>使用React的memo和forwardRef包装的组件为什么提示children类型不对？</li>
+<li>有在项目中使用过Antd吗？说说它的好处</li>
+<li>在React中如果去除生产环境上的sourcemap？</li>
+<li>在React中怎么引用sass或less？</li>
+<li>组件卸载前，加在DOM元素的监听事件和定时器要不要手动清除？为什么？</li>
+<li>为什么标签里的for要写成htmlFor呢？</li>
+<li>状态管理器解决了什么问题？什么时候用状态管理器？</li>
+<li>状态管理器它精髓是什么？</li>
+<li>函数式组件有没有生命周期？为什么？</li>
+<li>在React中怎么引用第三方插件？比如说jQuery等</li>
+<li>React的触摸事件有哪几种？</li>
+<li>路由切换时同一组件无法重新渲染的有什么方法可以解决？</li>
+<li>React16新特性有哪些？</li>
+<li>你有用过哪些React的UI库？它们的优缺点分别是什么？</li>
+<li><code>单击</code>和<code>单击</code>有什么区别？</li>
+<li>在React中如何引入图片？哪种方式更好？</li>
+<li>在React中怎么使用字体图标？</li>
+<li>React的应用如何打包发布？它的步骤是什么？</li>
+<li>ES6的语法’…’在React中有哪些应用？</li>
+<li>如何封装一个React的全局公共组件？</li>
+<li>在React中组件的props改变时更新组件的有哪些方法？</li>
+<li>immutable的原理是什么？</li>
+<li>你对immutable有了解吗？它有什么作用？</li>
+<li>如何提高组件的渲染效率呢？</li>
+<li>在React中如何避免不必要的render？</li>
+<li>render在什么时候会被触发？</li>
+<li>写出React动态改变class切换组件样式</li>
+<li>React中怎么操作虚拟DOM的Class属性？</li>
+<li>为什么属性使用className而不是class呢？</li>
+<li>请说下react组件更新的机制是什么？</li>
+<li>怎么在JSX里属性可以被覆盖吗？覆盖的原则是什么？</li>
+<li>怎么在JSX里使用自定义属性？</li>
+<li>怎么防止HTML被转义？</li>
+<li>经常用React，你知道React的核心思想是什么吗？</li>
+<li>在React中我们怎么做静态类型检测？都有哪些方法可以做到？</li>
+<li>在React中组件的state和setState有什么区别？</li>
+<li>React怎样跳过重新渲染？</li>
+<li>React怎么判断什么时候重新渲染组件呢？</li>
+<li>什么是React的实例？函数式组件有没有实例？</li>
+<li>在React中如何判断点击元素属于哪一个组件？</li>
+<li>在React中组件和元素有什么区别？</li>
+<li>在React中声明组件时组件名的第一个字母必须是大写吗？为什么？</li>
+<li>举例说明什么是高阶组件(HOC)的反向继承？</li>
+<li>有用过React Devtools吗？说说它的优缺点分别是什么？</li>
+<li>举例说明什么是高阶组件(HOC)的属性代理？</li>
+<li>React的isMounted有什么作用？</li>
+<li>React组件命名推荐的方式是哪个？为什么不推荐使用displayName？</li>
+<li>React的displayName有什么作用？</li>
+<li>说说你对React的组件命名规范的理解</li>
+<li>说说你对React的项目结构的理解</li>
+<li>React16废弃了哪些生命周期？为什么？</li>
+<li>怎样在React中开启生产模式？</li>
+<li>React中getInitialState方法的作用是什么？</li>
+<li>React中你知道creatClass的原理吗？</li>
+<li>React中验证props的目的是什么？</li>
+<li>React中你有使用过getDefaultProps吗？它有什么作用？</li>
+<li>React中你有使用过propType吗？它有什么作用？</li>
+<li>React中怎么检验props？</li>
+<li>React.createClass和extends Component的区别有哪些？</li>
+<li>高阶组件(HOC)有哪些优点和缺点？</li>
+<li>给组件设置很多属性时不想一个个去设置有什么办法可以解决这问题呢？</li>
+<li>React16跟之前的版本生命周期有哪些变化？</li>
+<li>怎样实现React组件的记忆？原理是什么？</li>
+<li>创建React动画有哪些方式？</li>
+<li>为什么建议不要过渡使用Refs？</li>
+<li>在React使用高阶组件(HOC)有遇到过哪些问题？如何解决？</li>
+<li>在使用React过程中什么时候用高阶组件(HOC)？</li>
+<li>说说React diff的原理是什么？</li>
+<li>React怎么提高列表渲染的性能？</li>
+<li>使用ES6的class定义的组件不支持mixins了，那用什么可以替代呢？</li>
+<li>为何说虚拟DOM会提高性能？</li>
+<li>React的性能优化在哪个生命周期？它优化的原理是什么？</li>
+<li>你知道的React性能优化有哪些方法？</li>
+<li>举例说明在React中怎么使用样式？</li>
+<li>React有哪几种方法来处理表单输入？</li>
+<li>什么是浅层渲染？</li>
+<li>你有做过React的单元测试吗？如果有，用的是哪些工具？怎么做的？</li>
+<li>在React中什么是合成事件？有什么用？</li>
+<li>使用React写一个todo应用，说说你的思路</li>
+<li>React16的reconciliation和commit分别是什么？</li>
+<li>React的函数式组件有没有生命周期？</li>
+<li>useState和this.state的区别是什么？</li>
+<li>请说说什么是useImperativeHandle？</li>
+<li>请说说什么是useReducer？</li>
+<li>请说说什么是useRef？</li>
+<li>请说说什么是useEffect？</li>
+<li>举例说明useState</li>
+<li>请说说什么是useState？为什么要使用useState？</li>
+<li>请描述下你对React的新特性Hooks的理解？它有哪些应用场景？</li>
+<li>说说你对Error Boundaries的理解</li>
+<li>说说你对Fiber架构的理解</li>
+<li>说说你是怎么理解React的业务组件和技术组件的？</li>
+<li>为什么建议setState的第一个参数是callback而不是一个对象呢？</li>
+<li>展示组件和容器组件有什么区别？</li>
+<li>Mern和Yeoman脚手架有什么区别？</li>
+<li>你有在项目中使用过Yeoman脚手架吗？</li>
+<li>你有在项目中使用过Mern脚手架吗？</li>
+<li>shouldComponentUpdate方法是做什么的？</li>
+<li>怎样在React中使用innerHTML？</li>
+<li>你有写过React的中间件插件吗？</li>
+<li>React的中间件机制是怎么样的？这种机制有什么作用？</li>
+<li>React中你用过哪些第三方的中间件？</li>
+<li>不用脚手架，你会手动搭建React项目吗？</li>
+<li>请说说React中Portal是什么？</li>
+<li>React中修改prop引发的生命周期有哪几个？</li>
+<li>React多个setState调用的原理是什么？</li>
+<li>React中调用setState会更新的生命周期有哪几个？</li>
+<li>React中setState的第二个参数作用是什么呢？</li>
+<li>React中的setState是同步还是异步的呢？为什么state并不一定会同步更新？</li>
+<li>React中的setState批量更新的过程是什么？</li>
+<li>React中的setState执行机制是什么呢？</li>
+<li>在React中遍历的方法有哪些？它们有什么区别呢？</li>
+<li>请说说你对React的render方法的理解</li>
+<li>props.children.map和js的map有什么区别？为什么优先选择React的？</li>
+<li>有用过React的严格模式吗？</li>
+<li>React中的setState和replaceState的区别是什么？</li>
+<li>React中的setState缺点是什么呢？</li>
+<li>有用过React的Fragment吗？它的运用场景是什么？</li>
+<li>React组件间共享数据方法有哪些？</li>
+<li>React的状态提升是什么？使用场景有哪些？</li>
+<li>简单描述下你有做过哪些React项目？</li>
+<li>在构造函数中调用super(props)的目的是什么？</li>
+<li>你是如何学习React的？</li>
+<li>从旧版本的React升级到新版本的React有做过吗？有遇到过什么坑？</li>
+<li>你用过React版本有哪些？</li>
+<li>有用过React的服务端渲染吗？怎么做的？</li>
+<li>React的mixins有什么作用？适用于什么场景？</li>
+<li>React怎么拿到组件对应的DOM元素？</li>
+<li>请描述下事件在React中的处理方式是什么？</li>
+<li>JSX和HTML有什么区别？</li>
+<li>React的书写规范有哪些？</li>
+<li>create-react-app创建新运用怎么解决卡的问题？</li>
+<li>使用React的方式有哪几种？</li>
+<li>说说你对reader的context的理解</li>
+<li>同时引用这三个库React.js、React-dom.js和babel.js它们都有什么作用？</li>
+<li>你知道Virtual DOM的工作原理吗？</li>
+<li>你阅读过React的源码吗？简要说下它的执行流程</li>
+<li>React中怎样阻止组件渲染？</li>
+<li>React非兄弟组件如何通信？</li>
+<li>React兄弟组件如何通信？</li>
+<li>React非父子组件如何通信？</li>
+<li>React父子组件如何通信？</li>
+<li>React组件间的通信有哪些？</li>
+<li>类组件和函数式组件有什么区别？</li>
+<li>React自定义组件你写过吗？说说看都写过哪些？</li>
+<li>React组件的state和props两者有什么区别？</li>
+<li>React有几种构建组件的方式？可以写出来吗？</li>
+<li>React中遍历时为什么不用索引作为唯一的key值？</li>
+<li>React中的key有什么作用？</li>
+<li>React中除了在构造函数中绑定this,还有别的方式吗？</li>
+<li>在React中页面重新加载时怎样保留数据？</li>
+<li>请描述下React的事件机制</li>
+<li>怎样在React中创建一个事件？</li>
+<li>在React中无状态组件有什么运用场景？</li>
+<li>描述下在React中无状态组件和有状态组件的区别是什么？</li>
+<li>写一个React的高阶组件(HOC)并说明你对它的理解</li>
+<li>React中可以在render访问refs吗？为什么？</li>
+<li>React中refs的作用是什么？有哪些应用场景？</li>
+<li>请描述你对纯函数的理解？</li>
+<li>受控组件和非受控组件有什么区别？</li>
+<li>React中什么是非控组件？</li>
+<li>React中什么是受控组件？</li>
+<li>React中发起网络请求应该在哪个生命周期中进行？为什么？</li>
+<li>说说React的生命周期有哪些？</li>
+<li>说说你对“在React中，一切都是组件”的理解</li>
+<li>写React你是用es6还是es5的语法？有什么区别？</li>
+<li>浏览器为什么无法直接JSX？怎么解决呢？</li>
+<li>在使用React过程中你都踩过哪些坑？你是怎么填坑的？</li>
+<li>说说你喜欢React的原因是什么？它有什么优缺点？</li>
+<li>如何解决引用类型在pureComponent下修改值的时候，页面不渲染的问题？</li>
+<li>createElement与cloneElement两者有什么区别？</li>
+<li>解释下React中Element 和Component两者的区别是什么？</li>
+<li>解释下React中component和pureComponent两者的区别是什么？</li>
+<li>React的虚拟DOM和vue的虚拟DOM有什么区别？</li>
+<li>你觉得React上手快不快？它有哪些限制？</li>
+<li>说说你对声明式编程的理解？</li>
+<li>React与angular、vue有什么区别？</li>
+<li>React是哪个公司开发的？</li>
+<li>React是什么？它的主要特点是什么？</li>
+<li>简要描述下你知道的React工作原理是什么？</li>
+<li>在React中怎样改变组件状态，以及状态改变的过程是什么？</li>
+<li>在React中你是怎么进行状态管理的？</li>
+<li>React声明组件有哪几种方法，各有什么不同？</li>
+</ul>
+<h3 id="ReactNative"><a href="#ReactNative" class="headerlink" title="ReactNative"></a>ReactNative</h3><ul>
+<li>如何在React Native中设置环境变量？</li>
+<li>请描述下Code Push的原理是什么？</li>
+<li>React Native怎样查看日记？</li>
+<li>React Native怎样测试？</li>
+<li>React Native怎样调试？</li>
+<li>React Native和React有什么区别？</li>
+<li>有做过React Native项目吗？</li>
+</ul>
+<h3 id="React-Router"><a href="#React-Router" class="headerlink" title="React-Router"></a>React-Router</h3><ul>
+<li>React-Router怎么获取历史对象？</li>
+<li>React-Router怎么获取URL的参数？</li>
+<li>在history模式中push和replace有什么区别？</li>
+<li>React-Router怎么设置重定向？</li>
+<li>React-Router 4中``组件有几种类型？</li>
+<li>React-Router 3和React-Router 4有什么变化？添加了什么好的特性？</li>
+<li>React-Router的实现原理是什么？</li>
+<li>React-Router 4的switch有什么用？</li>
+<li>React-Router的路由有几种模式？</li>
+<li>React-Router 4怎样在路由变化时重新渲染同一个组件？</li>
+<li>React-Router的<code>标签和</code>标签有什么区别？</li>
+<li>React的路由和普通路由有什么区别？</li>
+<li>请你说说React的路由的优缺点？</li>
+<li>请你说说React的路由是什么？</li>
+</ul>
+<h3 id="Redux-Mobox"><a href="#Redux-Mobox" class="headerlink" title="Redux/Mobox"></a>Redux/Mobox</h3><ul>
+<li>你有了解Rxjs是什么吗？它是做什么的？</li>
+<li>在Redux中怎么发起网络请求？</li>
+<li>Redux怎样重置状态？</li>
+<li>Redux怎样设置初始状态？</li>
+<li>Context api可以取代Redux吗？为什么？</li>
+<li>推荐在reducer中触发Action吗？为什么？</li>
+<li>Redux怎么添加新的中间件？</li>
+<li>redux-saga和redux-thunk有什么本质的区别？</li>
+<li>在React中你是怎么对异步方案进行选型的？</li>
+<li>你知道redux-saga的原理吗？</li>
+<li>你有使用过redux-saga中间件吗？它是干什么的？</li>
+<li>Redux中异步action和同步action最大的区别是什么？</li>
+<li>Redux和vuex有什么区别？</li>
+<li>Redux的中间件是什么？你有用过哪些Redux的中间件？</li>
+<li>说说Redux的实现流程</li>
+<li>Mobx的设计思想是什么？</li>
+<li>Redux由哪些组件构成？</li>
+<li>Mobx和Redux有什么区别？</li>
+<li>在React项目中你是如何选择Redux和Mobx的？说说你的理解</li>
+<li>你有在React中使用过Mobx吗？它的运用场景有哪些？</li>
+<li>Redux的thunk作用是什么？</li>
+<li>Redux的数据存储和本地储存有什么区别？</li>
+<li>在Redux中，什么是reducer？它有什么作用？</li>
+<li>举例说明怎么在Redux中定义action？</li>
+<li>在Redux中，什么是action？</li>
+<li>在Redux中，什么是store？</li>
+<li>为什么Redux能做到局部渲染呢？</li>
+<li>说说Redux的优缺点分别是什么？</li>
+<li>Redux和Flux的区别是什么？</li>
+<li>Redux它的三个原则是什么？</li>
+<li>什么是单一数据源？</li>
+<li>什么是Redux？说说你对Redux的理解？有哪些运用场景？</li>
+</ul>
+<h3 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h3><ul>
+<li>请说说点击按钮触发到状态更改，数据的流向？</li>
+<li>请描述下Flux的思想</li>
+<li>什么是Flux？说说你对Flux的理解？有哪些运用场景？</li>
+</ul>
+<p>作者：浪子神剑<br>链接：<a href="https://juejin.im/post/5d310e8bf265da1bd261259d" target="_blank" rel="noopener">https://juejin.im/post/5d310e8bf265da1bd261259d</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-05-29");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2020-05-29T06:08:37.664Z" itemprop="datePublished">2020-05-29</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2020/05/29/%E9%9D%A2%E8%AF%95/2020.05.32/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">面试/2020.05.32</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/05/29/%E9%9D%A2%E8%AF%95/2020.05.27/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">面试/2020.05.27</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="https://vuvivian.github.io">vuvivian&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

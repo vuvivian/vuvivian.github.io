@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>odoo源码/Untitled | vuvivian&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="
+
+
+    ">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="vuvivian&#39;s blog">
+<meta name="msapplication-starturl" content="https://vuvivian.github.io">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="vuvivian&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+    <link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="vuvivian&#39;s blog">
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="odoo源码/Untitled | vuvivian&#39;s blog">
+<meta property="og:site_name" content="vuvivian&#39;s blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/">
+<meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
+
+<meta property="og:description" content="
+
+
+    ">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-06-15T01:28:35.125Z">
+    <meta property="article:modified_time" content="2020-06-15T01:28:35.125Z">
+    <meta property="article:author" content="vuvivian">
+    <meta property="og:article:tag" content=""> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/",
+    "@type": "BlogPosting",
+    "logo": "https://vuvivian.github.io/img/favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/"
+    },
+    "headline": "odoo源码/Untitled | vuvivian&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuvivian.github.io/img/favicon.ico"
+    },
+    
+    "datePublished": "2020-06-15T01:28:35.125Z",
+    "dateModified": "2020-06-15T01:30:54.487Z",
+    "author": {
+        "@type": "Person",
+        "name": "vuvivian",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/top.jpg"
+        },
+        "description": "越努力，越幸运."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "vuvivian&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vuvivian.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "
+
+
+    "
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">vuvivian&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                越努力，越幸运.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=vuvivian's blog&url=https://vuvivian.github.io&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=vuvivian's blog&url=https://vuvivian.github.io&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io&title=odoo源码/Untitled" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=odoo源码/Untitled&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://vuvivian.github.io&text=odoo源码/Untitled" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACMklEQVR42u2bwW4DIQxE9/9/ujlVaiU8M2YTJcGPS7MtgYeE2fGYXj9f0C4ggQQSyA+AvET7+3fVdzXW7/O/SYu+5XhAjoVcbtpigg5UOk65ECBHQ6abXgVW1bcKHDcvkECuOlcTreBc8KjxgQSyA1mK0kKQOEEBJJAJZLrZk+c7iwcSyCQRe9XPp2aLQB4DaU0jcVBHmz/8zi1XDcijIJOEKwVNAlCNHb9xgDwesnPgOvGrRMTqWRoSQI6E7IpZFzRJECaGApBzIdOJ3GJcoUrBVgsAci6kC4ru76vPyZxWYAA5DrIKJGdEbRfeuyoIyOMh3WWQVIBEk4pgkYc5kKMgnRhNkiwXHOVh7S6ZADkSUm1odeloV1Q40Vsa+0COgUyDQxn/3cJ7UtAHEkj38k+TqtTAj4INyLGQiVmVBEx18CeJW+SqATkKsvrcPaxdQcAJbSCBdFCJ8O2a92mwAjkbMplc9UmTr2RBQAKpzKOOKapEgxPMQAKZmks7wjYtmrYMKyBHQqZitAqWJLASUQzkbEiVZHUK9p0Ldir4gATSgSaLcK2zqCgRA/JoSJUkpcaB+u5OIRTI2ZAd4bBjqN4qHgA5EnLnQnuS2Lvgi0xbIMdCdgqcO5fllMCVogbI0ZDuAlPnUnta/GxdPAYSyKv/j0Tu4FeJmCyAAglkI9FKRG/6QrBOL5CjINUGdsa/A0rHvCV6gTwKMknEXB8VRKpov2WiAnk05Cc3IIEEEsg3tgfb+VYEd4BfnAAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">odoo源码/Untitled</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/top.jpg" src="/img/suka-lazyload.gif" alt="vuvivian's Avatar">
+        <span>2020-06-15</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=odoo源码/Untitled&url=https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=odoo源码/Untitled&url=https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/&title=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vuvivian's blog&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://vuvivian.github.io/2020/06/15/odoo%E6%BA%90%E7%A0%81/Untitled/&text=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACMklEQVR42u2bwW4DIQxE9/9/ujlVaiU8M2YTJcGPS7MtgYeE2fGYXj9f0C4ggQQSyA+AvET7+3fVdzXW7/O/SYu+5XhAjoVcbtpigg5UOk65ECBHQ6abXgVW1bcKHDcvkECuOlcTreBc8KjxgQSyA1mK0kKQOEEBJJAJZLrZk+c7iwcSyCQRe9XPp2aLQB4DaU0jcVBHmz/8zi1XDcijIJOEKwVNAlCNHb9xgDwesnPgOvGrRMTqWRoSQI6E7IpZFzRJECaGApBzIdOJ3GJcoUrBVgsAci6kC4ru76vPyZxWYAA5DrIKJGdEbRfeuyoIyOMh3WWQVIBEk4pgkYc5kKMgnRhNkiwXHOVh7S6ZADkSUm1odeloV1Q40Vsa+0COgUyDQxn/3cJ7UtAHEkj38k+TqtTAj4INyLGQiVmVBEx18CeJW+SqATkKsvrcPaxdQcAJbSCBdFCJ8O2a92mwAjkbMplc9UmTr2RBQAKpzKOOKapEgxPMQAKZmks7wjYtmrYMKyBHQqZitAqWJLASUQzkbEiVZHUK9p0Ldir4gATSgSaLcK2zqCgRA/JoSJUkpcaB+u5OIRTI2ZAd4bBjqN4qHgA5EnLnQnuS2Lvgi0xbIMdCdgqcO5fllMCVogbI0ZDuAlPnUnta/GxdPAYSyKv/j0Tu4FeJmCyAAglkI9FKRG/6QrBOL5CjINUGdsa/A0rHvCV6gTwKMknEXB8VRKpov2WiAnk05Cc3IIEEEsg3tgfb+VYEd4BfnAAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#odoo-12开发之后台视图--设计用户界面"><span class="post-toc-number">1.</span> <span class="post-toc-text">Odoo 12开发之后台视图 – 设计用户界面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一·菜单项"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">一·菜单项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二·窗口操作window-actions"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">二·窗口操作(Window Actions)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三·表单视图结构"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">三·表单视图结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#业务文档视图"><span class="post-toc-number">1.0.3.0.0.1.</span> <span class="post-toc-text">业务文档视图</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#头部-header"><span class="post-toc-number">1.0.3.0.0.2.</span> <span class="post-toc-text">头部 Header</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#头部按钮"><span class="post-toc-number">1.0.3.0.0.3.</span> <span class="post-toc-text">头部按钮</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#阶段管道"><span class="post-toc-number">1.0.3.0.0.4.</span> <span class="post-toc-text">阶段管道</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#状态代替阶段"><span class="post-toc-number">1.0.3.0.0.5.</span> <span class="post-toc-text">状态代替阶段</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#文档表单"><span class="post-toc-number">1.0.3.0.0.6.</span> <span class="post-toc-text">文档表单</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#标题和副标题"><span class="post-toc-number">1.0.3.0.0.7.</span> <span class="post-toc-text">标题和副标题</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#表单内容分组"><span class="post-toc-number">1.0.3.0.0.8.</span> <span class="post-toc-text">表单内容分组</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#选项卡笔记本tabbed-notebooks"><span class="post-toc-number">1.0.3.0.0.9.</span> <span class="post-toc-text">选项卡笔记本(Tabbed notebooks)</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四·字段"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">四·字段</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#字段标签"><span class="post-toc-number">1.0.4.0.0.1.</span> <span class="post-toc-text">字段标签</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#字段组件"><span class="post-toc-number">1.0.4.0.0.2.</span> <span class="post-toc-text">字段组件</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#关联字段"><span class="post-toc-number">1.0.4.0.0.3.</span> <span class="post-toc-text">关联字段</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五·按钮"><span class="post-toc-number">1.0.5.</span> <span class="post-toc-text">五·按钮</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#普通按钮"><span class="post-toc-number">1.0.5.0.0.1.</span> <span class="post-toc-text">普通按钮</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#智能按钮"><span class="post-toc-number">1.0.5.0.0.2.</span> <span class="post-toc-text">智能按钮</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六·动态视图元素"><span class="post-toc-number">1.0.6.</span> <span class="post-toc-text">六·动态视图元素</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#onchange-事件"><span class="post-toc-number">1.0.6.0.0.1.</span> <span class="post-toc-text">onchange 事件</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#动态属性"><span class="post-toc-number">1.0.6.0.0.2.</span> <span class="post-toc-text">动态属性</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#七·列表视图"><span class="post-toc-number">1.0.7.</span> <span class="post-toc-text">七·列表视图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#八·搜索视图"><span class="post-toc-number">1.0.8.</span> <span class="post-toc-text">八·搜索视图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#九·其它视图类型"><span class="post-toc-number">1.0.9.</span> <span class="post-toc-text">九·其它视图类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#活动视图"><span class="post-toc-number">1.0.9.0.0.1.</span> <span class="post-toc-text">活动视图</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#日历视图"><span class="post-toc-number">1.0.9.0.0.2.</span> <span class="post-toc-text">日历视图</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#透视表视图"><span class="post-toc-number">1.0.9.0.0.3.</span> <span class="post-toc-text">透视表视图</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#图表视图"><span class="post-toc-number">1.0.9.0.0.4.</span> <span class="post-toc-text">图表视图</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <div class="postBody">
+
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <h1 id="odoo-12开发之后台视图--设计用户界面">Odoo 12开发之后台视图 – 设计用户界面</h1>
+<h3 id="一·菜单项">一·菜单项</h3>
+<pre><code class="language-python hljs"><span class="hljs-comment">#　菜单项形成一个层级结构，最顶层结构</span>
+<span class="hljs-comment">#   name 是展示在用户界面中的菜单标题</span>
+<span class="hljs-comment">#     action 是点击菜单时运行的窗口</span>
+<span class="hljs-comment">#   parenter 是父级菜单项XML ID</span>
+<span class="hljs-comment">#   sequence 设置一个数字来在展示菜单项时进行排序. 如sequence="10"</span>
+<span class="hljs-comment">#   groups 用来都好分割可访问菜单安全组的xml ID列表</span>
+<span class="hljs-comment">#   web_icon 菜单项的图标</span>
+</code></pre>
+<pre><code class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">menuitem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"menu_library_checkout"</span>
+        <span class="hljs-attr">name</span>=<span class="hljs-string">"Checkout"</span>
+        <span class="hljs-attr">action</span>=<span class="hljs-string">"action_library_checkout"</span>
+        <span class="hljs-attr">parent</span>=<span class="hljs-string">"library_app.menu_library"</span> /&gt;</span>
+</code></pre>
+<h3 id="二·窗口操作window-actions">二·窗口操作(Window Actions)</h3>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 通常用于菜单项或视图中的按钮.</span>
+<span class="hljs-comment"># 窗口操作存储在ir.actions.act_window模型中.</span>
+<span class="hljs-comment"># 可通过域过滤器过滤出可用的记录,设置默认值以及从上下文属性中过滤</span>
+
+<p><span class="hljs-comment"># name 是视图显示的标题</span><br><span class="hljs-comment"># res_model是目标模型的标识符</span><br><span class="hljs-comment"># view_mode是一个逗号分割的可用视图类型列表</span><br><span class="hljs-comment"># target 是设置对话窗口打开方式,如target=”new”,默认是current</span><br><span class="hljs-comment"># context 是视图设置上下文信息. 可设置默认值或者启用过滤器等.context=”{‘default_user_id’: uid}”</span><br><span class="hljs-comment"># domain 是对可在视图种浏览的记录强制过滤,domain=”[(‘user_id’,’=’,uid)]”</span><br><span class="hljs-comment"># limit  列表视图每页显示的记录数</span><br><span class="hljs-comment"># src_model  设置Action所作用的模型，例如src_model=”library.checkout”</span><br><span class="hljs-comment"># </span><br></code></pre></p>
+<pre><code class="language-xml hljs">    <span class="hljs-tag">&lt;<span class="hljs-name">act_window</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"action_library_checkout"</span>
+        <span class="hljs-attr">name</span>=<span class="hljs-string">"Checkouts"</span>
+        <span class="hljs-attr">res_model</span>=<span class="hljs-string">"library.checkout"</span>
+        <span class="hljs-attr">view_mode</span>=<span class="hljs-string">"tree,form,activity,calendar,graph,pivot"</span> /&gt;</span>
+</code></pre>
+<h3 id="三·表单视图结构">三·表单视图结构</h3>
+<h6 id="业务文档视图">业务文档视图</h6>
+<pre><code class="language-xml hljs"># 业务应用中记录的很多数据可以按纸质文档那样展示
+# 视图的基本框架:包含 form , header , sheet 和　mail 
+#     header 状态栏, 
+    sheet主内容 , 
+    底部交流区 也称作chatter,需要继承mail.thread和mail.activity.mixin
+
+<p><span class="hljs-tag">&lt;<span class="hljs-name">record</span> <span class="hljs-attr">id</span>=<span class="hljs-string">“view_form_checkout”</span> <span class="hljs-attr">model</span>=<span class="hljs-string">“ir.ui.view”</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">“model”</span>&gt;</span>library.checkout<span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">“arch”</span> <span class="hljs-attr">type</span>=<span class="hljs-string">“xml”</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span><br>                <span class="hljs-comment">&lt;!–以下仅供查看效果使用–&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">“state”</span> <span class="hljs-attr">widget</span>=<span class="hljs-string">“statusbar”</span> <span class="hljs-attr">clickable</span>=<span class="hljs-string">“True”</span> /&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">sheet</span>&gt;</span><br>                …<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">sheet</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">“oe_chatter”</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">“message_follower_ids”</span> <span class="hljs-attr">widget</span>=<span class="hljs-string">“mail_followers”</span> /&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">“activity_ids”</span> <span class="hljs-attr">widget</span>=<span class="hljs-string">“mail_activity”</span> /&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">“message_ids”</span> <span class="hljs-attr">widget</span>=<span class="hljs-string">“mail_thread”</span> /&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">record</span>&gt;</span><br></code></pre></p>
+<h6 id="头部-header">头部 Header</h6>
+<pre><code class="hljs">头部header 通常用于文档所走过的生命周期或步骤，还包含相关的操作按钮。这些按钮是普通表单按钮，最重要的下一步可以高亮显示。
+</code></pre>
+<h6 id="头部按钮">头部按钮</h6>
+<pre><code class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"state"</span> <span class="hljs-attr">invisible</span>=<span class="hljs-string">"True"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"button_done"</span>
+            <span class="hljs-attr">string</span>=<span class="hljs-string">"Return Books"</span>
+            <span class="hljs-attr">attrs</span>=<span class="hljs-string">"{'invisible':
+                   [('state', 'in', ['new', 'done'])]}"</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">"oe_highlight"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+</code></pre>
+<pre><code class="language-python hljs"><span class="hljs-comment"># domain 或 attrs 表达式中使用的字段必须在视图中加载，作用于它们的&lt;field&gt;元素。如果字段不对用户可见，则必须以不可见字段元素对其进行加载。</span>
+
+<p></code></pre></p>
+<pre><code class="language-xml hljs">#state字段, 相同的效果可以通过states字段属性实现.虽然没有attrs属性灵活,states更为精简
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"button_done"</span>
+        <span class="hljs-attr">type</span>=<span class="hljs-string">"object"</span>
+        <span class="hljs-attr">string</span>=<span class="hljs-string">"Returned"</span>
+        <span class="hljs-attr">states</span>=<span class="hljs-string">"open,cancel"</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">"oe_highlight"</span> /&gt;</span>
+</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> attrs和states元素可见功能也可用于其它视图元素</span>
+</code></pre>
+<h6 id="阶段管道">阶段管道</h6>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 是statusbar组件的stage_id字段的&lt;field&gt;元素</span>
+<span class="hljs-meta">#</span><span class="bash"> 通常状态或者阶段字段是一个many-to-on字段,允许使用者点击,clickable属性变更状态.</span>
+<span class="hljs-meta">#</span><span class="bash"> 也可将状态隐藏折叠,通常命名为fold,然后statusbar组件使用options属性来将这一字段名提供给fold_field</span>
+</code></pre>
+<pre><code class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"stage_id"</span>
+           <span class="hljs-attr">widget</span>=<span class="hljs-string">"statusbar"</span>
+           <span class="hljs-attr">clickable</span>=<span class="hljs-string">"True"</span>
+           <span class="hljs-attr">options</span>=<span class="hljs-string">"{'fold_field': 'fold'}"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+</code></pre>
+<h6 id="状态代替阶段">状态代替阶段</h6>
+<pre><code class="language-python hljs">需要使用statusbar_visible属性来替换fold_field选项
+</code></pre>
+<pre><code class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"state"</span>
+       <span class="hljs-attr">widget</span>=<span class="hljs-string">"statusbar"</span>
+       <span class="hljs-attr">clickable</span>=<span class="hljs-string">"True"</span>
+       <span class="hljs-attr">statusbar_visible</span>=<span class="hljs-string">"draft,open,done"</span> /&gt;</span>
+</code></pre>
+<h6 id="文档表单">文档表单</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 设计类似一张真实的纸质文档,</span>
+<span class="hljs-comment"># 包含:</span>
+    左上角文档标题和副标题
+    右上角按钮区
+    其它文档头部字段
+    底部笔记区，将附加字段组织成选项卡或页面
+
+<p></code></pre></p>
+<h6 id="标题和副标题">标题和副标题</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 一般标题放在oe_title类中。以下为扩展后的&lt;sheet&gt;元素，它包含标题以及一些额外字段如副标题</span>
+</code></pre>
+<pre><code class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"member_image"</span> <span class="hljs-attr">widget</span>=<span class="hljs-string">"image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oe_avatar"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oe_title"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"member_id"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oe_edit_only"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"member_id"</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oe_read_only"</span>&gt;</span>By <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"user_id"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oe_edit_only"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_id"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oe_inline"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- More elements will be added from here... --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">sheet</span>&gt;</span>
+</code></pre>
+<h6 id="表单内容分组">表单内容分组</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 表单主内容区应通过&lt;group&gt;标签来进行组织。</span>
+<span class="hljs-comment"># &lt;group&gt;标签在画布中插入了两列。</span>
+<span class="hljs-comment"># 默认在这些列中标签会在字段旁显示，因此又占据两列。</span>
+<span class="hljs-comment"># 字段加标签会占据 一行，下一个字段和标签又会另起一行，垂直排列。</span>
+<span class="hljs-comment"># Odoo表单的常见布局是带标签的字段并排成两列。达到这一效果，我们只需要添加两个嵌入顶部的&lt;group&gt;标签。</span>
+</code></pre>
+<pre><code class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group_top"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group_col1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_id"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"checkout_date"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">group</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group_col2"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"state"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"closed_date"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">group</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">group</span>&gt;</span>
+</code></pre>
+<h6 id="选项卡笔记本tabbed-notebooks">选项卡笔记本(Tabbed notebooks)</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 组织内容的方式是 notebook 元素，一个包含多个称为页面(page)的选项卡分区的容器</span>
+<span class="hljs-comment"># 它们可以让不常用的内容在不使用时隐藏起来，或者用于按话题组织大量字段。</span>
+<span class="hljs-comment">#　page支持以下属性：</span>
+    string：选项卡的标题（必填）
+    attrs：不可见属性与表达式映射的字典
+    accesskey：HTML访问密钥
+</code></pre>
+<pre><code class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">notebook</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">page</span> <span class="hljs-attr">string</span>=<span class="hljs-string">"Borrowed Books"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"page_lines"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"line_ids"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">page</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">notebook</span>&gt;</span>
+</code></pre>
+<h3 id="四·字段">四·字段</h3>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 视图字段可用属性</span>
+    name <span class="hljs-comment">#　标识字段数据库中名称</span>
+    string <span class="hljs-comment">#　用于想要覆盖模型中标签文本的标签文本</span>
+    help <span class="hljs-comment">#　是鼠标悬停在字段上显示的提示文本，它允许我们覆盖模型定义中提供的帮助文本</span>
+    placeholder <span class="hljs-comment">#　是在字段中显示的提示文本</span>
+    widget <span class="hljs-comment">#　让我们可以覆盖字段的默认组件，一会儿我们就会讲到可用的组件</span>
+    options <span class="hljs-comment">#　是一个带有组件附加数据的JSON数据结构，值随各组件的不同支持而不同</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> #　是用于字段 <span class="hljs-title">HTML</span> 渲染的<span class="hljs-title">CSS</span>类
+    <span class="hljs-title">nolabel</span>=”<span class="hljs-title">True</span>”　 #　　阻止自动字段标签的展示。仅对&lt;<span class="hljs-title">group</span>&gt;元素内的字段有作用，通常与&lt;<span class="hljs-title">label</span> <span class="hljs-title">for</span>=”…”&gt;元素一起使用。
+    <span class="hljs-title">invisible</span>=”<span class="hljs-title">True</span>” #　让字段不可见，但仍会从服务端获取数据并可在表单中使用
+    <span class="hljs-title">readonly</span>=”<span class="hljs-title">True</span>” #　让表单中该字段不可编辑
+    <span class="hljs-title">required</span>=”<span class="hljs-title">True</span>” #　让表单中该字段为必填
+    <span class="hljs-title">password</span>=”<span class="hljs-title">True</span>” #  用于文本字段。显示为密码项，隐藏所输入文字
+    <span class="hljs-title">filename</span> #　用于二进制字段，它是用于存储上传文件名的模型字段的名称
+</span></code></pre>
+<h6 id="字段标签">字段标签</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment"># &lt;label&gt;元素可用于更好地控制字段标签的展示</span>
+<span class="hljs-comment"># 例子：是仅在表单为编辑模式时展示</span>
+    &lt;label <span class="hljs-keyword">for</span>=<span class="hljs-string">"name"</span> <span class="hljs-class"><span class="hljs-keyword">class</span>="<span class="hljs-title">oe_edit_only</span>" /&gt;
+# 注意：在<span class="hljs-title">group</span>元素内部,通常设置<span class="hljs-title">nolabel</span>="<span class="hljs-title">True</span>",<span class="hljs-title">class</span>='<span class="hljs-title">oe_edit_only</span>'的<span class="hljs-title">css</span>样式
+
+<p></span></code></pre></p>
+<h6 id="字段组件">字段组件</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment">### 对于文本字段</span>
+    mail <span class="hljs-comment">#　用于让 email 文本成为可操作的”mail-to”地址</span>
+    url <span class="hljs-comment">#　用于将文本格式化为可点击的URL</span>
+    html <span class="hljs-comment">#　用于将文本渲染为HTML内容；在编辑模式下，它显示为一个WYSIWYG(所见即所得)编辑器，可在不使用 HTML 代码的情况下格式化内容。</span>
+
+<p><span class="hljs-comment">### 对于数字字段，有以下组件：</span><br>    handle <span class="hljs-comment">#　在列表视图中作为一个排序字段，显示一个句柄来让我们可以拖放进行自定义排序</span><br>    float_time <span class="hljs-comment">#　将一个浮点型字段格式化为带有小时和分钟的值</span><br>    monetary <span class="hljs-comment">#　将一个浮点型字段显示为货币金额。它与currency_id字段一起使用，还可以通过options=”{‘currency_field’: ‘currency_id’}”来使用另一个字段名</span><br>    progressbar <span class="hljs-comment">#　将一个浮点值显示为进度条百分比，有助于将字段展示为完成率</span><br>    percentage和percentpie <span class="hljs-comment">#　组件可用于浮点型字段</span></p>
+<p><span class="hljs-comment">### 对于关联和选择项字段，有以下附加组件：</span><br>    many2many_tags <span class="hljs-comment">#　将值显示为按钮标签列表</span><br>    many2many_checkboxes <span class="hljs-comment">#　将选项值显示为一个复选框列表</span><br>    selection对many-to-one <span class="hljs-comment">#　字段使用选择字段组件</span><br>    radio <span class="hljs-comment">#　以单选按钮显示选择字段选项</span><br>    priority <span class="hljs-comment">#　将选项字段显示为一个可点击星形列表。选择项目通常是数值。</span><br>    state_selection <span class="hljs-comment">#　将看板状态选择列表显示为信号灯。普通状态显示为灰色，完成显示为绿色，其它状态显示为红色。</span><br>    pdf_viewer <span class="hljs-comment">#　是一个二进制字段(在 Odoo 12中引入)。</span></p>
+<p><span class="hljs-comment"># state_selection在 Odoo11中引入来替换掉kanban_state_selection。后者被淘汰，但为保持向后兼容性，还支持使用。    </span><br></code></pre></p>
+<h6 id="关联字段">关联字段</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment">#  默认用户从这些字段中创建新记录（也称作“快速创建”）并打开关联记录表单。可通过options字段属性来关闭：</span>
+    options=<span class="hljs-string">"{'no_open': True, 'no_create': True}"</span>
+
+<p><span class="hljs-comment"># context和domain也是字段属性并对于关联字段特别有用</span><br>    context可定义关联字记录默认值<br>    domain 可限制可选记录</p>
+<p><span class="hljs-comment"># 如果想要在列表视图的表单弹出窗口中直接编辑one-to-many路线，应使用&lt;tree editable=”top”&gt;或&lt;tree editable=”bottom”&gt;    </span><br></code></pre></p>
+<h3 id="五·按钮">五·按钮</h3>
+<h6 id="普通按钮">普通按钮</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 按钮支持的属性</span>
+    string <span class="hljs-comment">#　是按钮文本标签或使用图标时的 HTML alt 文本</span>
+    type　<span class="hljs-comment">#　是执行操作的类型，有以下值：</span>
+    object　<span class="hljs-comment">#　用于调用 Python 方法</span>
+    action　<span class="hljs-comment">#　用于运行窗口操作</span>
+    name　<span class="hljs-comment">#　标识按所选类型要操作的具体的操作，要么是模型方法名，要么是要运行的窗口操作的数据库 ID。可使用%(xmlid)d方程式来将XML ID转换成加载视图时所需的数据库 ID。</span>
+    args在类型为 object 时用于向方法传递额外的参数，须是在形成方法调用参数的记录 ID 之后所添加的纯静态 JSON 参数。
+    context　<span class="hljs-comment">#　在上下文中添加值，可在窗口操作或 Python 代码方法调用之后产生效果。</span>
+    confirm　<span class="hljs-comment">#　在运行相关操作之前显示确认消息框，显示的内容是属性中分配的文本。special=”cancel”用于向导表单。</span>
+    icon　<span class="hljs-comment">#　是按钮所显示的图标。可用的按钮来自Font Awesome图标集，版本为4.7.0，应通过对应的 CSS 类来指定，如icon=”fa-question”。更多信息可访问Font Awesome。</span>
+</code></pre>
+<h6 id="智能按钮">智能按钮</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment">#　智能按钮(smart button)　智能按钮显示为带有数据指示的矩形，在点击时可进入</span>
+<span class="hljs-comment">#  智能按钮通常是sheet的第一个元素,且带有oe_button_box样式.</span>
+
+
+<p><span class="hljs-comment">### 注意:</span><br>    <span class="hljs-comment"># 1. 智能按钮必须带有class=”oe_stat_button” CSS样式，</span><br>    <span class="hljs-comment"># 2. 并应使用 icon 属性来带有一个图标。</span><br>    <span class="hljs-comment"># 3. 它有一个type=”action”，表示点击按钮时将运行通过 name 属性标识的窗口操作。%(action_other_checkouts_button)d表达式返回要运行的操作的数据库 ID</span></p>
+<p><span class="hljs-comment">### 智能按钮属性值:</span><br>    <span class="hljs-class"><span class="hljs-keyword">class</span>=”<span class="hljs-title">oe_stat_button</span>”  #　渲染的不是普通按钮而是一个矩形<br>    <span class="hljs-title">icon</span>　　# 从<span class="hljs-title">Font</span> <span class="hljs-title">Awesome</span>图标集中选择图标来使用。访问<span class="hljs-title">Font</span> <span class="hljs-title">Awesome</span>查看有哪些图标。<br>    <span class="hljs-title">type</span>和<span class="hljs-title">name</span>  # 是按钮类型以及触发的操作名。对于智能按钮，类型通常是 <span class="hljs-title">action</span>，指定窗口操作，名称为所要执行操作的 <span class="hljs-title">ID</span>。应传入真实数据库 <span class="hljs-title">ID</span>，因此我们要使用方程式来将<span class="hljs-title">XML</span> <span class="hljs-title">ID</span>转换为数据库 <span class="hljs-title">ID</span>：”%<span class="hljs-params">(actionxmlid)</span><span class="hljs-title">d</span>”。这一操作应该会打开带有关联记录的视图。<br>    <span class="hljs-title">string</span>  # 按钮添加标签文本，这里没有使用因为所包含的字段中已经提供了文本。<br>    <span class="hljs-title">context</span>  # 应用于为目标视图设置默认值，用于点击按钮后视图上新建的记录。<br>    <span class="hljs-title">help</span>   # 在鼠标悬停在按钮上显示帮助提示信息<br></span></code></pre></p>
+<pre><code class="language-python hljs">num_other_checkouts = fields.Integer(compute=<span class="hljs-string">'_compute_num_other_checkouts'</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_compute_num_other_checkouts</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">for</span> rec <span class="hljs-keyword">in</span> self:
+        domain = [(<span class="hljs-string">'member_id'</span>, <span class="hljs-string">'='</span>, rec.member_id.id),
+        (<span class="hljs-string">'state'</span>, <span class="hljs-string">'in'</span>, [<span class="hljs-string">'open'</span>]),
+        (<span class="hljs-string">'id'</span>, <span class="hljs-string">'!='</span>, rec.id)]
+        rec.num_other_checkouts = self.search_count(domain)
+</code></pre>
+<pre><code class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"button_box"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oe_button_box"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"oe_stat_button"</span>
+            <span class="hljs-attr">icon</span>=<span class="hljs-string">"fa-tasks"</span>
+            <span class="hljs-attr">help</span>=<span class="hljs-string">"Other checkouts pending return."</span>
+            <span class="hljs-attr">type</span>=<span class="hljs-string">"action"</span>
+            <span class="hljs-attr">name</span>=<span class="hljs-string">"%(action_other_checkouts_button)d"</span>
+            <span class="hljs-attr">context</span>=<span class="hljs-string">"{'default_member_id': member_id}"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">string</span>=<span class="hljs-string">"To Return"</span>
+               <span class="hljs-attr">name</span>=<span class="hljs-string">"num_other_checkouts"</span>
+               <span class="hljs-attr">widget</span>=<span class="hljs-string">"statinfo"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3 id="六·动态视图元素">六·动态视图元素</h3>
+<h6 id="onchange-事件">onchange 事件</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 通过@api.onchange('field1',...)装饰器创建模型</span>
+<span class="hljs-comment"># onchange 机制还可以在用户输入时即时反馈进行计算字段的自动重算</span>
+</code></pre>
+<h6 id="动态属性">动态属性</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 属性允许根据记录的值来动态变更视图元素的显示.</span>
+    <span class="hljs-comment"># groups 可根据当前用户所属安全组,让元素课件. 指定仅该组员成员可看到元素.</span>
+    <span class="hljs-comment"># states 可以根据记录的状态字段来让元素课件.</span>
+    <span class="hljs-comment"># 特别属性 attrs　，值为一个映射invisible属性值与表达式结果的字典.</span>
+            例子: 要让closed_date字段在new和open状态时不可见
+            &lt;field name=<span class="hljs-string">"closed_date"</span> attrs=<span class="hljs-string">"{'invisible':[('state', 'in', ['new', 'open'])]}"</span>/&gt;
+
+<p><span class="hljs-comment"># 注意:</span><br>    invisible不只在字段种可用,任意元素种均可使用.如notebook页面和group元素.attrs属性可以设置两个属性值:readonly和required.<br></code></pre></p>
+<h3 id="七·列表视图">七·列表视图</h3>
+<pre><code class="language-xml hljs"># tree元素的相关属性
+    # default_order让我们可以覆盖模型中的默认排序，它的值和模型中定义的排序格式相同。
+    # create, delete和edit，如果设为 false（字母小写），会禁用列表视图中的相应操作。
+    # editable让记录在列表视图中可直接被编辑。可用值有 top 和 bottom，表示新记录添加的位置。
+    # 数值字段可显示为对应列的汇总值。为字段添加一个累加属性(sum, avg, min或max)会为其分配汇总值的标签文本
+<span class="hljs-tag">&lt;<span class="hljs-name">record</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"view_tree_checkout"</span> <span class="hljs-attr">model</span>=<span class="hljs-string">"ir.ui.view"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>&gt;</span>Checkout Tree<span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"model"</span>&gt;</span>library.checkout<span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"arch"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"xml"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tree</span>
+              <span class="hljs-attr">decoration-muted</span>=<span class="hljs-string">"state in ['done', 'cancel']"</span>
+              <span class="hljs-attr">decoration-bf</span>=<span class="hljs-string">"state=='open'"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"state"</span> <span class="hljs-attr">invisible</span>=<span class="hljs-string">"True"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"request_date"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"member_id"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"checkout_date"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"stage_id"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"num_books"</span> <span class="hljs-attr">sum</span>=<span class="hljs-string">"# Books"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tree</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">record</span>&gt;</span>
+</code></pre>
+<pre><code class="language-python hljs">num_books = fields.Integer(compute=<span class="hljs-string">'_compute_num_books'</span>)
+
+<p><span class="hljs-meta">@api.depends(‘line_ids’)</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_compute_num_books</span><span class="hljs-params">(self)</span>:</span><br>    <span class="hljs-keyword">for</span> book <span class="hljs-keyword">in</span> self:<br>        book.num_books = len(book.line_ids)<br></code></pre></p>
+<h3 id="八·搜索视图">八·搜索视图</h3>
+<pre><code class="language-python hljs"><span class="hljs-comment"># </span>
+<span class="hljs-comment"># 这两个过滤器可以分别被启用并以 OR运算符连接。以&lt;separator /&gt;元素分隔的整块过滤器以 AND 运算符连接</span>
+<span class="hljs-comment"># 第三个过滤器仅设置 group by 上下文键，它让视图按照字段来对记录分组</span>
+
+<p><span class="hljs-comment">#字段属性：</span><br>    <span class="hljs-comment"># name 标识字段</span><br>    <span class="hljs-comment"># string 标签文本,替换默认值</span><br>    <span class="hljs-comment"># operator 修改默认的预算符</span><br>    <span class="hljs-comment"># filter_domain 设置搜索使用的特定域表达式,为operator提供灵活的替代方式. 例如:filter_domain=”[(‘name’, ‘ilike’, self)]”</span><br>    <span class="hljs-comment"># groups 对该字段的搜索仅向安全组内成员开发,值是一个逗号分隔的xmlid列表</span><br><span class="hljs-comment"># 过滤元素属性</span><br>    <span class="hljs-comment"># name　用作后续继承/扩展或通过窗口操作启用的标识符。这不是必填项，但包含该属性是一个不错的编码习惯。</span><br>    <span class="hljs-comment"># string 是过滤器显示的标签文本，必填</span><br>    <span class="hljs-comment"># domain 是加入当前域的域表达式</span><br>    <span class="hljs-comment"># context 是加入当前上下文的上下文字典。通常使用group_id作为键，用于对记录分组的字段名作为值</span><br>    <span class="hljs-comment"># groups 让该字段的搜索仅对安全组列表(XML IDs)成员开放</span><br></code></pre></p>
+<pre><code class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">record</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"view_filter_checkout"</span> <span class="hljs-attr">model</span>=<span class="hljs-string">"ir.ui.view"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"model"</span>&gt;</span>library.checkout<span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"arch"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"xml"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">search</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"member_id"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_id"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">filter</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"filter_not_done"</span>
+                    <span class="hljs-attr">string</span>=<span class="hljs-string">"To Return"</span>
+                    <span class="hljs-attr">domain</span>=<span class="hljs-string">"[('state','=','open')]"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">filter</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"filter_my_checkouts"</span>
+                    <span class="hljs-attr">string</span>=<span class="hljs-string">"My Checkouts"</span>
+                    <span class="hljs-attr">domain</span>=<span class="hljs-string">"['user_id', '=', uid]"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">filter</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group_user"</span>
+                    <span class="hljs-attr">string</span>=<span class="hljs-string">"By Member"</span>
+                    <span class="hljs-attr">context</span>=<span class="hljs-string">"{'group_by': 'member_id'}"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">search</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">record</span>&gt;</span>
+</code></pre>
+<h3 id="九·其它视图类型">九·其它视图类型</h3>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 其他视图类型:</span>
+    activity  <span class="hljs-comment"># 将计划活动显示为有组织的汇总</span>
+    calendar  <span class="hljs-comment">#　基于所选日期字段以日历格式展示数据</span>
+    diagram　 <span class="hljs-comment"># 展示记录间的关系，当前不在 Odoo 中使用</span>
+
+<p><span class="hljs-comment"># 两种视图类型用于显示累加数据</span><br>    graph  <span class="hljs-comment"># 用于图表展示</span><br>    pivot  <span class="hljs-comment"># 用于交互的数据透视表</span></p>
+<p><span class="hljs-comment"># Odoo 企业版中可用</span><br>    dashboard   <span class="hljs-comment">#  使用透视表和图表这类子视图展示累加数据</span><br>    cohort   <span class="hljs-comment">#   用于显示在不同时期数据如何变化</span><br>    gantt   <span class="hljs-comment">#  以甘特图显示日期计划信息，常用于项目管理</span><br>    grid   <span class="hljs-comment">#  通过行和列网格组织数据进行展示</span><br></code></pre></p>
+<h6 id="活动视图">活动视图</h6>
+<pre><code class="language-xml hljs">#  由mail模块提供. 用于可视化活动任务
+<span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">string</span>=<span class="hljs-string">'Activities'</span> /&gt;</span>
+</code></pre>
+<h6 id="日历视图">日历视图</h6>
+<pre><code class="language-xml hljs"># 在日历种展示记录,按照不同的时间区间.
+    # 属性:
+        date_start 开始日期 必填
+        date_end 结束日期  选填
+        date_delay 天数字段,用于替代date_end
+        all_day 传入一个布尔字段名,标识全天活动
+        color 用于日历添加颜色
+        mode 日历视图默认显示模块,
+<span class="hljs-tag">&lt;<span class="hljs-name">record</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"view_calendar_checkout"</span> <span class="hljs-attr">model</span>=<span class="hljs-string">"ir.ui.view"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"model"</span>&gt;</span>library.checkout<span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"arch"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"xml"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">calendar</span> <span class="hljs-attr">date_start</span>=<span class="hljs-string">"request_date"</span>
+                  <span class="hljs-attr">color</span>=<span class="hljs-string">"user_id"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"member_id"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"stage_id"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">calendar</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">record</span>&gt;</span>
+</code></pre>
+<p><img src="http://alanhou.org/homepage/wp-content/uploads/2019/01/calendar-view.jpg" alt="Odoo 12开发之后台视图 - 设计用户界面" loading="lazy"></p>
+<h6 id="透视表视图">透视表视图</h6>
+<pre><code class="language-python hljs"><span class="hljs-comment"># 透视表 是动态分析矩阵  </span>
+    <span class="hljs-comment"># 累加数据仅对数据库种存储的字段有效.</span>
+<span class="hljs-comment"># 比如:</span>
+    num_books = fields.Integer(compute=<span class="hljs-string">'_compute_num_books'</span>,store=<span class="hljs-keyword">True</span>)
+
+<p></code></pre></p>
+<pre><code class="language-xml hljs"># name像其它视图一样标识图标种的字段
+# type是指如何使用字段，行分组(默认)、度量(measure)或列（仅针对透视表，用于列分组）
+# interval用于日期字段，是对时间数据的分组间隔：按天、按周、按月、按季度或按年
+<span class="hljs-tag">&lt;<span class="hljs-name">record</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"view_pivot_checkout"</span> <span class="hljs-attr">model</span>=<span class="hljs-string">"ir.ui.view"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"model"</span>&gt;</span>library.checkout<span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"arch"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"xml"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">pivot</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"stage_id"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"col"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"member_id"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"request_date"</span> <span class="hljs-attr">interval</span>=<span class="hljs-string">"week"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"num_books"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"measure"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">pivot</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">record</span>&gt;</span>
+</code></pre>
+<p><img src="http://alanhou.org/homepage/wp-content/uploads/2019/01/pivot-view.jpg" alt="Odoo 12开发之后台视图 - 设计用户界面" loading="lazy"></p>
+<h6 id="图表视图">图表视图</h6>
+<pre><code class="language-xml hljs"># 图表视图将数据累加展示图表. 可以使柱状图,线状图和饼图
+    # type属性，值可为 bar(默认), pie或line
+    # type=”row”是默认值，设置累加值的条件
+    # type=”measure”用于作为实际累加值的度量字段
+
+<p><span class="hljs-tag">&lt;<span class="hljs-name">record</span> <span class="hljs-attr">id</span>=<span class="hljs-string">“view_graph_checkout”</span> <span class="hljs-attr">model</span>=<span class="hljs-string">“ir.ui.view”</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">“model”</span>&gt;</span>library.checkout<span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">“arch”</span> <span class="hljs-attr">type</span>=<span class="hljs-string">“xml”</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">graph</span> <span class="hljs-attr">type</span>=<span class="hljs-string">“bar”</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">“stage_id”</span> /&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">“num_books”</span> <span class="hljs-attr">type</span>=<span class="hljs-string">“measure”</span> /&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">graph</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">record</span>&gt;</span></p>
+<p></code></pre></p>
+<p><img src="http://alanhou.org/homepage/wp-content/uploads/2019/01/graph-view.jpg" alt="Odoo 12开发之后台视图 - 设计用户界面" loading="lazy"></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block"><div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/dengl/category/1764888.html" target="_blank">odoo框架</a></div>
+
+
+<pre><code>&lt;div id=&quot;blog_post_info&quot;&gt;</code></pre><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(13091434,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow('6101a39b-2cd7-4d2d-9a00-08d69bd2885c');" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="https://common.cnblogs.com/images/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="https://common.cnblogs.com/images/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/dengl/" target="_blank"><img src="https://pic.cnblogs.com/face/1613203/20190226225435.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/dengl/" target="_blank" rel="noopener">染指未来</a><br>
+            <a href="https://home.cnblogs.com/u/dengl/followees/" target="_blank" rel="noopener">关注 - 33</a><br>
+            <a href="https://home.cnblogs.com/u/dengl/followers/" target="_blank" rel="noopener">粉丝 - 15</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow('6101a39b-2cd7-4d2d-9a00-08d69bd2885c');return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(13091434,'Digg')">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(13091434,'Bury')">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<pre><code>&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;post_next_prev&quot;&gt;
+
+&lt;a href=&quot;https://www.cnblogs.com/dengl/p/13091426.html&quot; class=&quot;p_n_p_prefix&quot;&gt;« &lt;/a&gt; 上一篇：    &lt;a href=&quot;https://www.cnblogs.com/dengl/p/13091426.html&quot; title=&quot;发布于 2020-06-11 09:48&quot;&gt;Odoo 之业务逻辑 - 业务流程的支持&lt;/a&gt;
+&lt;br&gt;
+&lt;a href=&quot;https://www.cnblogs.com/dengl/p/13091439.html&quot; class=&quot;p_n_p_prefix&quot;&gt;» &lt;/a&gt; 下一篇：    &lt;a href=&quot;https://www.cnblogs.com/dengl/p/13091439.html&quot; title=&quot;发布于 2020-06-11 09:50&quot;&gt;Odoo 12开发之看板视图和用户端 QWeb&lt;/a&gt;</code></pre></div>
+</div>
+            </div>
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-06-15");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2020-06-15T01:28:35.125Z" itemprop="datePublished">2020-06-15</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2020/06/17/odoo%E6%BA%90%E7%A0%81/%E8%A7%86%E5%9B%BE/%E8%AE%B0%E5%B8%90%E5%87%AD%E8%AF%81/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">odoo源码/视图/记帐凭证</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/06/10/odoo%E6%BA%90%E7%A0%81/%E8%A7%86%E5%9B%BE/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">odoo源码/视图/自定义视图</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="https://vuvivian.github.io">vuvivian&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

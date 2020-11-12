@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>vue/vue-router的addRoutes的刷新404和重复路由的终极解决方案 | vuvivian&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="Vue后台管理项目经常有权限控制，不同角色使用不同权限，常用方法就是用addRoutes来动态添加路由，但有两个问题是官方文档上找不到解决方案的
+
+">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="vuvivian&#39;s blog">
+<meta name="msapplication-starturl" content="https://vuvivian.github.io">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="vuvivian&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+    <link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="vuvivian&#39;s blog">
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="vue/vue-router的addRoutes的刷新404和重复路由的终极解决方案 | vuvivian&#39;s blog">
+<meta property="og:site_name" content="vuvivian&#39;s blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+<meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
+
+<meta property="og:description" content="Vue后台管理项目经常有权限控制，不同角色使用不同权限，常用方法就是用addRoutes来动态添加路由，但有两个问题是官方文档上找不到解决方案的
+
+">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-10-21T06:42:34.622Z">
+    <meta property="article:modified_time" content="2020-10-21T06:42:34.622Z">
+    <meta property="article:author" content="vuvivian">
+    <meta property="og:article:tag" content=""> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/",
+    "@type": "BlogPosting",
+    "logo": "https://vuvivian.github.io/img/favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"
+    },
+    "headline": "vue/vue-router的addRoutes的刷新404和重复路由的终极解决方案 | vuvivian&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuvivian.github.io/img/favicon.ico"
+    },
+    
+    "datePublished": "2020-10-21T06:42:34.622Z",
+    "dateModified": "2020-10-21T06:44:16.692Z",
+    "author": {
+        "@type": "Person",
+        "name": "vuvivian",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/top.jpg"
+        },
+        "description": "越努力，越幸运."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "vuvivian&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vuvivian.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "Vue后台管理项目经常有权限控制，不同角色使用不同权限，常用方法就是用addRoutes来动态添加路由，但有两个问题是官方文档上找不到解决方案的
+
+"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">vuvivian&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                越努力，越幸运.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=vuvivian's blog&url=https://vuvivian.github.io&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=vuvivian's blog&url=https://vuvivian.github.io&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io&title=vue/vue-router的addRoutes的刷新404和重复路由的终极解决方案" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vue/vue-router的addRoutes的刷新404和重复路由的终极解决方案&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://vuvivian.github.io&text=vue/vue-router的addRoutes的刷新404和重复路由的终极解决方案" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPQAAAD0CAAAAACJRFQiAAAElUlEQVR42u2d0W4bMQwE8/8/7T4FCIoTd1ZBi8Qcv9ixzyeNjBLL5QL9eC18fAgttNBCCy30L4P+GB6fn5+eP19/fb+95un6r589vf90XeIQWuhN0I//6B8WmK59Av37mQKc7vO0N8ohtNDboE8FLG2CFsKpGE7rngrjqUiO6wsttNAvIgoSABU2ScykAim00ELDi4GYmATLqeBRQUT3KLTQQjOhPomVtPmnA6Ai5ARM7ye00Fuhb43Bn/b8X9xQoYX+4dBx6AWMgakRSYUsFatkQvyTqaXQQv9iaGIWNAbe1WCtaHamHyeaEkILvQia3mBqBlojMQ336PtT4RVa6K3QxOSnBaMROETE0IBAOhShhd4C3YTXpuY9bYwO7YjwSU2M0EJvhUYFAAiRZBCksFsyCKaDwUVRaKGXQJNwXFqw3Xh7uLQZqtxQoYV+U2gy5G5hUxBvMveaYE91rdBCL4FOZj0Nv5HDoaFWUqxoIRRa6E3QKWCTNkMG88Tso2IjgY57FlroBdCTICEGXjOsmw6gCayTgMDjjyO00IugScC8ERnNodDCSAXT8XtCC70AmoZQm9e30DQQkMK1xzWEFnoBdBtkSwM4OsS/aTBIsR0PQGihF0CnQkYG4cT4pyZCKlK3jYfQQm+BJsOwFHRvw6nfMRraEB1yToQW+s2gT4K+ERnp2ua77ZrE4BRa6C3QVLyTQjFthogIavqTg3zct9BCL4FOAzxSoEgBouYBDbiS4iW00BuhiVlPjINm0EYCtyRAS0SN0EJvgiZBN9L4kwOchgPps7Q/clhCC70BmgiIBJsG7EnQ0IFgM1wQWujN0MQ4T+KAbi79fYKlhsR4eEILvQSainciFIgxcGpmbgUSCf4JLfQWaGK+N8IlGYxUfLTiCB2e0EIvg24Ky7SxqUjdDvSSiErDPKGF3gZNwmuk2BFwGoQjB1eZhkILvQC62XRqLJqBXTOAo9/H4kRood8YmgiFGwOANCmNGUDCcnEwKLTQC6CJqG8PJDUZSWikIFwbbhda6E3QNCiTGokkKEgILx0kMfxxlyW00G8K3QqCFLojhuJUoBoBUod3hBZ6ATQRAU3xoMWMigw60CMBeaGF3gZNDT0qDJKwoYO8mzDP42EILfQSaCJQ6NCsHa4TGCJg0EBQaKGXQCdR0m66NeVps0GamskkFFroDdBN2Py2gJDGPzULpHgmc1BoobdA09c3IfNk1jVNS/ph4hBBaKGXQJMBOQ3BkUFBCuFMa5DCdmyghBZ6CXRq6FNwtQ3C0EI3NSh0MCi00BuhqTFIQzc3Jl4zuCeBnyqJILTQbwRNGwciMGjIrhkMNoePTQShhV4ITeCJgdiEbCajERerqQgKLfQC6NRMNOb7d42CSYAkY2FqYoQWehs0EQkkHJsaggaMrk9MTaGF3gidNkDNBBqOI8P5dkCYTAqhhRaa/cddKWRDmpI0HGzudxzsCS200C9cJL4ZaE3iIxmNV+kioYV+Y+hUZJJJkL6b7tMc1E0QQGihN0ETYzA1BTR0Q82AZu30Iwgt9CboTQ+hhRZaaKGF/iWPP/Pi1UANhIh5AAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">vue/vue-router的addRoutes的刷新404和重复路由的终极解决方案</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/top.jpg" src="/img/suka-lazyload.gif" alt="vuvivian's Avatar">
+        <span>2020-10-21</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=vue/vue-router的addRoutes的刷新404和重复路由的终极解决方案&url=https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=vue/vue-router的addRoutes的刷新404和重复路由的终极解决方案&url=https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/&title=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vuvivian's blog&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://vuvivian.github.io/2020/10/21/vue/vue-router%E7%9A%84addRoutes%E7%9A%84%E5%88%B7%E6%96%B0404%E5%92%8C%E9%87%8D%E5%A4%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/&text=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPQAAAD0CAAAAACJRFQiAAAElUlEQVR42u2d0W4bMQwE8/8/7T4FCIoTd1ZBi8Qcv9ixzyeNjBLL5QL9eC18fAgttNBCCy30L4P+GB6fn5+eP19/fb+95un6r589vf90XeIQWuhN0I//6B8WmK59Av37mQKc7vO0N8ohtNDboE8FLG2CFsKpGE7rngrjqUiO6wsttNAvIgoSABU2ScykAim00ELDi4GYmATLqeBRQUT3KLTQQjOhPomVtPmnA6Ai5ARM7ye00Fuhb43Bn/b8X9xQoYX+4dBx6AWMgakRSYUsFatkQvyTqaXQQv9iaGIWNAbe1WCtaHamHyeaEkILvQia3mBqBlojMQ336PtT4RVa6K3QxOSnBaMROETE0IBAOhShhd4C3YTXpuY9bYwO7YjwSU2M0EJvhUYFAAiRZBCksFsyCKaDwUVRaKGXQJNwXFqw3Xh7uLQZqtxQoYV+U2gy5G5hUxBvMveaYE91rdBCL4FOZj0Nv5HDoaFWUqxoIRRa6E3QKWCTNkMG88Tso2IjgY57FlroBdCTICEGXjOsmw6gCayTgMDjjyO00IugScC8ERnNodDCSAXT8XtCC70AmoZQm9e30DQQkMK1xzWEFnoBdBtkSwM4OsS/aTBIsR0PQGihF0CnQkYG4cT4pyZCKlK3jYfQQm+BJsOwFHRvw6nfMRraEB1yToQW+s2gT4K+ERnp2ua77ZrE4BRa6C3QVLyTQjFthogIavqTg3zct9BCL4FOAzxSoEgBouYBDbiS4iW00BuhiVlPjINm0EYCtyRAS0SN0EJvgiZBN9L4kwOchgPps7Q/clhCC70BmgiIBJsG7EnQ0IFgM1wQWujN0MQ4T+KAbi79fYKlhsR4eEILvQSainciFIgxcGpmbgUSCf4JLfQWaGK+N8IlGYxUfLTiCB2e0EIvg24Ky7SxqUjdDvSSiErDPKGF3gZNwmuk2BFwGoQjB1eZhkILvQC62XRqLJqBXTOAo9/H4kRood8YmgiFGwOANCmNGUDCcnEwKLTQC6CJqG8PJDUZSWikIFwbbhda6E3QNCiTGokkKEgILx0kMfxxlyW00G8K3QqCFLojhuJUoBoBUod3hBZ6ATQRAU3xoMWMigw60CMBeaGF3gZNDT0qDJKwoYO8mzDP42EILfQSaCJQ6NCsHa4TGCJg0EBQaKGXQCdR0m66NeVps0GamskkFFroDdBN2Py2gJDGPzULpHgmc1BoobdA09c3IfNk1jVNS/ph4hBBaKGXQJMBOQ3BkUFBCuFMa5DCdmyghBZ6CXRq6FNwtQ3C0EI3NSh0MCi00BuhqTFIQzc3Jl4zuCeBnyqJILTQbwRNGwciMGjIrhkMNoePTQShhV4ITeCJgdiEbCajERerqQgKLfQC6NRMNOb7d42CSYAkY2FqYoQWehs0EQkkHJsaggaMrk9MTaGF3gidNkDNBBqOI8P5dkCYTAqhhRaa/cddKWRDmpI0HGzudxzsCS200C9cJL4ZaE3iIxmNV+kioYV+Y+hUZJJJkL6b7tMc1E0QQGihN0ETYzA1BTR0Q82AZu30Iwgt9CboTQ+hhRZaaKGF/iWPP/Pi1UANhIh5AAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#null"><span class="post-toc-number">1.</span> <span class="post-toc-text">常用解决方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#null"><span class="post-toc-number">2.</span> <span class="post-toc-text">终极解决方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#null"><span class="post-toc-number">3.</span> <span class="post-toc-text">注意事项</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <div><p><code>Vue</code>后台管理项目经常有权限控制，不同角色使用不同权限，常用方法就是用<code>addRoutes</code>来动态添加路由，但有两个问题是官方文档上找不到解决方案的</p>
+<ul>
+<li>角色切换，addRoutes提示有重复的路由，无法删除之前角色的路由</li>
+<li>刷新页面，动态路由消失，提示404</li>
+</ul>
+<h3 class="heading" data-id="heading-0">常用解决方案</h3>
+<p>网上常用的解决方案角色切换的时候刷新页面，这样之前的路由就消失了，在正常页面刷新时，将路由信息储存到localStorage中，在router.beforeEach中读出路由信息，加入到addRoutes中；</p>
+<p>首先这样做体验一般，切换页面的刷新操作，会有明显的页面闪动，localStorage中储存路由信息也不好，很容易被修改，不安全</p>
+<h3 class="heading" data-id="heading-1">终极解决方案</h3>
+<ul>
+<li>
+<p>角色切换时，重新创建一个<code>Newrouter</code>，用新的<code>newRouter.matcher</code>覆盖掉原来的<code>router.matcher</code></p>
+<pre><code class="hljs javascript copyable" lang="javascript"><span class="hljs-comment">/**
+ * 在router/index.js中定义$addRoutes,调用这个方法来添加路由，这个方法会先重置路由
+ 这个路由只会包括非权限页，比如登录页，再调用router.addRoutes添加权限路由，
+ 此方法亲测，完美解决，方法来自GitHub的issues,https://github.com/vuejs/vue-router/issues/2886
+ */</span>
+<span class="hljs-keyword">const</span> constantRouterMap = [] <span class="hljs-comment">// 默认的路由规则，比如登录页（非权限页）</span>
+router.$addRoutes = <span class="hljs-function">(<span class="hljs-params">params</span>) =&gt;</span> {
+  router.matcher = <span class="hljs-keyword">new</span> VueRouter({ <span class="hljs-comment">// 重置路由规则</span>
+    routes: constantRouterMap
+  }).matcher
+  router.addRoutes(params) <span class="hljs-comment">// 添加路由</span>
+}
+<span class="copy-code-btn">复制代码</span></code></pre></li>
+<li>
+<p>刷新页面时，在<code>router.onReady</code>中添加动态路由，当页面刷新后，路由加载完成后，会执行<code>router.OnReady</code>方法，在这个方法中请求权限路由添加进入就可以了，并且这个方法只执行一次，即动态路由添加完成后，不执行这个方法，仅在刷新后执行一次</p>
+<pre><code class="hljs javascript copyable" lang="javascript"><span class="hljs-comment">/**
+ * onReady方法可以看官方文档，不赘述了
+ */</span>
+
+<p>router.onReady(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {<br>  <span class="hljs-keyword">const</span> status = <span class="hljs-literal">true</span> <span class="hljs-comment">// 判断用户已登录且已有权限</span><br>  <span class="hljs-keyword">if</span> (status) {<br>    store.dispatch(<span class="hljs-string">‘getJurisdiction’</span>) <span class="hljs-comment">// 请求动态路由</span><br>      .then(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {<br>        router.addRoutes(e.list) <span class="hljs-comment">// 添加动态路由,这里不必用$addRoutes，因为刷新后就没有上一次的动态路由，故不必清除</span><br>      })<br>  }<br>})<br><span class="copy-code-btn">复制代码</span></code></pre></li></p>
+</ul>
+<h3 class="heading" data-id="heading-2">注意事项</h3>
+<p>404页面闪现的问题，如果404页面在默认路由中，刷新页面动态路由正在加载时，页面就会短暂的显示404，解决方案就是，将404页面放在动态路由中加载，即获取动态路由后，<code>push</code>上404页，这样就完美解决了</p>
+<p>有问题欢迎留言哦！</p>
+https://juejin.im/post/6844903937141637127
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-10-21");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2020-10-21T06:42:34.622Z" itemprop="datePublished">2020-10-21</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2020/10/21/vue/vue%E6%83%B3%E7%9C%8B%E6%89%80%E6%9C%89%E7%9A%84%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E5%87%BAvue-router%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E7%94%B1/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">vue/vue想看所有的路由信息，如何打印出vue-router的所有路由</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/09/27/platform/npm/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">platform/npm</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="https://vuvivian.github.io">vuvivian&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>odoo源码/actionManager/返回函数名 | vuvivian&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="​    # 返回
+​        return {
+​            ‘type’: ‘ir.actions.cus_function’,
+​            ‘fun...">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="vuvivian&#39;s blog">
+<meta name="msapplication-starturl" content="https://vuvivian.github.io">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="vuvivian&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+    <link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="vuvivian&#39;s blog">
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="odoo源码/actionManager/返回函数名 | vuvivian&#39;s blog">
+<meta property="og:site_name" content="vuvivian&#39;s blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/">
+<meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
+
+<meta property="og:description" content="​    # 返回
+​        return {
+​            ‘type’: ‘ir.actions.cus_function’,
+​            ‘fun...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-06-18T09:37:40.737Z">
+    <meta property="article:modified_time" content="2020-06-18T09:37:40.737Z">
+    <meta property="article:author" content="vuvivian">
+    <meta property="og:article:tag" content=""> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/",
+    "@type": "BlogPosting",
+    "logo": "https://vuvivian.github.io/img/favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/"
+    },
+    "headline": "odoo源码/actionManager/返回函数名 | vuvivian&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuvivian.github.io/img/favicon.ico"
+    },
+    
+    "datePublished": "2020-06-18T09:37:40.737Z",
+    "dateModified": "2020-06-18T09:38:25.040Z",
+    "author": {
+        "@type": "Person",
+        "name": "vuvivian",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/top.jpg"
+        },
+        "description": "越努力，越幸运."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "vuvivian&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuvivian.github.io/img/favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vuvivian.github.io/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "​    # 返回
+​        return {
+​            ‘type’: ‘ir.actions.cus_function’,
+​            ‘fun..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">vuvivian&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                越努力，越幸运.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=vuvivian's blog&url=https://vuvivian.github.io&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=vuvivian's blog&url=https://vuvivian.github.io&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io&title=odoo源码/actionManager/返回函数名" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=odoo源码/actionManager/返回函数名&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://vuvivian.github.io&text=odoo源码/actionManager/返回函数名" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADECAAAAADlzdG3AAADKklEQVR42u3a0ZLTMBBE0fz/T8MrpOzp27YnWaibF2BZ2zqpkiX1zOvXf/B5iRAhQoSIdcRr+Px1wdu/369FDw3P+PM5ZFwiRGwhzh545eFHg07POfodNC4RIhYR7wNME2yavO0XMiHG3xEh4kuIswn4/jNyD7IYihDx0xFH/3c2MPoiaL4AESK+gSCHk2kBO7vf0UJ39AyyaIoQ8SkE2ZR948/H0g4RIgpEE3ilhWla/Kb7kQl9KxUXIaKsT5CALB1waDA9werwWYSIBcQ0qdImLwXAFEwwh3gRIhYQbXiWDjbTC+Fs0ZxC5/HeIkQsI0hwTCb2dB0JDsjLQYSILQQpeJAb04YWMvhpQldBgQgRNxDk4N4Ga+nvKVSIX5wIEYsIUgxsmrymAw0pLqJnihCxhKATtBkEOfiQppQx0BMhYgmRiu/TpCMvhSk8uxrWiRCxhSDNiWmgZIC0aNkUKkWI2EI0kywNjBZUSGNYvF6EiAVECsTaTR69ZxtKixDxKUTauE0FFnotLdpML4pYKRIh4iEEWZDaTSIptjTXxw2gCBEPI6qmkDBx6WJIG4arYrwIEQ8g2qBrKg7Spq2m4R13KIsQ8RCCHvyvBsmk4T29NKrqqQgRNxFXAuUmVGibgUmBX4SITUQV4JaFmLOfNU2804tFhIgNBNmQpYNPC6CHJBEivoFIk5ssQM3knIruZEKjxU6EiJsIEujiTRncUF4pVsYiiwgRS4hUhCdNhjQYmxbQuLEUIWIBkZoV04KYQuZmU1c3TYoQsYAgi9R04CEHqARsiiuxGC9CxE0EOcS3YS8qkMAvZVwMRYhYQKTFqQnKpo1gwtCmd5yKixBxA0FuMk1mik0LYRNsixCxhUg3IQ9NDevkkEWvFyFiG3Flo0c3aGnxawqX8e0kQsRDCNI8ODVapUlMgocUsJ1+GSJELCHS4YgGbM0GsAnoqrRDhIiHENPEpAX0tIFLuEca3kWI+CCCFtpTAfFKoIaCAhEiPoS4MiB6vyuFfREiPoGgC1jclMEDDvlZDBxEiFhCNCFwCnknTHv4iU3xIkQsIP7ljwgRIkSIWPv8BpezXWpQNg5yAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">odoo源码/actionManager/返回函数名</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/top.jpg" src="/img/suka-lazyload.gif" alt="vuvivian's Avatar">
+        <span>2020-06-18</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=odoo源码/actionManager/返回函数名&url=https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/&pic=https://vuvivian.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=odoo源码/actionManager/返回函数名&url=https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/&via=vuvivian" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/&title=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=vuvivian's blog&title=vuvivian's blog&summary=前端开发工程师&pics=https://vuvivian.github.io/img/favicon.ico&url=https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://vuvivian.github.io/2020/06/18/odoo%E6%BA%90%E7%A0%81/actionManager/%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D/&text=vuvivian's blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADECAAAAADlzdG3AAADKklEQVR42u3a0ZLTMBBE0fz/T8MrpOzp27YnWaibF2BZ2zqpkiX1zOvXf/B5iRAhQoSIdcRr+Px1wdu/369FDw3P+PM5ZFwiRGwhzh545eFHg07POfodNC4RIhYR7wNME2yavO0XMiHG3xEh4kuIswn4/jNyD7IYihDx0xFH/3c2MPoiaL4AESK+gSCHk2kBO7vf0UJ39AyyaIoQ8SkE2ZR948/H0g4RIgpEE3ilhWla/Kb7kQl9KxUXIaKsT5CALB1waDA9werwWYSIBcQ0qdImLwXAFEwwh3gRIhYQbXiWDjbTC+Fs0ZxC5/HeIkQsI0hwTCb2dB0JDsjLQYSILQQpeJAb04YWMvhpQldBgQgRNxDk4N4Ga+nvKVSIX5wIEYsIUgxsmrymAw0pLqJnihCxhKATtBkEOfiQppQx0BMhYgmRiu/TpCMvhSk8uxrWiRCxhSDNiWmgZIC0aNkUKkWI2EI0kywNjBZUSGNYvF6EiAVECsTaTR69ZxtKixDxKUTauE0FFnotLdpML4pYKRIh4iEEWZDaTSIptjTXxw2gCBEPI6qmkDBx6WJIG4arYrwIEQ8g2qBrKg7Spq2m4R13KIsQ8RCCHvyvBsmk4T29NKrqqQgRNxFXAuUmVGibgUmBX4SITUQV4JaFmLOfNU2804tFhIgNBNmQpYNPC6CHJBEivoFIk5ssQM3knIruZEKjxU6EiJsIEujiTRncUF4pVsYiiwgRS4hUhCdNhjQYmxbQuLEUIWIBkZoV04KYQuZmU1c3TYoQsYAgi9R04CEHqARsiiuxGC9CxE0EOcS3YS8qkMAvZVwMRYhYQKTFqQnKpo1gwtCmd5yKixBxA0FuMk1mik0LYRNsixCxhUg3IQ9NDevkkEWvFyFiG3Flo0c3aGnxawqX8e0kQsRDCNI8ODVapUlMgocUsJ1+GSJELCHS4YgGbM0GsAnoqrRDhIiHENPEpAX0tIFLuEca3kWI+CCCFtpTAfFKoIaCAhEiPoS4MiB6vyuFfREiPoGgC1jclMEDDvlZDBxEiFhCNCFwCnknTHv4iU3xIkQsIP7ljwgRIkSIWPv8BpezXWpQNg5yAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                    
+                    <article id="post-content">
+                        <p>​    # 返回</p>
+<p>​        return {</p>
+<p>​            ‘type’: ‘ir.actions.cus_function’,</p>
+<p>​            ‘func’: “function play(){new signDialog(self,”+ ‘{params}’.format(params = params) + “).open()}”,</p>
+<p>​        }</p>
+<p>或</p>
+<p> # 返回</p>
+<p>​        return {</p>
+<p>​            ‘type’: ‘ir.actions.cus_function’,</p>
+<p>​            ‘funcName’: ‘_handleSign’,</p>
+<p>​            ‘args’: [params]</p>
+<p>​           </p>
+<p>​        }</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-06-18");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2020-06-18T09:37:40.737Z" itemprop="datePublished">2020-06-18</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2020/06/19/RN/Untitled/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">RN/Untitled</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/06/18/odoo%E6%BA%90%E7%A0%81/%E6%9C%8D%E5%8A%A1/Untitled/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">odoo源码/服务/Untitled</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="https://vuvivian.github.io">vuvivian&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.9.0" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

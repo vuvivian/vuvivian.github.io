@@ -80,9 +80,7 @@ window.oldVersion = [
 <meta name="format-detection" content="telephone=no">
 
 <!-- Description -->
-<meta name="description" content="React
-什么时候使用状态管理器？
-render函...">
+<meta name="description" content="">
 
 <!-- Keywords -->
 <meta name="keywords" content="">
@@ -217,9 +215,7 @@ render函...">
 <meta property="og:url" content="https://vuvivian.github.io/2020/05/29/%E9%9D%A2%E8%AF%95/react/">
 <meta property="og:image" content="https://vuvivian.github.io/img/favicon.ico">
 
-<meta property="og:description" content="React
-什么时候使用状态管理器？
-render函...">
+<meta property="og:description" content="">
 
 <meta name="twitter:card" content="summary">
 
@@ -270,7 +266,7 @@ render函...">
     },
     
     "datePublished": "2020-05-29T06:08:37.664Z",
-    "dateModified": "2020-05-29T06:12:25.357Z",
+    "dateModified": "2020-08-13T15:21:04.923Z",
     "author": {
         "@type": "Person",
         "name": "vuvivian",
@@ -296,9 +292,7 @@ render函...">
     },
     
     "keywords": "",
-    "description": "React
-什么时候使用状态管理器？
-render函..."
+    "description": ""
 }
 </script>
 
@@ -513,17 +507,30 @@ render函..."
                     
                         
                             <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#React"><span class="post-toc-number">1.</span> <span class="post-toc-text">React</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ReactNative"><span class="post-toc-number">2.</span> <span class="post-toc-text">ReactNative</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#React-Router"><span class="post-toc-number">3.</span> <span class="post-toc-text">React-Router</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Redux-Mobox"><span class="post-toc-number">4.</span> <span class="post-toc-text">Redux/Mobox</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Flux"><span class="post-toc-number">5.</span> <span class="post-toc-text">Flux</span></a></li></ol>
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#React。https-zhuanlan-zhihu-com-p-74258351"><span class="post-toc-number">1.</span> <span class="post-toc-text">React。https://zhuanlan.zhihu.com/p/74258351</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ReactNative"><span class="post-toc-number">2.</span> <span class="post-toc-text">ReactNative</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#React-Router"><span class="post-toc-number">3.</span> <span class="post-toc-text">React-Router</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Redux-Mobox"><span class="post-toc-number">4.</span> <span class="post-toc-text">Redux/Mobox</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Flux"><span class="post-toc-number">5.</span> <span class="post-toc-text">Flux</span></a></li></ol>
                             </div>
                         
                     
                     <article id="post-content">
-                        <h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><ul>
-<li>什么时候使用状态管理器？</li>
-<li>render函数中return如果没有使用()会有什么问题？</li>
-<li>componentWillUpdate可以直接修改state的值吗？</li>
-<li>说说你对React的渲染原理的理解</li>
-<li>什么渲染劫持？</li>
+                        <h3 id="React。https-zhuanlan-zhihu-com-p-74258351"><a href="#React。https-zhuanlan-zhihu-com-p-74258351" class="headerlink" title="React。https://zhuanlan.zhihu.com/p/74258351"></a>React。<a href="https://zhuanlan.zhihu.com/p/74258351" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/74258351</a></h3><ul>
+<li>什么时候使用状态管理器？<ul>
+<li>全局状态管理 </li>
+</ul>
+</li>
+<li>render函数中return如果没有使用()会有什么问题？？？？<ul>
+<li>添加括号的目的,是为了更符号原生编码习惯的的思维,并且在一些IDE,例如webstrome中编写时html标签自动对齐方式更好看。</li>
+</ul>
+</li>
+<li>componentWillUpdate可以直接修改state的值吗？<ul>
+<li>不可以</li>
+<li>如果在shouldComponentUpdate和componentWillUpdate中调用了setState，此时this._pendingStateQueue != null，则performUpdateIfNecessary方法就会调用updateComponent方法进行组件更新。但是updateComponent方法又会调用shouldComponentUpdate和componentWillUpdate，因此造成循环调用，使得浏览器内存占满后崩溃。</li>
+</ul>
+</li>
+<li><strong>说说你对React的渲染原理的理解</strong> <a href="https://www.cnblogs.com/chaoyuehedy/p/9638848.html" target="_blank" rel="noopener">https://www.cnblogs.com/chaoyuehedy/p/9638848.html</a></li>
+<li><strong>什么渲染劫持？</strong> <a href="https://medium.com/@franleplant/react-higher-order-components-in-depth-cf9032ee6c3e" target="_blank" rel="noopener">https://medium.com/@franleplant/react-higher-order-components-in-depth-cf9032ee6c3e</a><ul>
+<li>正如谷歌先生所说，“渲染劫持的概念是控制组件从另一个组件输出的能力”。它实际上意味着您通过将组件包装到高阶组件中来装饰组件。通过包装，您可以注入额外的道具或进行其他更改，这可能会导致更改渲染逻辑。它实际上并没有“劫持”劫持，但通过使用HOC，您可以使组件以不同的方式运行。</li>
+</ul>
+</li>
 <li>React Intl是什么原理？</li>
 <li>你有使用过React Intl吗？</li>
 <li>怎么实现React组件的国际化呢？</li>
@@ -863,7 +870,7 @@ render函..."
 
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
-        var dateUpdate = Date.parse("2020-05-29");
+        var dateUpdate = Date.parse("2020-08-13");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -877,6 +884,8 @@ render函..."
 
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2020-05-29T06:08:37.664Z" itemprop="datePublished">2020-05-29</time>
+
+    , 最后修改于&nbsp;<time datetime="2020-08-13T15:21:04.923Z" itemprop="dateModified">2020-08-13</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">

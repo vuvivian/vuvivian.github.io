@@ -181,11 +181,11 @@
         .sub-title-content {
             display: flex;
             justify-content: space-around;
-            width: 110%;
             align-items: center;
             background: #68696d;
             border-radius: 1rem 1rem 0 0rem;
             margin-left: -1rem;
+            margin-right: -1rem;
             margin-top: -1rem;
             margin-bottom: 1rem;
         }
@@ -204,23 +204,25 @@
             border-radius: 0.22rem;
         }
 
+        .sub-title2 {
+            flex: none;
+            font-weight: 400;
+            border-radius: 0 1rem 0 0 !important;
+        }
+
         .sub-content {
-            /* visibility: hidden; */
             display: none;
-            opacity: 0; /* 设置透明度为 0 */
-            height: 0; /* 高度为 0 */
-            overflow: hidden; /* 隐藏溢出内容 */
-            transition: visibility 0.3s, opacity 0.3s, height 0.3s; /* 添加过渡效果 */
+            opacity: 0;
+            height: 0; 
+            transition: visibility 0.3s, opacity 0.3s, height 0.3s;
         }
 
         .sub-content-show {
             display: block !important;
-            /* visibility: visible !important; */
-            opacity: 1 !important; /* 设置透明度为 1 */
-            height: auto !important; /* 恢复高度 */
-
-            
+            opacity: 1 !important;
+            height: auto !important;
         }
+
 
         .form {
             width: 100%;
@@ -231,11 +233,6 @@
             padding: 0.6rem 0.8rem;
             border-radius: 1rem;
             text-align: left;
-            /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
-            /* box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px; */
-            /* box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
-
-
         }
 
         .form-item-label {
@@ -276,6 +273,7 @@
         }
 
         .form-item-group {
+            margin: 0em 0  0.2rem 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -287,7 +285,7 @@
         }
 
         .form-item-radio {
-            margin: 0 0rem 0 0rem;
+            margin: 0 1rem 0 0rem;
             color: #2f3140;
             font-weight: 700;
             font-size: 0.8rem;
@@ -499,7 +497,7 @@
         }
 
         .form-item-time {
-            flex: 1;
+            min-width: 2rem;
             line-height: 2rem;
         }
 
@@ -580,6 +578,7 @@
         }
 
         .tip {
+            display: none;
             padding: 10px;
             margin: 5px 0;
             border-radius: 5px;
@@ -605,14 +604,14 @@
                 <h2>WiFi智能授时<br />电子时钟</h2>
             </div>
             <div class="nav">
-                <div id="wifi-tab" class="tab" onclick="toogleTab('wifi')">Wi-Fi授时</div>
+                <div id="wifi-tab" class="tab tab-active" onclick="toogleTab('wifi')">Wi-Fi授时</div>
                 <div id="clock-tab" class="tab" onclick="toogleTab('clock')">手动授时</div>
-                <div id="system-tab" class="tab tab-active" onclick="toogleTab('system')">系统设置</div>
+                <div id="system-tab" class="tab " onclick="toogleTab('system')">系统设置</div>
             </div>
         </div>
         <div class="content">
             <div id="tip" class="tip"></div>
-            <div id="wifi-content" class="content-block ">
+            <div id="wifi-content" class="content-block content-show">
                 <form class="form">
                     <div class="form-item">
                         <label class="form-item-label">Wi-Fi名称</label>
@@ -636,6 +635,9 @@
                         <label class="form-item-label">Wi-Fi密码</label>
                         <input class="form-item-input" type="text" placeholder="" id="pwd" />
                     </div>
+                    <p class="form-item-description">
+                        注意: 保存成功后，将开启自动网络对时。
+                    </p>
                     <div class="form-button">
                         <button class="reset-button" onclick="handleReset('wifi')">重置</button>
                         <button class="save-button" type="button" onclick="handleSubmit('wifi')">保存</button>
@@ -644,6 +646,13 @@
             </div>
             <div id="clock-content" class="content-block">
                 <form class="form">
+                    <p class="form-item-description" style="background: #fa9a5d;
+                    color: #fff;
+                    font-weight: 700;
+                    border-radius: 0.4rem;
+                    padding: 0.4rem; text-align: left;">
+                        只需要设置您的本地时间(如有夏令时，请选择夏令时前的时间)，保存成功后将自动推算时钟的四国时间。
+                    </p>
                     <div class="form-item">
                         <label class="form-item-label">手动设置时间</label>
                         <input type="datetime-local" class="form-item-input" id="localTime" value="2023-04-01T20:00"
@@ -673,14 +682,24 @@
                     </div>
                 </form>
             </div>
-            <div id="system-content" class="content-block content-show">
+            <div id="system-content" class="content-block">
                 <div class="sub-title-content">
                     <span id="default-sub" class="sub-title sub-title-active" onclick="toggleSub('default')">常用设置</span>
                     <span id="zone-sub" class="sub-title" onclick="toggleSub('zone')">时区设置</span>
                     <span id="daylight-sub" class="sub-title" onclick="toggleSub('daylight')">夏令时设置</span>
+                    <span id="more-sub" class="sub-title sub-title2" onclick="toggleSub('more')">更多</span>
                 </div>
                 <form class="form">
-                    <div id="default-sub-content" class="sub-content sub-content-show ">
+                    <div id="default-sub-content" class="sub-content sub-content-show">
+                        <div class="form-item-block">
+                            <div class="form-item-group">
+                                <label class="form-item-label">自动网络对时</label>
+                                <input class="form-item-checkbox" type="checkbox" id="isAutoUpdateTime" />
+                            </div>
+                            <p class="form-item-description">
+                                开启后次日0点与重新上电时将自动网络对时。
+                            </p>
+                        </div>
                         <div class="form-item-block">
                             <label class="form-item-label">时钟显示</label>
                             <div class="form-item-group">
@@ -720,7 +739,6 @@
                                 开启后时钟屏幕第一位为空时显示0，比如01:00。
                             </p>
                         </div>
-    
                         <div class="form-item-block">
                             <label class="form-item-label">日期显示</label>
                             <div class="form-item-group">
@@ -828,102 +846,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <div id="zone-sub-content" class="sub-content"></div>
                     
-                    <div id="zone-sub-content" class="sub-content">
-                        <div class="form-item">
-                            <label class="form-item-label">时区选择</label>
+                    <div id="daylight-sub-content" class="sub-content"></div>
+		    
+		     <div id="more-sub-content" class="sub-content">
+                        <div class="form-item-block">
+                            <label class="form-item-label">自定义NTP服务器地址</label>
                             <div class="form-item-group">
-                                <select class="form-item-select" id="z_zone" style="flex: 1 1 0; margin-right: 0.6rem;"
-                                    aria-label="时区选择">
-                                    <option value="" selected>东时区</option>
-                                    <option value="-">西时区</option>
-                                </select>
-                                <select class="form-item-select" id="z_time" style="flex: 1 1 0; margin-right: 0.6rem;"
-                                    aria-label="时差">
-                                    <option value="0">0区</option>
-                                    <option value="1">1区</option>
-                                    <option value="2">2区</option>
-                                    <option value="3">3区</option>
-                                    <option value="4">4区</option>
-                                    <option value="5">5区</option>
-                                    <option value="6">6区</option>
-                                    <option value="7">7区</option>
-                                    <option value="8" selected>8区</option>
-                                    <option value="9">9区</option>
-                                    <option value="10">10区</option>
-                                    <option value="11">11区</option>
-                                    <option value="12">12区</option>
-                                </select>
+                                <input class="form-item-input" id="npt-server" type="text" placeholder="" />
                             </div>
                             <p class="form-item-description">
-                                使用北京时间请选择东时区-8区。
+                                注意: 请确保自定义NTP服务器地址可以正常访问。
                             </p>
                         </div>
                     </div>
-
-                    <div id="daylight-sub-content" class="sub-content">
-                        <div class="form-item-block">
-                            <div class="form-item-group">
-                                <label class="form-item-label">夏令时开关</label>
-                                <input class="form-item-checkbox" type="checkbox" id="DST_on" />
-                            </div>
-                            <p class="form-item-description">
-                                开启后时钟会根据夏令时自动调整时间。
-                            </p>
-                        </div>
-
-                        <div class="form-item-block">
-                            <label class="form-item-label">夏令时时间偏移</label>
-                            <div class="form-item-group">
-                                <select class="form-item-select" id="DST_offset" aria-label="时差">
-                                    <option value="-120">-120分钟</option>
-                                    <option value="-90">-90分钟</option>
-                                    <option value="-60">-60分钟</option>
-                                    <option value="-30">-30分钟</option>
-                                    <option value="-15">-15分钟</option>
-                                    <option value="0">0分钟</option>
-                                    <option value="15">+15分钟</option>
-                                    <option value="30">+30分钟</option>
-                                    <option value="60" selected>+60分钟</option>
-                                    <option value="90">+90分钟</option>
-                                    <option value="120">+120分钟</option>
-                                </select>
-                            </div>
-                            <p class="form-item-description">
-                                例如，中国大陆的夏令时偏移为+60分钟。
-                            </p>
-                        </div>
-
-                        <div class="form-item-block">
-                            <label class="form-item-label">夏令时开启时间</label>
-                            <div class="form-item-group" style="gap: 0 0.4rem;">
-                                <select class="form-item-select monthPicker-start" id="DST_start_month" aria-label="月份">
-                                    <option value="1">1月</option>
-                                    <option value="2">12月</option>
-                                </select>
-                                
-                                <select class="form-item-select dayPicker-start" id="DST_start_day" aria-label="日期">
-                                    <option value="1">1日</option>
-                                    <option value="2">29日</option>
-                                </select>
-                                <input class="form-item-input" type="time" id="DST_start_time" value="12:00"  placeholder="请选择时间"/>
-                            </div>
-
-                            <label class="form-item-label" style="margin-top: 1rem;">夏令时结束时间</label>
-                            <div class="form-item-group" style="gap: 0 0.4rem;">
-                                <select class="form-item-select monthPicker-end" id="DST_end_month" aria-label="月份">
-                                    <option value="1">1月</option>
-                                    <option value="2">12月</option>
-                                </select>
-                                
-                                <select class="form-item-select dayPicker-end" id="DST_end_day" aria-label="日期">
-                                    <option value="1">1日</option>
-                                    <option value="2">29日</option>
-                                </select>
-                                <input class="form-item-input" type="time" id="DST_end_time" value="12:00"  placeholder="请选择时间"/>
-                            </div>
-                        </div>
-                    </div>
+                    
                 
                     <div class="form-button">
                         <button class="reset-button" onclick="handleReset('system')">重置</button>
@@ -1055,7 +994,7 @@
                         document.getElementById("nightRangeBegin").value = defaultData.nightRangeBegin;
                         document.getElementById("nightRangeEnd").value = defaultData.nightRangeEnd;
                     }
-                } else if(activeType === 'zone') { 
+                } else if(subActiveType === 'zone') { 
                     if (defaultData?.timeZone !== undefined && defaultData?.timeZone !== null) {
                         if (defaultData.timeZone < 0) {
                             document.getElementById("z_zone").value = "-";
@@ -1075,6 +1014,8 @@
                         document.getElementById("DST_end_day").value = defaultData?.DST_start_day;
                         document.getElementById("DST_end_time").value = defaultData?.DST_start_time;
                     }
+                } else if (subActiveType === 'more') { 
+                    document.getElementById("ntp-server").value = !!defaultData?.ntpServer ? defaultData.ntpServer : "";
                 }
             } else {
                 document.getElementById("localTime").value = "20:00";
@@ -1159,6 +1100,8 @@
                        DST_end_day: document.getElementById('DST_end_day')?.value,
                        DST_end_time: document.getElementById('DST_end_time')?.value,
                    }
+                } else if (subActiveType === 'more') {
+                    params['ntpServer'] = document.getElementById('npt-server')?.value;
                 }
             }
 
@@ -1310,6 +1253,17 @@
                 tipElement.style.display = 'none';
             }, 5000);
         }
+
+        function generateTimeOptions(selectElement) {
+            selectElement.innerHTML = '';
+            for (let i = 0; i <= 23; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = `${i}时`;
+                selectElement.appendChild(option);
+            }
+        }
+
         
         function generateMonthOptions(selectElement) {
             selectElement.innerHTML = ''; // 清空旧选项
@@ -1340,6 +1294,112 @@
             element.addEventListener(event, handler); // 添加新的监听器
         }
 
+        function generateTimeZoneOptions(selectedValue) {
+            const options = [];
+            for (let i = 0; i <= 12; i += 0.5) {
+                const value = i % 1 === 0 ? i : i.toFixed(1);
+                options.push(`<option value="${value}" ${value == selectedValue ? 'selected' : ''}>${value}区</option>`);
+            }
+            return options.join('');
+        }
+
+        function generateTimeZoneSelector(clockNumber, selectedTime = "8") {
+            return `
+                <div class="form-item-block" id="ZONE_${clockNumber}">
+                    <label class="form-item-label" >时钟时区</label>
+                    <div class="form-item-group">
+                        <select class="form-item-select" id="z_zone_${clockNumber}" style="flex: 1 1 0; margin-right: 0.6rem;" aria-label="时区选择">
+                            <option value="" selected}>东时区</option>
+                            <option value="-"}>西时区</option>
+                        </select>
+                        <select class="form-item-select" id="z_time_${clockNumber}" style="flex: 1 1 0; margin-right: 0.6rem;" aria-label="时差">
+                            ${generateTimeZoneOptions(selectedTime)}
+                        </select>
+                    </div>
+                </div>
+            `;
+        }
+
+
+        function initializeZoneSettings() {
+            // 动态生成四个时区设置
+           const timeZoneContainer = document.getElementById('zone-sub-content');
+           for (let i = 1; i <= 1; i++) {
+               timeZoneContainer.innerHTML += generateTimeZoneSelector(i);
+           } 
+       }
+
+       function generateOffsetOptions() {
+            const offsets = [-120, -90, -60, -30, -15, 0, 15, 30, 60, 90, 120];
+            return offsets.map(offset => `<option value="${offset}" ${offset === 60 ? 'selected' : ''}>${offset > 0 ? '+' : ''}${offset}分钟</option>`).join('');
+        }
+
+        function generateDaylightSettings(index) {
+            return `
+                <div class="dst-container" id="DST_${index}">
+                    <div class="form-item" style="padding: 0;">
+                        <div class="form-item-group">
+                            <div>
+                                <label class="form-item-label">开启夏令时</label>
+                                <input class="form-item-checkbox" type="checkbox" id="DST_on_${index}" style="border: 0.2rem solid #fa9a5d;" />
+                            </div>
+                            <div>
+                                <label class="form-item-label">时间偏移</label>
+                                <select class="form-item-select" id="DST_offset_${index}" aria-label="时差" style="width: auto;">
+                                    ${generateOffsetOptions()}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-item" style="padding: 0;">
+                        <label class="form-item-label">夏令时开启时间</label>
+                        <div class="form-item-group" style="gap: 0 0.4rem;">
+                            <select class="form-item-select monthPicker-start" id="DST_start_month_${index}" aria-label="月份"></select>
+                            <select class="form-item-select dayPicker-start" id="DST_start_day_${index}" aria-label="日期"></select>
+                            <select class="form-item-select timePicker-start" id="DST_start_time_${index}" aria-label="时间"></select>
+                        </div>
+                        <label class="form-item-label">夏令时结束时间</label>
+                        <div class="form-item-group" style="gap: 0 0.4rem;">
+                            <select class="form-item-select monthPicker-end" id="DST_end_month_${index}" aria-label="月份"></select>
+                            <select class="form-item-select dayPicker-end" id="DST_end_day_${index}" aria-label="日期"></select>
+                            <select class="form-item-select timePicker-end"  id="DST_end_time_${index}"  aria-label="时间"></select>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }           
+
+        function initializeDaylightSettings() {
+            const container = document.getElementById('daylight-sub-content');
+            for (let i = 1; i <= 1; i++) {
+                container.innerHTML += generateDaylightSettings(i);
+
+                // 初始化月份和日期选择器
+                const monthPickerStart = document.getElementById(`DST_start_month_${i}`);
+                const dayPickerStart = document.getElementById(`DST_start_day_${i}`);
+                const monthPickerEnd = document.getElementById(`DST_end_month_${i}`);
+                const dayPickerEnd = document.getElementById(`DST_end_day_${i}`);
+                const timePickerStart = document.getElementById(`DST_start_time_${i}`);
+                const timePickerEnd = document.getElementById(`DST_end_time_${i}`);
+
+                generateMonthOptions(monthPickerStart);
+                generateDayOptions(dayPickerStart, parseInt(monthPickerStart.value, 10));
+                generateMonthOptions(monthPickerEnd);
+                generateDayOptions(dayPickerEnd, parseInt(monthPickerEnd.value, 10));
+                generateTimeOptions(timePickerStart);
+                generateTimeOptions(timePickerEnd);
+
+                // 添加事件监听器
+                monthPickerStart.addEventListener('change', () => {
+                    generateDayOptions(dayPickerStart, parseInt(monthPickerStart.value, 10));
+                });
+                monthPickerEnd.addEventListener('change', () => {
+                    generateDayOptions(dayPickerEnd, parseInt(monthPickerEnd.value, 10));
+                });
+            }
+        }
+   
+
         function toggleSub(type) {
             subActiveType = type;
             // 激活当前子标题并显示对应内容块
@@ -1354,33 +1414,18 @@
                 activeContent.classList.add('sub-content-show');
             }
 
-            if(type === 'daylight') {
-                const monthPickerStart = document.getElementById('DST_start_month');
-                const dayPickerStart = document.getElementById('DST_start_day');
-
-                const monthPickerEnd = document.getElementById('DST_end_month');
-                const dayPickerEnd = document.getElementById('DST_end_day');
-
-                // 初始化月份和日期
-                generateMonthOptions(monthPickerStart);
-                generateDayOptions(dayPickerStart, parseInt(monthPickerStart.value, 10));
-
-                generateMonthOptions(monthPickerEnd);
-                generateDayOptions(dayPickerEnd, parseInt(monthPickerEnd.value, 10));
-
-
-                // 当月份变化时更新日期选项
-                monthPickerStart.addEventListener('change', () => {
-                    generateDayOptions(dayPickerStart, parseInt(monthPickerStart.value, 10));
-                });
-                monthPickerEnd.addEventListener('change', () => {
-                    generateDayOptions(dayPickerEnd, parseInt(monthPickerEnd.value, 10));
-                });
+             // 检查是否已经初始化过，避免重复生成 DOM
+             if (type === 'zone' && !activeContent.dataset.initialized) {
+                initializeZoneSettings();
+                activeContent.dataset.initialized = true; // 标记为已初始化
             }
 
-            addEventListenerOnce(monthPickerStart, 'change', () => {
-                generateDayOptions(dayPickerStart, parseInt(monthPickerStart.value, 10));
-            });
+
+            if (type === 'daylight' && !activeContent.dataset.initialized) {
+                initializeDaylightSettings();
+                activeContent.dataset.initialized = true; // 标记为已初始化
+            }
+           
             handleReset('system');
         }
         

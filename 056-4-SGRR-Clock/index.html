@@ -973,7 +973,7 @@
                         document.getElementById(`DST_end_time_${i}`).value = defaultData[`DST_end_time_${i}`] || 0;
                     }
                 } else if (subActiveType === 'more') { 
-                    document.getElementById("ntp-server").value = !!defaultData.ntpServer ? defaultData.ntpServer : "";
+                    document.getElementById("ntp-server").value = !!defaultData?.ntpServer ? defaultData.ntpServer : "";
                 }
                 
             } else {
@@ -1372,7 +1372,6 @@
         }
         // 页面加载完成后隐藏加载遮罩层
         window.onload = function () {
-            console.log('onload');
             document.getElementById('loading-container').style.display = 'none';
         };
 

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGRR Clock 项目导航</title>
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            align-items: start;
+        }
+        .card-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 20px;
+            position: relative;
+        }
+        .card-link:hover {
+            background: rgba(52, 152, 219, 0.05);
+        }
+        .version {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #3498db;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .card-title {
+            margin: 0;
+            font-size: 1.5em;
+            color: #3498db;
+            text-align: center;
+        }
+        .card-description {
+            margin: 10px 0 0;
+            color: #7f8c8d;
+            text-align: center;
+        }
+        .changelog {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+        .changelog h3 {
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin: 0 0 10px 0;
+            text-align: left;
+        }
+        .changelog ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .changelog li {
+            color: #666;
+            font-size: 0.9em;
+            margin: 5px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+        .changelog li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+        .show-more {
+            background: none;
+            border: none;
+            color: #3498db;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .show-more:hover {
+            color: #2980b9;
+        }
+        .hidden-versions {
+            display: none;
+        }
+        .hidden-versions.show {
+            display: block;
+        }
+
+        /* 响应式布局 */
+        @media screen and (max-width: 1200px) {
+            .container {
+                max-width: 1000px;
+            }
+            .menu {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            .container {
+                max-width: 600px;
+            }
+            .menu {
+                grid-template-columns: 1fr;
+            }
+            .card-container {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .menu {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+            .card-title {
+                font-size: 1.3em;
+            }
+        }
+
+        /* 需求反馈卡片特殊样式 */
+        .feedback-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #3498db;
+        }
+        .feedback-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 16px rgba(52, 152, 219, 0.2);
+        }
+        .feedback-card .card-link {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+        .feedback-card .card-link:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #2573a7 100%);
+        }
+        .feedback-card .card-title {
+            color: white;
+        }
+        .feedback-card .card-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .feedback-card .version {
+            background: white;
+            color: #3498db;
+        }
+        .feedback-card .changelog {
+            background: white;
+        }
+        .feedback-card .changelog h3 {
+            color: #3498db;
+        }
+        .feedback-card .changelog li {
+            color: #666;
+        }
+        .feedback-card .changelog li:before {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SGRR Clock 项目导航</h1>
+        <div class="menu">
+            <div class="card-container">
+                <a href="056-4-SGRR-Clock/index.html" class="card-link">
+                    <span class="version">v1.0.0</span>
+                    <h2 class="card-title">056-4 SGRR Clock</h2>
+                    <p class="card-description">查看 056-4 版本时钟</p>
+                </a>
+                <div class="changelog">
+                    <h3>版本历史</h3>
+                    <ul>
+                        <li>v1.0.0 (2024-03-20) - 初始版本发布</li>
+                        <li>v0.9.0 (2024-03-15) - 完成基本功能</li>
+                        <div class="hidden-versions">
+                            <li>v0.8.0 (2024-03-10) - 项目启动</li>
+                            <li>v0.7.0 (2024-03-05) - 添加新特性</li>
+                            <li>v0.6.0 (2024-03-01) - 修复已知问题</li>
+                        </div>
+                    </ul>
+                    <button class="show-more" onclick="toggleVersions(this)">查看更多</button>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <a href="056-SGRR-Clock/index.html" class="card-link">
+                    <span class="version">v1.0.0</span>
+                    <h2 class="card-title">056 SGRR Clock</h2>
+                    <p class="card-description">查看 056 版本时钟</p>
+                </a>
+                <div class="changelog">
+                    <h3>版本历史</h3>
+                    <ul>
+                        <li>v1.0.0 (2024-03-20) - 初始版本发布</li>
+                        <li>v0.9.0 (2024-03-15) - 完成基本功能</li>
+                        <div class="hidden-versions">
+                            <li>v0.8.0 (2024-03-10) - 项目启动</li>
+                            <li>v0.7.0 (2024-03-05) - 添加新特性</li>
+                            <li>v0.6.0 (2024-03-01) - 修复已知问题</li>
+                        </div>
+                    </ul>
+                    <button class="show-more" onclick="toggleVersions(this)">查看更多</button>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <a href="080-SGRR-Clock/index.html" class="card-link">
+                    <span class="version">v1.0.0</span>
+                    <h2 class="card-title">080 SGRR Clock</h2>
+                    <p class="card-description">查看 080 版本时钟</p>
+                </a>
+                <div class="changelog">
+                    <h3>版本历史</h3>
+                    <ul>
+                        <li>v1.0.0 (2024-03-20) - 初始版本发布</li>
+                        <li>v0.9.0 (2024-03-15) - 完成基本功能</li>
+                        <div class="hidden-versions">
+                            <li>v0.8.0 (2024-03-10) - 项目启动</li>
+                            <li>v0.7.0 (2024-03-05) - 添加新特性</li>
+                            <li>v0.6.0 (2024-03-01) - 修复已知问题</li>
+                        </div>
+                    </ul>
+                    <button class="show-more" onclick="toggleVersions(this)">查看更多</button>
+                </div>
+            </div>
+
+            <div class="card-container feedback-card">
+                <a href="suggestion/index.html" class="card-link">
+                    <span class="version">需求收集</span>
+                    <h2 class="card-title">产品需求反馈</h2>
+                    <p class="card-description">提交您的建议和需求</p>
+                </a>
+                <div class="changelog">
+                    <h3>功能说明</h3>
+                    <ul>
+                        <li>为不同版本时钟提交需求</li>
+                        <li>查看其他用户的需求建议</li>
+                        <li>参与产品功能讨论</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleVersions(button) {
+            const hiddenVersions = button.previousElementSibling.querySelector('.hidden-versions');
+            if (hiddenVersions.classList.contains('show')) {
+                hiddenVersions.classList.remove('show');
+                button.textContent = '查看更多';
+            } else {
+                hiddenVersions.classList.add('show');
+                button.textContent = '收起';
+            }
+        }
+    </script>
+</body>
+</html>

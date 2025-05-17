@@ -1,0 +1,1383 @@
+<!--
+ * @Author: vuvivian
+ * @Description: 请输入....
+ * @Date: 2024-05-22 22:21:46
+ * @LastEditors: Do not edit
+ * @LastEditTime: 2025-04-17 01:07:00
+ * @FilePath: /056-4-SGRR-Clock/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时光荏苒-四国时钟-WIFI时钟设置</title>
+    <style>
+        html, 
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            /* font-family: 'PT Serif', serif; */
+        }
+
+        .container {
+            background-color: #f4f6fb;
+            height: calc(100vh);
+            overflow: auto;
+
+        }
+
+        .header {
+            /* #7887ff */
+            background-color: #5d7cfa;
+            height: 15rem;
+            border-radius: 0% 0% 8% 8%;
+            padding: 1rem 0.4rem 2rem 0.4rem;
+        }
+
+        .title {
+            color: #fbfcff;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 0 0 0.5rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .tab {
+            background-color: #7893ff;
+            color: #FFFFFF;
+            height: 3rem;
+            width: 5rem;
+            line-height: 3rem;
+            padding: 0% 1rem;
+            border-radius: 2rem;
+            text-align: center;
+            margin-right: 1rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .tab-active {
+            background-color: #f3f3f3;
+            color: #3f64fb;
+            font-weight: bolder;
+        }
+
+        .content {
+            width: 92%;
+            margin-left: 4%;
+            margin-top: -7rem;
+            border-radius: 1rem;
+            background-color: #FFFFFF;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+
+        .content-show {
+            display: block !important;
+        }
+
+        .content-hide {
+            display: none !important;
+        }
+
+        .content-block {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+            width: auto;
+        }
+
+        .sub-title-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #68696d;
+            border-radius: 1rem 1rem 0 0rem;
+            margin-left: -1rem;
+            margin-right: -1rem;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+        }
+
+        .sub-title-active {
+            background-color: #fa9a5d;
+            color: #fff !important;
+            font-weight: bold;
+            border-radius: 1rem 1rem 0 0rem !important; 
+        }
+
+        .sub-title {
+            flex: 1;
+            padding: 0.4rem 0.2rem;
+            color: #fff;
+            border-radius: 0.22rem;
+        }
+
+        .sub-title2 {
+            flex: none;
+            font-weight: 400;
+            border-radius: 0 1rem 0 0 !important;
+        }
+
+        .sub-content {
+            display: none;
+            opacity: 0;
+            height: 0; 
+            transition: visibility 0.3s, opacity 0.3s, height 0.3s;
+        }
+
+        .sub-content-show {
+            display: block !important;
+            opacity: 1 !important;
+            height: auto !important;
+        }
+
+        .dst-container {
+            background-color: #eaebf1; 
+            margin-bottom: 1rem; 
+            padding: 0.5rem 1rem; 
+            border-radius: 0.4rem;
+           position: relative;
+        }
+        .dst-title {
+            font-size: 1rem;
+            text-align: center;
+            width: 100%;
+            color: #fff;
+            position: absolute;
+            top: -0.7rem;
+            left: 0;
+            z-index: 1;
+        }
+
+        .dst-title-text {
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            background: linear-gradient(135deg, #5d7cfa, #fa9a5d);
+            border-radius: 0.5rem;
+            font-weight: bold;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+        }
+       
+        #DST_1, #ZONE_1 {
+            background-color: #FFDDDD;
+        }
+        #DST_2, #ZONE_2 {
+            background-color: #aedefc;
+        }
+        #DST_3, #ZONE_3 {
+            background-color: #eaebf1;
+        }
+        #DST_4, #ZONE_4 {
+            background-color: #dff4f3;
+        }
+
+        .form {
+            width: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        }
+
+        .form-item {
+            padding: 0.6rem 0.8rem;
+            border-radius: 1rem;
+            text-align: left;
+        }
+
+        .form-item-label {
+            display: inline-block;
+            color: #68696d;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.2s;
+            margin-bottom: 0.6rem;
+        }
+
+        .form-item-input,
+        .form-item-select {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            min-width: 50;
+            border-radius: 6px;
+            background: #FFFFFF;
+            padding: 0.2rem;
+            color: #2f3140;
+            font-size: 0.8rem;
+            font-weight: 700;
+            line-height: 2.2rem;
+            box-sizing: border-box;
+            border: 1px solid #7893ff;
+            list-style: none;
+            transition: all 0.2s;
+        }
+
+        .form-item-range {
+            width: 100%;
+            background: #c7d0f4;
+            overflow: hidden;
+            /* outline: none; */
+            /* -webkit-appearance: none; 清除系统默认样式 */
+            /* height: 3px; 横条的高度 */
+        }
+
+        .form-item-group {
+            margin: 0em 0  0.2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-item-select {
+            height: 2.7rem;
+            line-height: 2.7rem;
+        }
+
+        .form-item-radio {
+            margin: 0 1rem 0 0rem;
+            color: #2f3140;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .refresh-btn {
+            width: 3rem;
+            height: 2.5rem;
+            font-size: small;
+            line-height: 2.5rem;
+            color: #000;
+            text-align: center;
+            margin-left: 0.4rem;
+            /* border: #5d7cfa 1px solid; */
+            background-color: #f3f6fc;
+            border-radius: 22%;
+        }
+
+        .toogle-ssid-btn {
+            width: 5rem;
+            height: 2.5rem;
+            font-size: 0.8rem;
+            line-height: 2.5rem;
+            color: #fff;
+            text-align: center;
+            margin-left: 0.4rem;
+            background-color: #7893ff;
+            border-radius: 10%;
+        }
+
+        .form-button {
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        .reset-button {
+            width: 46%;
+            height: 3.4rem;
+            border: none;
+            background-color: #fff;
+            font-size: 1.2rem;
+            color: #2f3140;
+            border: 1px solid #c7d0f4;
+            border-radius: 1rem;
+            letter-spacing: 0.6rem;
+        }
+
+        .save-button {
+            width: 46%;
+            height: 3.4rem;
+            border: none;
+            background-color: #5d7cfa;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+            border-radius: 1rem;
+            letter-spacing: 0.6rem;
+        }
+
+        .autoLocalTime {
+            padding: 0rem 0.8rem;
+            color: #2f3140;
+        }
+
+        input:disabled {
+            cursor: default;
+            background-color: light-dark(rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));
+            color: light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
+            border-color: rgba(118, 118, 118, 0.3);
+        }
+
+        input[type="checkbox"].form-item-checkbox-normal {
+            margin: 0em 0.2rem 0 0;
+            padding: 0;
+            width: 1.2em;
+            height: 1.2em;
+            border: 1px solid #ccc;
+            font-size: 0.9em;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"].form-item-checkbox {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0em 0.2rem 0 0;
+            padding: 0;
+            width: 1.6em;
+            height: 1.6em;
+            border: 1px solid #ccc;
+            font-size: 0.9em;
+            cursor: pointer;
+            outline: none;
+            transition: all .2s ease;
+        }
+
+        input[type="radio"] {
+            border-radius: 50%;
+        }
+
+        input[type="radio"]:after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background: #7893ff;
+            border-radius: 50%;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            transition: all .2s ease;
+            transform-origin: center center;
+            pointer-events: none;
+        }
+
+        input[type="radio"]:checked:after {
+            width: 1em;
+            height: 1em;
+            opacity: 1;
+        }
+
+        input[type="checkbox"] {
+            border-radius: .2em;
+        }
+
+        input[type="checkbox"].form-item-checkbox:after {
+            content: '\2714';
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            color: #7893ff;
+            font-size: 2.5em;
+            font-family: meiryo, "sans-serif";
+            opacity: 0;
+            transition: all .1s ease;
+            transform: translate(-50%, -50%) scale3d(.2, .2, 1);
+            transform-origin: center center;
+        }
+
+        input[type="checkbox"].form-item-checkbox:checked:after {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 2rem;
+            border-radius: 0.5rem;
+            border: 0;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 59%;
+            border: 0px solid transparent;
+            border-image: linear-gradient(#7893ff, #7893ff) 0 fill / 8 20 8 0 / 0 0 0 99vw;
+        }
+
+        input[type="datetime-local"] {
+            width: 100%;
+            color: #2f3140;
+            font-size: 0.8rem;
+        }
+
+        .form-item-block {
+            background-color: #f4f6fb;
+            margin: 0.5rem 0;
+            padding: 0.6rem 0.8rem;
+            border-radius: 0.4rem;
+            text-align: left;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+            /* box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px; */
+            /* box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
+
+        }
+
+        .form-item-block .form-item-group .form-item-label {
+            margin-bottom: 0;
+        }
+
+        .form-item-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0.8rem;
+            margin: 0.6rem 0;
+            background-color: #eaecf6;
+            border-radius: 0.4rem;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        }
+
+        .form-item-row .form-item-label {
+            margin-bottom: 0;
+            margin-right: 1rem;
+        }
+
+        .form-item-time {
+            min-width: 2rem;
+            line-height: 2rem;
+        }
+
+        .form-item-description {
+            text-align: left;
+            color: #68696d;
+            font-size: 0.8rem;
+            padding: 0.2rem 0 0 0;
+        }
+
+        .wifi-refresh {
+            color: #3f64fb;
+        }
+
+        .form-item-inner {
+            display: none;
+        }
+
+        .form-item-inner-label {
+            font-weight: 400;
+        }
+
+        .light-value {
+            color: #7893ff;
+            font-size: 1.2rem;
+        }
+
+        input[type="time"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            color: red;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer {
+            height: 2rem;
+            line-height: 2rem;
+            text-align: center;
+            color: #a6a9ae;
+        }
+
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* 半透明黑色背景 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            /* 确保它位于页面顶部 */
+        }
+
+        .loading-icon {
+            border: 6px solid rgba(0, 0, 0, 0.1);
+            border-top-color: #5d7cfa;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        /* 动画效果 */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .tip {
+            display: none;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .success {
+            background-color: #4CAF50;
+            /* 绿色 */
+        }
+
+        .failure {
+            background-color: #f44336;
+            /* 红色 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <h2>WiFi智能授时<br />电子时钟</h2>
+            </div>
+            <div class="nav">
+                <div id="wifi-tab" class="tab tab-active" onclick="toogleTab('wifi')">Wi-Fi授时</div>
+                <div id="clock-tab" class="tab" onclick="toogleTab('clock')">手动授时</div>
+                <div id="system-tab" class="tab " onclick="toogleTab('system')">系统设置</div>
+            </div>
+        </div>
+        <div class="content">
+            <div id="tip" class="tip"></div>
+            <div id="wifi-content" class="content-block content-show">
+                <form class="form">
+                    <div class="form-item">
+                        <label class="form-item-label">Wi-Fi名称</label>
+                        <div class="form-item-group ssid-select">
+                            <select class="form-item-select" id="ssid">
+                            </select>
+                            <div class="toogle-ssid-btn" onclick="toogleSsid('input')">手输模式</div>
+                        </div>
+                        <div class="form-item-group ssid-input content-hide">
+                            <input class="form-item-input" id="ssid-input" type="text" placeholder="" />
+                            <div class="toogle-ssid-btn" onclick="toogleSsid('select')">选择模式</div>
+                        </div>
+                        <p class="form-item-description wifi-refresh" onclick="getWifiList()">
+                            👆点此可重新获取您周围的wifi名称列表哦。
+                        </p>
+                        <p class="form-item-description">
+                            ✍️如果没有搜索到您要的Wi-Fi名称，请手动输入。
+                        </p>
+                    </div>
+                    <div class="form-item">
+                        <label class="form-item-label">Wi-Fi密码</label>
+                        <input class="form-item-input" type="text" placeholder="" id="pwd" />
+                    </div>
+                    <p class="form-item-description">
+                        注意: 保存成功后，将开启自动网络对时。
+                    </p>
+                    <div class="form-button">
+                        <button class="reset-button" onclick="handleReset('wifi')">重置</button>
+                        <button class="save-button" type="button" onclick="handleSubmit('wifi')">保存</button>
+                    </div>
+                </form>
+              
+            </div>
+            <div id="clock-content" class="content-block">
+                <form class="form">
+                    <p class="form-item-description" style="background: #fa9a5d;
+                    color: #fff;
+                    font-weight: 700;
+                    border-radius: 0.4rem;
+                    padding: 0.4rem; text-align: left;">
+                        只需要设置您的本地时间(如有夏令时，请选择夏令时前的时间)，保存成功后将自动推算时钟的四国时间。
+                    </p>
+                    <div class="form-item">
+                        <label class="form-item-label">手动设置时间</label>
+                        <input type="datetime-local" class="form-item-input" id="localTime" value="2023-04-01T20:00"
+                            placeholder="请选择日期和时间" />
+                        <!-- <input class="form-item-input" id="localTime" value="20:00" type="datetime" placeholder="" /> -->
+                    </div>
+                    <div class="form-item autoLocalTime">
+                        <input type="checkbox" class="form-item-checkbox-normal" id="form-item-local-time"
+                            onchange="getLocalTime(event)" />
+                        <label for="form-item-local-time" class="form-item-label">获取手机当前时间</label>
+                    </div>
+                    <p class="form-item-description">注意：该模式下时钟断电不走时，重新上电时间归零。</p>
+                    <div class="form-button">
+                        <button class="reset-button" onclick="handleReset('clock')">重置</button>
+                        <button class="save-button" onclick="handleSubmit('clock')">保存</button>
+                    </div>
+                </form>
+            </div>
+            <div id="system-content" class="content-block">
+                <div class="sub-title-content">
+                    <span id="default-sub" class="sub-title sub-title-active" onclick="toggleSub('default')">常用设置</span>
+                    <span id="zone-sub" class="sub-title" onclick="toggleSub('zone')">时区设置</span>
+                    <span id="daylight-sub" class="sub-title" onclick="toggleSub('daylight')">夏令时设置</span>
+                    <span id="more-sub" class="sub-title sub-title2" onclick="toggleSub('more')">更多</span>
+                </div>
+                <form class="form">
+                    <div id="default-sub-content" class="sub-content sub-content-show">
+                        <div class="form-item-block">
+                            <div class="form-item-group">
+                                <label class="form-item-label">自动网络对时</label>
+                                <input class="form-item-checkbox" type="checkbox" id="isAutoUpdateTime" />
+                            </div>
+                            <p class="form-item-description">
+                                开启后次日0点与重新上电时将自动网络对时。
+                            </p>
+                        </div>
+                        <div class="form-item-block">
+                            <label class="form-item-label">时钟显示</label>
+                            <div class="form-item-group">
+                                <div class="form-item-radio">
+                                    <input type="radio" name="is24" id="is12" value="is12" />
+                                    <label for="is12">12小时制</label>
+                                </div>
+                                <div class="form-item-radio">
+                                    <input type="radio" name="is24" id="is24" value="is24" checked />
+                                    <label for="is24">24小时制</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-item-block">
+                            <div class="form-item-group">
+                                <label class="form-item-label">亮度设置</label>
+                                <span class="light-value">4/8</span>
+                            </div>
+                            <input class="form-item-range" type="range" min="1" max="8" step="1" value="4" id="lightLevel"
+                                onchange="rangeSlide(value)" />
+                        </div>
+                        
+                        <div class="form-item-block">
+                            <div class="form-item-group">
+                                <label class="form-item-label">首位显示0</label>
+                                <input class="form-item-checkbox" type="checkbox" id="isFixZero" />
+                            </div>
+                            <p class="form-item-description">
+                                开启后时钟屏幕第一位为空时显示0，比如01:00。
+                            </p>
+                        </div>
+                        <div class="form-item-block">
+                            <label class="form-item-label">日期显示</label>
+                            <div class="form-item-group">
+                                <div class="form-item-radio">
+                                    <input type="radio" name="isLoopDisplay" id="isLoopDisplay_0" value="0"
+                                        checked />
+                                    <label for="isLoopDisplay_0">关闭</label>
+                                </div>
+                                <div class="form-item-radio">
+                                    <input type="radio" name="isLoopDisplay" id="isLoopDisplay_1" value="1" />
+                                    <label for="isLoopDisplay_1">5s</label>
+                                </div>
+                                <div class="form-item-radio">
+                                    <input type="radio" name="isLoopDisplay" id="isLoopDisplay_2" value="2" />
+                                    <label for="isLoopDisplay_2">10秒</label>
+                                </div>
+                                <div class="form-item-radio">
+                                    <input type="radio" name="isLoopDisplay" id="isLoopDisplay_3" value="3" />
+                                    <label for="isLoopDisplay_3">常显</label>
+                                </div>
+                            </div>
+                            <p class="form-item-description">
+                                开启后时钟屏幕按设置频率显示当前日期。
+                            </p>
+                        </div>
+                        <div class="form-item-block">
+                            <div class="form-item-group">
+                                <label class="form-item-label">自动亮度</label>
+                                <input class="form-item-checkbox" type="checkbox" id="isAutoLight"
+                                    onchange="handleAutoLight(event)" />
+                            </div>
+                            <p class="form-item-description">
+                                开启后将在指定时间范围内自动调节至最低亮度。(基于第1时钟)
+                            </p>
+                            <div class="form-item-inner">
+                                <div class="form-item-row">
+                                    <label class="form-item-label form-item-inner-label">夜间开始时间</label>
+                                    <input class="form-item-input form-item-time" type="time" id="nightRangeBegin"
+                                        value="20:00" placeholder="" />
+                                </div>
+                                <div class="form-item-row">
+                                    <label class="form-item-label form-item-inner-label">夜间结束时间</label>
+                                    <input class="form-item-input form-item-time" type="time" id="nightRangeEnd"
+                                        value="06:00" placeholder="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="zone-sub-content" class="sub-content"></div>
+
+                    <div id="daylight-sub-content" class="sub-content"></div>
+                    
+                    <div id="more-sub-content" class="sub-content">
+                        <div class="form-item-block">
+                            <label class="form-item-label">自定义NTP服务器地址</label>
+                            <div class="form-item-group">
+                                <input class="form-item-input" id="npt-server" type="text" placeholder="" />
+                            </div>
+                            <p class="form-item-description">
+                                注意: 请确保自定义NTP服务器地址可以正常访问。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-button">
+                        <button class="reset-button" onclick="handleReset('system')">重置</button>
+                        <button class="save-button" onclick="handleSubmit('system')">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            @2025 晚间电子科技
+        </div>
+        <div id="loading-container" class="loading-container">
+            <div class="loading-icon"></div>
+        </div>
+    </div>
+    <script>
+        "use strict";
+
+        let defaultData = {};
+        let ssidType = 'select';
+        let subActiveType = 'default'
+
+        // 切换tab
+        function toogleTab(activeType) {
+            document.getElementsByClassName('tab-active')[0]?.classList?.remove('tab-active');
+            document.getElementById(`${activeType}-tab`)?.classList?.add('tab-active');
+
+            document.getElementsByClassName('content-show')[0]?.classList?.remove('content-show');
+            document.getElementById(`${activeType}-content`)?.classList?.add('content-show');
+
+            handleReset(activeType);
+        }
+
+        // 切换wifi名称输入方式
+        function toogleSsid(type) {
+            if (type === 'input') {
+                ssidType = 'input';
+                document.getElementsByClassName(`ssid-input`)[0]?.classList?.remove(`content-hide`);
+                document.getElementsByClassName(`ssid-select`)[0]?.classList?.add('content-hide');
+            } else {
+                ssidType = 'select';
+                document.getElementsByClassName(`ssid-select`)[0]?.classList?.remove(`content-hide`);
+                document.getElementsByClassName(`ssid-input`)[0]?.classList?.add('content-hide');
+            }
+
+        }
+
+        // 获取手机本地时间
+        function getLocalTime(e) {
+            e.target.checked ? (
+                document.getElementById("localTime").disabled = true,
+                // document.getElementById("localTime").value = (new Date()).toLocaleTimeString('zh', { hour12: false , hour: "2-digit", minute: "2-digit" }) 
+                setLocalTime()
+            ) : (document.getElementById("localTime").disabled = false)
+        }
+
+        function setLocalTime() {
+            const localTimeInput = document.getElementById('localTime');
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hour = String(now.getHours()).padStart(2, '0');
+            const minute = String(now.getMinutes()).padStart(2, '0');
+            // 注意：datetime-local 通常不显示秒数，但如果你需要，可以加上它
+            const second = '00'; // 设置为00，因为datetime-local通常不处理秒
+
+            // 构造日期时间字符串
+            const dateTimeString = `${year}-${month}-${day}T${hour}:${minute}:${second}`;
+
+            // 设置输入框的值
+            localTimeInput.value = dateTimeString;
+        }
+
+        // 亮度设置
+        function rangeSlide(value) {
+            document.querySelector('.light-value').textContent = `${value}/${8}`;
+        }
+
+        // 启用自动亮度
+        function handleAutoLight(event) {
+            const show = event.target.checked;
+            document.querySelector('.form-item-inner').style.display = show ? 'block' : 'none';
+        }
+
+        // 重置时钟设置
+        function handleReset(activeType) {
+            event?.preventDefault();
+            event?.stopPropagation();
+            if (activeType === 'wifi') {
+                if (defaultData?.ssidList?.length > 0) {
+                    const selectElement = document.getElementById('ssid');
+                    selectElement.innerHTML = '';
+                    defaultData.ssidList
+                        .filter(ssid => typeof ssid === 'object')
+                        .forEach((ssid) => {
+                            const option = document.createElement('option');
+                            option.value = ssid.name;
+                            option.text = ssid.name;
+                            selectElement.appendChild(option);
+                        });
+                }
+            } else if (activeType === 'system') {
+                if (subActiveType === 'default') {
+                    if (defaultData.is24) {
+                        document.getElementById('is24').checked = true;
+                        document.getElementById('is12').checked = false;
+                    } else {
+                        document.getElementById('is12').checked = true;
+                        document.getElementById('is24').checked = false;
+                    }
+                    document.getElementById("lightLevel").value = defaultData.lightLevel || 4;
+                    rangeSlide(defaultData.lightLevel || 4);
+
+                    document.getElementById("isFixZero").checked = !!defaultData.isFixZero;
+
+                    defaultData.isLoopDisplay !== undefined && (document.getElementById(`isLoopDisplay_${defaultData.isLoopDisplay}`).checked = true);
+
+                    document.getElementById("isAutoUpdateTime").checked = !!defaultData.isAutoUpdateTime;
+
+                    if (!!defaultData.isAutoLight) {
+                        document.getElementById("isAutoLight").checked = !!defaultData.isAutoLight;
+                        handleAutoLight({ target: { checked: !!defaultData.isAutoLight } });
+                        document.getElementById("nightRangeBegin").value = defaultData.nightRangeBegin;
+                        document.getElementById("nightRangeEnd").value = defaultData.nightRangeEnd;
+                    }
+                } else if(subActiveType === 'zone') {  
+                    for (let i = 1; i <= 4; i++) {
+                        const timeZone = defaultData[`timeZone${i}`];
+                        if (timeZone !== undefined && timeZone !== null) {
+                            document.getElementById(`z_zone_${i}`).value = timeZone < 0 ? "-" : "";
+                            document.getElementById(`z_time_${i}`).value = Math.abs(timeZone);
+                        }
+                    }
+                } else if (subActiveType === 'daylight') {
+                    for (let i = 1; i <= 4; i++) {
+                        document.getElementById(`DST_on_${i}`).checked = !!defaultData[`DST_on_${i}`];
+                        document.getElementById(`DST_offset_${i}`).value = defaultData[`DST_offset_${i}`] || 60;
+                        document.getElementById(`DST_start_month_${i}`).value = defaultData[`DST_start_month_${i}`] || 3;
+                        document.getElementById(`DST_start_day_${i}`).value = defaultData[`DST_start_day_${i}`] || 1;
+                        document.getElementById(`DST_start_time_${i}`).value = defaultData[`DST_start_time_${i}`] || 0;
+                        document.getElementById(`DST_end_month_${i}`).value = defaultData[`DST_end_month_${i}`] || 6;
+                        document.getElementById(`DST_end_day_${i}`).value = defaultData[`DST_end_day_${i}`] || 1;
+                        document.getElementById(`DST_end_time_${i}`).value = defaultData[`DST_end_time_${i}`] || 0;
+                    }
+                } else if (subActiveType === 'more') { 
+                    document.getElementById("ntp-server").value = !!defaultData.ntpServer ? defaultData.ntpServer : "";
+                }
+                
+            } else {
+                document.getElementById("localTime").value = "20:00";
+                document.getElementById("localTime").disabled = false;
+                document.getElementById("form-item-local-time").checked = false;
+            }
+        }
+
+        function getDisplayType() {
+            var radios = document.getElementsByName('isLoopDisplay');
+
+            // 遍历radio按钮，找到被选中的那一个
+            var selectedValue;
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selectedValue = radios[i].value;
+                    break;
+                }
+            }
+            return selectedValue;
+        }
+        
+        // 保存时钟设置
+        function handleSubmit(activeType) {
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById('loading-container').style.display = 'flex';
+            let params = {};
+
+            if (activeType === 'wifi') {
+                params = {
+                    ssid: ssidType === 'select' ? document.getElementById('ssid')?.value : document.getElementById('ssid-input')?.value,
+                    pwd: document.getElementById('pwd')?.value,
+                    isAutoUpdateTime: true,
+                }
+            } else if (activeType === 'clock') {
+                params = {
+                    localTime: document.getElementById('localTime')?.value,
+                    localTimeZone: (new Date()).getTimezoneOffset(),
+                    isAutoUpdateTime: false,
+                }
+            } else {
+                if (subActiveType === 'default') {
+                    params = {
+                        is24: document.getElementById('is24')?.checked,
+                        lightLevel: document.getElementById('lightLevel')?.value,
+                        isFixZero: document.getElementById('isFixZero')?.checked,
+                        isLoopDisplay: getDisplayType(),
+                        isAutoLight: document.getElementById('isAutoLight')?.checked,
+                        nightRangeBegin: document.getElementById('nightRangeBegin')?.value,
+                        nightRangeEnd: document.getElementById('nightRangeEnd')?.value,
+                        isAutoUpdateTime: document.getElementById('isAutoUpdateTime')?.checked,
+                    }
+                } else if (subActiveType === 'zone') {
+                    for (let i = 1; i <= 4; i++) {
+                        params[`timeZone${i}`] = document.getElementById(`z_zone_${i}`)?.value + document.getElementById(`z_time_${i}`)?.value;    
+                    }   
+                } else if (subActiveType === 'daylight') {
+                    for (let i = 1; i <= 4; i++) {
+                        params[`DST_on_${i}`] = document.getElementById(`DST_on_${i}`)?.checked;
+                        params[`DST_offset_${i}`] = document.getElementById(`DST_offset_${i}`)?.value;
+                        params[`DST_start_month_${i}`] = document.getElementById(`DST_start_month_${i}`)?.value;
+                        params[`DST_start_day_${i}`] = document.getElementById(`DST_start_day_${i}`)?.value;
+                        params[`DST_start_time_${i}`] = document.getElementById(`DST_start_time_${i}`)?.value;
+                        params[`DST_end_month_${i}`] = document.getElementById(`DST_end_month_${i}`)?.value;
+                        params[`DST_end_day_${i}`] = document.getElementById(`DST_end_day_${i}`)?.value;
+                        params[`DST_end_time_${i}`] = document.getElementById(`DST_end_time_${i}`)?.value;
+                    }
+                } else if (subActiveType === 'more') {
+                    params['ntpServer'] = document.getElementById('npt-server')?.value;
+                }
+            }
+
+            const formData = new FormData();
+
+            for (const key in params) {
+                if (params.hasOwnProperty(key)) {
+                    formData.append(key, params[key]);
+                }
+            }
+
+            fetch('/saveSystemSetting', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => {
+                    if (!response || response.status !== 200) {
+                        throw new Error(`HTTP 错误！状态: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (activeType === 'wifi') {
+                        getNetWorkingResult();
+                    } else {
+                        document.getElementById('loading-container').style.display = 'none';
+                        showTip(true, '配置保存成功!');
+                    }
+
+                    defaultData = Object.assign({}, defaultData, params);
+                })
+                .catch(error => {
+                    document.getElementById('loading-container').style.display = 'none';
+                    showTip(false, '获取数据超时, 请给时钟重新上电再试！');
+                });
+        }
+
+        // 获取时钟设置
+        function getClockSetting() {
+            fetch('/getClockSetting')
+                .then(response => {
+                    if (!response) {
+                        throw new Error(`HTTP 错误！状态: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    defaultData = data;
+                    handleReset('wifi');
+                })
+                .catch(error => {
+                    // 处理错误情况
+                    showTip(false, "获取数据超时, 请给时钟重新上电再试！");
+                });
+        }
+
+        function getWifiList() {
+            document.getElementById('loading-container').style.display = 'flex';
+            fetch('/getWifiList')
+                .then(response => {
+                    if (!response) {
+                        throw new Error(`HTTP 错误！状态: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    toogleSsid('select');
+                    const selectElement = document.getElementById('ssid');
+                    selectElement.innerHTML = '';
+
+                    data.ssidList
+                        .filter(ssid => typeof ssid === 'object')
+                        .forEach((ssid) => {
+                            const option = document.createElement('option');
+                            option.value = ssid.name;
+                            option.text = ssid.name;
+                            selectElement.appendChild(option);
+                        });
+                })
+                .catch(error => {
+                    // 处理错误情况
+                    showTip(false, "获取数据超时, 请给时钟重新上电再试！");
+                });
+            setTimeout(() => {
+                document.getElementById('loading-container').style.display = 'none';
+            }, 2000);
+        }
+
+        function getNetWorkingResult() {
+            let timeout;
+            clearTimeout(timeout);
+
+            fetch('/getNetWorkingResult')
+                .then(response => {
+                    if (!response) {
+                        throw new Error(`HTTP 错误！状态: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    switch (data.type) {
+                        case 'OK_00':
+                            document.getElementById('loading-container').style.display = 'none';
+                            showTip(true, "wifi连接成功!");
+                            break;
+                        case 'FAIL_01':
+                            document.getElementById('loading-container').style.display = 'none';
+                            showTip(false, "wifi名称或密码错误，请检查!");
+                            break;
+                        case 'FAIL_02':
+                            document.getElementById('loading-container').style.display = 'none';
+                            showTip(false, "wifi授时超时，请检查网络！");
+                            break;
+                        case 'FAIL_03':
+                            timeout = setTimeout(() => {
+                                getNetWorkingResult();
+                            }, 500);
+                            break;
+                        default:
+                            document.getElementById('loading-container').style.display = 'none';
+                            break;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('loading-container').style.display = 'none';
+                    showTip(false, "wifi连接超时, 请给时钟重新上电后再试！");
+                });
+        }
+
+        function showTip(isSuccess, msg) {
+            var tipElement = document.getElementById('tip');
+            // 清除之前可能存在的定时器，防止重复调用
+            clearTimeout(tipElement.timer);
+
+            // 显示提示信息
+            tipElement.style.display = 'block';
+
+            tipElement.textContent = msg;
+
+            if (isSuccess) {
+                tipElement.classList.add('success');
+                tipElement.classList.remove('failure');
+            } else {
+                tipElement.classList.add('failure');
+                tipElement.classList.remove('success');
+            }
+
+            tipElement.timer = setTimeout(function () {
+                tipElement.style.display = 'none';
+            }, 5000);
+        }
+
+        function generateTimeOptions(selectElement) {
+            selectElement.innerHTML = '';
+            for (let i = 0; i <= 23; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = `${i}时`;
+                selectElement.appendChild(option);
+            }
+        }
+        function generateMonthOptions(selectElement) {
+            selectElement.innerHTML = ''; // 清空旧选项
+            for (let i = 1; i <= 12; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = `${i}月`;
+                selectElement.appendChild(option);
+            }
+        }
+
+        function generateDayOptions(selectElement, month) {
+            const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            const year = new Date().getFullYear();
+            const days = daysInMonth[month - 1];
+
+            selectElement.innerHTML = ''; // 清空旧选项
+            for (let day = 1; day <= days; day++) {
+                const option = document.createElement('option');
+                option.value = day;
+                option.textContent = `${day}日`;
+                selectElement.appendChild(option);
+            }
+        }
+
+        function addEventListenerOnce(element, event, handler) {
+            element.removeEventListener(event, handler); // 移除旧的监听器
+            element.addEventListener(event, handler); // 添加新的监听器
+        }
+
+        function generateTimeZoneOptions(selectedValue) {
+            const options = [];
+            for (let i = 0; i <= 12; i += 0.5) {
+                const value = i % 1 === 0 ? i : i.toFixed(1);
+                options.push(`<option value="${value}" ${value == selectedValue ? 'selected' : ''}>${value}区</option>`);
+            }
+            return options.join('');
+        }
+
+        function generateTimeZoneSelector(clockNumber, selectedTime = "8") {
+            return `
+                <div class="form-item-block" id="ZONE_${clockNumber}">
+                    <label class="form-item-label" >时钟${clockNumber}时区</label>
+                    <div class="form-item-group">
+                        <select class="form-item-select" id="z_zone_${clockNumber}" style="flex: 1 1 0; margin-right: 0.6rem;" aria-label="时区选择">
+                            <option value="" selected}>东时区</option>
+                            <option value="-"}>西时区</option>
+                        </select>
+                        <select class="form-item-select" id="z_time_${clockNumber}" style="flex: 1 1 0; margin-right: 0.6rem;" aria-label="时差">
+                            ${generateTimeZoneOptions(selectedTime)}
+                        </select>
+                    </div>
+                </div>
+            `;
+        }
+
+        function initializeZoneSettings() {
+             // 动态生成四个时区设置
+            const timeZoneContainer = document.getElementById('zone-sub-content');
+            for (let i = 1; i <= 4; i++) {
+                timeZoneContainer.innerHTML += generateTimeZoneSelector(i);
+            } 
+        }
+
+        function generateOffsetOptions() {
+            const offsets = [-120, -90, -60, -30, -15, 0, 15, 30, 60, 90, 120];
+            return offsets.map(offset => `<option value="${offset}" ${offset === 60 ? 'selected' : ''}>${offset > 0 ? '+' : ''}${offset}分钟</option>`).join('');
+        }
+
+        function generateDaylightSettings(index) {
+            return `
+                <div class="dst-container" id="DST_${index}">
+                    <div class="dst-title">
+                        <span class="dst-title-text">时钟${index}</span>
+                    </div>
+                    <div class="form-item" style="padding: 0;">
+                        <div class="form-item-group">
+                            <div>
+                                <label class="form-item-label">开启夏令时</label>
+                                <input class="form-item-checkbox" type="checkbox" id="DST_on_${index}" style="border: 0.2rem solid #fa9a5d;" />
+                            </div>
+                            <div>
+                                <label class="form-item-label">时间偏移</label>
+                                <select class="form-item-select" id="DST_offset_${index}" aria-label="时差" style="width: auto;">
+                                    ${generateOffsetOptions()}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-item" style="padding: 0;">
+                        <label class="form-item-label">夏令时开启时间</label>
+                        <div class="form-item-group" style="gap: 0 0.4rem;">
+                            <select class="form-item-select monthPicker-start" id="DST_start_month_${index}" aria-label="月份"></select>
+                            <select class="form-item-select dayPicker-start" id="DST_start_day_${index}" aria-label="日期"></select>
+                            <select class="form-item-select timePicker-start" id="DST_start_time_${index}" aria-label="时间"></select>
+                        </div>
+                        <label class="form-item-label">夏令时结束时间</label>
+                        <div class="form-item-group" style="gap: 0 0.4rem;">
+                            <select class="form-item-select monthPicker-end" id="DST_end_month_${index}" aria-label="月份"></select>
+                            <select class="form-item-select dayPicker-end" id="DST_end_day_${index}" aria-label="日期"></select>
+                            <select class="form-item-select timePicker-end"  id="DST_end_time_${index}"  aria-label="时间"></select>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function initializeDaylightSettings() {
+            const container = document.getElementById('daylight-sub-content');
+            for (let i = 1; i <= 4; i++) {
+                container.innerHTML += generateDaylightSettings(i);
+
+                // 初始化月份和日期选择器
+                const monthPickerStart = document.getElementById(`DST_start_month_${i}`);
+                const dayPickerStart = document.getElementById(`DST_start_day_${i}`);
+                const monthPickerEnd = document.getElementById(`DST_end_month_${i}`);
+                const dayPickerEnd = document.getElementById(`DST_end_day_${i}`);
+                const timePickerStart = document.getElementById(`DST_start_time_${i}`);
+                const timePickerEnd = document.getElementById(`DST_end_time_${i}`);
+
+                generateMonthOptions(monthPickerStart);
+                generateDayOptions(dayPickerStart, parseInt(monthPickerStart.value, 10));
+                generateMonthOptions(monthPickerEnd);
+                generateDayOptions(dayPickerEnd, parseInt(monthPickerEnd.value, 10));
+                generateTimeOptions(timePickerStart);
+                generateTimeOptions(timePickerEnd);
+
+                // 添加事件监听器
+                monthPickerStart.addEventListener('change', () => {
+                    generateDayOptions(dayPickerStart, parseInt(monthPickerStart.value, 10));
+                });
+                monthPickerEnd.addEventListener('change', () => {
+                    generateDayOptions(dayPickerEnd, parseInt(monthPickerEnd.value, 10));
+                });
+            }
+        }
+       
+        function toggleSub(type) {
+            subActiveType = type;
+            // 激活当前子标题并显示对应内容块
+            const activeSubTitle = document.getElementById(`${type}-sub`);
+            const activeContent = document.getElementById(`${type}-sub-content`);
+
+            // 切换子标题的激活状态
+            if (activeSubTitle && activeContent) {
+                document.getElementsByClassName('sub-title-active')[0]?.classList?.remove('sub-title-active');
+                activeSubTitle.classList.add('sub-title-active');
+                document.getElementsByClassName('sub-content-show')[0]?.classList?.remove('sub-content-show');
+                activeContent.classList.add('sub-content-show');
+            }
+
+            // 检查是否已经初始化过，避免重复生成 DOM
+            if (type === 'zone' && !activeContent.dataset.initialized) {
+                initializeZoneSettings();
+                activeContent.dataset.initialized = true; // 标记为已初始化
+            }
+
+            if (type === 'daylight' && !activeContent.dataset.initialized) {
+                initializeDaylightSettings();
+                activeContent.dataset.initialized = true; // 标记为已初始化
+            }
+
+
+            handleReset('system');
+        }
+        // 页面加载完成后隐藏加载遮罩层
+        window.onload = function () {
+            console.log('onload');
+            document.getElementById('loading-container').style.display = 'none';
+        };
+
+        getClockSetting();
+    </script>
+</body>
+
+</html>

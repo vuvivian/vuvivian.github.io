@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品需求反馈 - SGRR Clock</title>
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        .back-link:hover {
+            color: #2980b9;
+        }
+        .suggestion-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+        .suggestions-list {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .suggestion-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+        .suggestion-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .suggestion-version {
+            background: #3498db;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .suggestion-date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .suggestion-content {
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        .filter-bar {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .filter-bar select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .filter-bar label {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .suggestion-form,
+            .suggestions-list {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回首页</a>
+        <h1>产品需求反馈</h1>
+        
+        <div class="suggestion-form">
+            <h2>提交新需求</h2>
+            <form id="suggestionForm">
+                <div class="form-group">
+                    <label for="version">选择时钟版本</label>
+                    <select id="version" name="version" required>
+                        <option value="">请选择版本</option>
+                        <option value="056-4">056-4 SGRR Clock</option>
+                        <option value="056">056 SGRR Clock</option>
+                        <option value="080">080 SGRR Clock</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="suggestion">需求描述</label>
+                    <textarea id="suggestion" name="suggestion" required 
+                        placeholder="请详细描述您的需求或建议..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">提交需求</button>
+            </form>
+        </div>
+
+        <div class="suggestions-list">
+            <h2>需求列表</h2>
+            <div class="filter-bar">
+                <label for="filterVersion">筛选版本：</label>
+                <select id="filterVersion">
+                    <option value="all">全部版本</option>
+                    <option value="056-4">056-4 SGRR Clock</option>
+                    <option value="056">056 SGRR Clock</option>
+                    <option value="080">080 SGRR Clock</option>
+                </select>
+            </div>
+            <div id="suggestionsList">
+                <!-- 示例需求 -->
+                <div class="suggestion-item">
+                    <div class="suggestion-header">
+                        <span class="suggestion-version">056-4 SGRR Clock</span>
+                        <span class="suggestion-date">2024-03-20</span>
+                    </div>
+                    <div class="suggestion-content">
+                        建议添加自定义主题功能，让用户可以选择不同的颜色主题。
+                    </div>
+                </div>
+                <div class="suggestion-item">
+                    <div class="suggestion-header">
+                        <span class="suggestion-version">080 SGRR Clock</span>
+                        <span class="suggestion-date">2024-03-19</span>
+                    </div>
+                    <div class="suggestion-content">
+                        希望能增加闹钟功能，支持多个闹钟设置。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 处理表单提交
+        document.getElementById('suggestionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const version = document.getElementById('version').value;
+            const suggestion = document.getElementById('suggestion').value;
+            
+            // 创建新的需求项
+            const newSuggestion = document.createElement('div');
+            newSuggestion.className = 'suggestion-item';
+            newSuggestion.innerHTML = `
+                <div class="suggestion-header">
+                    <span class="suggestion-version">${version} SGRR Clock</span>
+                    <span class="suggestion-date">${new Date().toLocaleDateString()}</span>
+                </div>
+                <div class="suggestion-content">
+                    ${suggestion}
+                </div>
+            `;
+            
+            // 添加到列表开头
+            document.getElementById('suggestionsList').insertBefore(
+                newSuggestion,
+                document.getElementById('suggestionsList').firstChild
+            );
+            
+            // 重置表单
+            this.reset();
+        });
+
+        // 处理版本筛选
+        document.getElementById('filterVersion').addEventListener('change', function(e) {
+            const selectedVersion = e.target.value;
+            const suggestions = document.querySelectorAll('.suggestion-item');
+            
+            suggestions.forEach(suggestion => {
+                const version = suggestion.querySelector('.suggestion-version').textContent;
+                if (selectedVersion === 'all' || version.includes(selectedVersion)) {
+                    suggestion.style.display = 'block';
+                } else {
+                    suggestion.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

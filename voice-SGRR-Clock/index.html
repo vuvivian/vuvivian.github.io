@@ -147,7 +147,7 @@
     }
 
     .number-input {
-      width: 60px;
+      width: 220px;
       padding: 8px 12px;
       border: 2px solid var(--primary-light);
       border-radius: 8px;
@@ -264,7 +264,8 @@
       user-select: none;
     }
 
-    .btn-icon:hover {
+    .btn-icon:hover,
+    .btn-icon:focus {
       background-color: var(--primary-color);
       color: white;
       transform: scale(1.1);
@@ -284,30 +285,66 @@
       border-color: var(--danger-color);
     }
 
-    .btn-add:hover {
+    .btn-add:hover,
+    .btn-add:focus {
       background-color: var(--success-color);
       color: white;
     }
 
-    .btn-delete:hover {
+    .btn-delete:hover,
+    .btn-delete:focus {
       background-color: var(--danger-color);
       color: white;
     }
 
     .form-actions {
+      width: 100%;
       display: flex;
+      align-items: center;
       justify-content: center;
       gap: var(--spacing);
       padding: var(--spacing);
       background-color: white;
       border-top: 1px solid var(--primary-light);
       flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .voice-select {
+      padding: 10px 20px;
+      border: 2px solid var(--primary-light);
+      border-radius: 8px;
+      font-size: 16px;
+      color: var(--primary-dark);
+      background-color: white;
+      min-width: 200px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .voice-select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    }
+
+    .btn-preview {
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      min-width: 80px;
+      padding: 12px 24px;
+      font-size: 16px;
+    }
+
+    .btn-preview:hover {
+      background-color: var(--primary-color);
+      color: white;
     }
 
     .btn-submit {
       background-color: var(--primary-color);
       color: white;
-      min-width: 220px;
+      min-width: 80px;
       padding: 12px 24px;
       font-size: 16px;
     }
@@ -367,7 +404,7 @@
 
       .form-item-actions {
         margin-left: calc(var(--spacing) * 0.5);
-        padding-left: calc(var(--spacing) * 0.5);
+        padding-left: calc(var(--spacing));
       }
 
       .form-item-label {
@@ -376,7 +413,7 @@
       }
 
       .number-input {
-        width: 50px;
+        width: 220px;
         padding: 6px;
         font-size: 15px;
       }
@@ -448,7 +485,7 @@
 
       .form-item-actions {
         margin-left: calc(var(--spacing) * 0.3);
-        padding-left: calc(var(--spacing) * 0.3);
+        padding-left: calc(var(--spacing));
       }
 
       .form-item-label {
@@ -457,7 +494,7 @@
       }
 
       .number-input {
-        width: 45px;
+        width: 220px;
         padding: 4px;
         font-size: 14px;
       }
@@ -476,8 +513,8 @@
 
       .btn-submit,
       .btn-reset {
-        min-width: 120px;
-        padding: 8px 16px;
+        min-width: 80px;
+        padding: 12px 24px;
         font-size: 14px;
       }
     }
@@ -488,107 +525,102 @@
     <h1 class="page-title">语音播报设置</h1>
     <div class="form-content">
       <div id="formItems">
+      </div>
+    </div>
+    <div class="form-actions">
+        <select class="voice-select" id="voiceSelect">
+          <option value="default">默认语音包</option>
+          <option value="voice1">语音包 1</option>
+          <option value="voice2">语音包 2</option>
+          <option value="voice3">语音包 3</option>
+        </select>
+        <button class="btn btn-preview" onclick="previewVoice()">试听</button>
+        <button class="btn btn-submit" onclick="submitForm()">保存</button>
+    </div>
+  </div>
+
+  <script>
+    function createFormItemHTML() {
+      return `
         <div class="form-item">
           <div class="form-item-content">
-            <div style="display: flex; align-items: center; ">
-              <span class="form-item-label">数字设置：</span>
-              <input type="number" class="number-input" min="0" max="9" value="0">
-            </div>
-            <div style="display: flex; align-items: center; ">
-              <span class="form-item-label">是否停顿：</span>
-              <label class="switch">
-                <input type="checkbox" class="pause-toggle">
-                <span class="slider"></span>
-              </label>
-            </div>
+            <span class="form-item-label">第 <span class="item-number">1</span> 项：</span>
+            <select class="number-input" style="width: 80px; padding: 8px 12px; border: 2px solid var(--primary-light); border-radius: 8px; font-size: 16px; transition: all 0.3s; color: var(--primary-dark); background-color: white;">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="pause">停顿</option>
+            </select>
           </div>
           <div class="form-item-actions">
             <button class="btn btn-icon btn-add" onclick="addFormItem(this)">＋</button>
             <button class="btn btn-icon btn-delete" onclick="deleteFormItem(this)">－</button>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="form-actions">
-       <button class="btn btn-reset" onclick="resetForm()">重置</button>
-      <button class="btn btn-submit" onclick="submitForm()">提交</button>
-    </div>
-  </div>
+      `;
+    }
 
-  <script>
     function addFormItem(button) {
       const formItem = document.createElement('div');
-      formItem.className = 'form-item';
-      formItem.innerHTML = `
-        <div class="form-item-content">
-          <div style="display: flex; align-items: center; ">
-            <span class="form-item-label">数字设置：</span>
-            <input type="number" class="number-input" min="0" max="9" value="0">
-          </div>
-          <div style="display: flex; align-items: center; ">
-            <span class="form-item-label">是否停顿：</span>
-            <label class="switch">
-              <input type="checkbox" class="pause-toggle">
-              <span class="slider"></span>
-            </label>
-          </div>
-        </div>
-        <div class="form-item-actions">
-          <button class="btn btn-icon btn-add" onclick="addFormItem(this)">＋</button>
-          <button class="btn btn-icon btn-delete" onclick="deleteFormItem(this)">－</button>
-        </div>
-      `;
-      button.closest('.form-item').after(formItem);
+      formItem.innerHTML = createFormItemHTML();
+      const formItems = document.getElementById('formItems');
+      formItems.appendChild(formItem);
+      updateItemNumbers();
     }
 
     function deleteFormItem(button) {
       const formItems = document.getElementById('formItems');
       if (formItems.children.length > 1) {
         button.closest('.form-item').remove();
+        updateItemNumbers();
       } else {
         alert('至少保留一个表单项！');
       }
     }
 
+    function updateItemNumbers() {
+      const formItems = document.querySelectorAll('.form-item');
+      formItems.forEach((item, index) => {
+        const numberSpan = item.querySelector('.item-number');
+        if (numberSpan) {
+          numberSpan.textContent = index + 1;
+        }
+      });
+    }
+
     function resetForm() {
       const formItems = document.getElementById('formItems');
-      formItems.innerHTML = `
-        <div class="form-item">
-          <div class="form-item-content">
-            <span class="form-item-label">数字设置：</span>
-            <input type="number" class="number-input" min="0" max="9" value="0">
-            <span class="form-item-label">是否停顿：</span>
-            <label class="switch">
-              <input type="checkbox" class="pause-toggle">
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="form-item-actions">
-            <button class="btn btn-icon btn-add" onclick="addFormItem(this)">＋</button>
-            <button class="btn btn-icon btn-delete" onclick="deleteFormItem(this)">－</button>
-          </div>
-        </div>
-      `;
+      formItems.innerHTML = createFormItemHTML();
+      updateItemNumbers();
     }
 
     function submitForm() {
       const formItems = document.querySelectorAll('.form-item');
-      const formData = Array.from(formItems).map(item => ({
-        number: item.querySelector('.number-input').value,
-        pause: item.querySelector('.pause-toggle').checked
-      }));
+      const formData = Array.from(formItems).map(item => item.querySelector('.number-input').value);
       console.log('表单数据：', formData);
       alert(JSON.stringify(formData));
     }
 
-    // 限制数字输入范围
-    document.addEventListener('input', function(e) {
-      if (e.target.classList.contains('number-input')) {
-        let value = parseInt(e.target.value);
-        if (value < 0) e.target.value = 0;
-        if (value > 9) e.target.value = 9;
-      }
-    });
+    function previewVoice() {
+      const selectedVoice = document.getElementById('voiceSelect').value;
+      const formItems = document.querySelectorAll('.form-item');
+      const formData = Array.from(formItems).map(item => item.querySelector('.number-input').value);
+      
+      // 这里添加语音预览逻辑
+      console.log('预览语音包：', selectedVoice);
+      console.log('预览数据：', formData);
+      alert('语音预览功能待实现');
+    }
+
+    // 初始化
+    resetForm();
   </script>
 </body>
 </html>

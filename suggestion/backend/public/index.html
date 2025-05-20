@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>评论建议管理</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    textarea, input { width: 100%; margin: 5px 0; padding: 8px; }
+    .Suggestion { border: 1px solid #ccc; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    .status { margin-top: 5px; }
+  </style>
+</head>
+<body>
+
+  <h2>发布建议</h2>
+  <form id="SuggestionForm">
+    <textarea id="content" rows="4" placeholder="请输入建议内容" required></textarea>
+    <input type="text" id="nickname" placeholder="建议人昵称" required />
+    <button type="submit">提交建议</button>
+  </form>
+
+  <h2>建议列表</h2>
+  <div id="SuggestionList"></div>
+
+  <script>
+    async function loadSuggestions() {
+      const res = await fetch('/suggestion');
+      const data = await res.json();
+      const list = document.getElementById('SuggestionList');
+      list.innerHTML = '';
+
+      data.forEach(Suggestion => {
+        const div = document.createElement('div');
+        div.className = 'Suggestion';
+        div.innerHTML = `
+          <p><strong>建议内容：</strong>${Suggestion.content}</p>
+          <p><strong>建议人：</strong>${Suggestion.nickname || '匿名'}</p>
+          <p><strong>状态：</strong>
+            <select data-id="${Suggestion.id}" class="status">
+              ${['TODO', 'DOING', 'DONE', 'DELETE'].map(s => `
+                <option value="${s}" ${Suggestion.status === s ? 'selected' : ''}>${s}</option>
+              `).join('')}
+            </select>
+          </p>
+        `;
+        list.appendChild(div);
+      });
+
+      document.querySelectorAll('.status').forEach(select => {
+        select.addEventListener('change', async e => {
+          const id = e.target.getAttribute('data-id');
+          const status = e.target.value;
+          await fetch(`/suggestion/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status })
+          });
+          loadSuggestions();
+        });
+      });
+    }
+
+    document.getElementById('SuggestionForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const content = document.getElementById('content').value.trim();
+      const nickname = document.getElementById('nickname').value.trim();
+      if (!content || !nickname) return alert('请填写完整信息');
+
+      await fetch('/suggestion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content, nickname })
+      });
+
+      document.getElementById('content').value = '';
+      document.getElementById('nickname').value = '';
+      loadSuggestions();
+    });
+
+    loadSuggestions();
+  </script>
+
+</body>
+</html>
